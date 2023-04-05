@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/TravelTime/app/src/main/res/drawable/bg.xml" value="0.1665" />
+        <entry key="..\:/TravelTime/app/src/main/res/drawable/coustom_edittext.xml" value="0.1925" />
+        <entry key="..\:/TravelTime/app/src/main/res/drawable/custom_edittext.xml" value="0.1295" />
+        <entry key="..\:/TravelTime/app/src/main/res/drawable/ic_baseline_access_time_24.xml" value="0.1605" />
+        <entry key="..\:/TravelTime/app/src/main/res/drawable/ic_baseline_calendar_today_24.xml" value="0.1605" />
+        <entry key="..\:/TravelTime/app/src/main/res/drawable/ic_baseline_location_on_24.xml" value="0.1605" />
+        <entry key="..\:/TravelTime/app/src/main/res/drawable/ic_baseline_lock_24.xml" value="0.1295" />
+        <entry key="..\:/TravelTime/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.1295" />
+        <entry key="..\:/TravelTime/app/src/main/res/drawable/ic_launcher_background.xml" value="0.178" />
+        <entry key="..\:/TravelTime/app/src/main/res/layout/activity_available_routes.xml" value="0.18432971014492755" />
+        <entry key="..\:/TravelTime/app/src/main/res/layout/activity_bus_registation_screen.xml" value="0.18432971014492755" />
+        <entry key="..\:/TravelTime/app/src/main/res/layout/activity_bus_registration.xml" value="0.18432971014492755" />
+        <entry key="..\:/TravelTime/app/src/main/res/layout/activity_bus_registration_screen.xml" value="0.2" />
+        <entry key="..\:/TravelTime/app/src/main/res/layout/activity_login_screen.xml" value="0.25" />
+        <entry key="..\:/TravelTime/app/src/main/res/layout/activity_main.xml" value="0.10638297872340426" />
+        <entry key="..\:/TravelTime/app/src/main/res/layout/activity_map_screen.xml" value="0.2" />
+        <entry key="..\:/TravelTime/app/src/main/res/layout/activity_map_screen2.xml" value="0.2" />
+        <entry key="..\:/TravelTime/app/src/main/res/layout/activity_payment_details_screen.xml" value="0.18432971014492755" />
+        <entry key="..\:/TravelTime/app/src/main/res/layout/activity_permissions.xml" value="0.1875" />
+        <entry key="..\:/TravelTime/app/src/main/res/layout/activity_route_registration.xml" value="0.18432971014492755" />
+        <entry key="..\:/TravelTime/app/src/main/res/layout/activity_route_search_screen.xml" value="0.2" />
+        <entry key="..\:/TravelTime/app/src/main/res/layout/activity_signup_screen.xml" value="0.2" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

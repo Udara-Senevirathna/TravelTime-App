@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@drawable/untitleddd_1"
+    tools:context=".RouteRegistration">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:background="@drawable/custom_edittext"
+        app:cardCornerRadius="30dp"
+        app:cardElevation="20dp"
+        app:cardBackgroundColor="#fff">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <TextView
+                android:id="@+id/RouteRegistrationText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Route Registration"
+                android:textAlignment="center"
+                android:textColor="@color/purple_200"
+                android:textSize="28sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:id="@+id/RouteNo"
+                android:background="@drawable/custom_edittext"
+                android:drawablePadding="8dp"
+                android:hint="Route No"
+                android:textColorHint="@color/black"
+                android:padding="8dp"
+                android:textColor="@color/black"
+                android:textColorHighlight="@color/cardview_dark_background"
+                android:layout_marginTop="40dp"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:id="@+id/Departure_Location"
+                android:background="@drawable/custom_edittext"
+                android:drawablePadding="8dp"
+                android:hint="Departure Location"
+                android:textColorHint="@color/black"
+                android:padding="8dp"
+                android:textColor="@color/black"
+                android:textColorHighlight="@color/cardview_dark_background"
+                android:layout_marginTop="40dp"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:id="@+id/Arrival_Location"
+                android:background="@drawable/custom_edittext"
+                android:drawablePadding="8dp"
+                android:hint="Arrival Location"
+                android:textColorHint="@color/black"
+                android:padding="8dp"
+                android:textColor="@color/black"
+                android:textColorHighlight="@color/cardview_dark_background"
+                android:layout_marginTop="40dp"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:id="@+id/Times"
+                android:background="@drawable/custom_edittext"
+                android:drawablePadding="8dp"
+                android:hint="Time"
+                android:textColorHint="@color/black"
+                android:padding="8dp"
+                android:textColor="@color/black"
+                android:textColorHighlight="@color/cardview_dark_background"
+                android:layout_marginTop="40dp"/>
+
+
+            <Button
+                android:id="@+id/registerButton"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="30dp"
+                android:backgroundTint="@color/purple_200"
+                android:text="Register"
+                android:textSize="18sp"
+                app:cornerRadius="20dp" />
+
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>
+
