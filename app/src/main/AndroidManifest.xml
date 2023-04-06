@@ -15,11 +15,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TravelTime">
         <activity
-            android:name=".MapBasicActivity"
-            android:exported="false"
-            android:label="@string/title_activity_map_basic"
-            android:theme="@style/Theme.TravelTime.NoActionBar" />
-        <activity
             android:name=".PermissionsActivity"
             android:exported="false" />
         <activity
