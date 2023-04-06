@@ -23,9 +23,6 @@
             android:name=".PermissionsActivity"
             android:exported="false" />
         <activity
-            android:name=".MapScreen"
-            android:exported="false" />
-        <activity
             android:name=".RouteRegistration"
             android:exported="false" />
         <activity
