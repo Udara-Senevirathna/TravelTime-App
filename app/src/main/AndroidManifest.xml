@@ -15,6 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TravelTime">
         <activity
+            android:name=".NavigativeActivity"
+            android:exported="false" />
+        <activity
             android:name=".PermissionsActivity"
             android:exported="false" />
         <activity

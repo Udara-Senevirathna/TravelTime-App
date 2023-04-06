@@ -9,4 +9,14 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+    <!-- Welcome screen -->
+
+    <string name="screen1">Online Booking</string>
+    <string name="screen2">Easy Payment</string>
+    <string name="screen3">Best Service</string>
+    <string name="screen1Description">You can easily book your ticket the way you want using our app.</string>
+    <string name="screen2Description">You can easily pay your ticket fees through a Visa/ Debit cards.</string>
+    <string name="screen3Description">We ensure that you have a very comfortable journey from start to finish.</string>
+
 </resources>
