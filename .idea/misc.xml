@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/TravelTime-App/app/src/main/res/layout/activity_map_basic.xml" value="0.1" />
+        <entry key="..\:/TravelTime-App/app/src/main/res/layout/activity_map_screen.xml" value="0.1" />
         <entry key="..\:/TravelTime/app/src/main/res/drawable/bg.xml" value="0.1665" />
         <entry key="..\:/TravelTime/app/src/main/res/drawable/coustom_edittext.xml" value="0.1925" />
         <entry key="..\:/TravelTime/app/src/main/res/drawable/custom_edittext.xml" value="0.1295" />
