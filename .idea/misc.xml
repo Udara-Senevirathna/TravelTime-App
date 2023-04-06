@@ -21,10 +21,11 @@
         <entry key="..\:/TravelTime/app/src/main/res/layout/activity_map_screen.xml" value="0.2" />
         <entry key="..\:/TravelTime/app/src/main/res/layout/activity_map_screen2.xml" value="0.2" />
         <entry key="..\:/TravelTime/app/src/main/res/layout/activity_payment_details_screen.xml" value="0.18432971014492755" />
-        <entry key="..\:/TravelTime/app/src/main/res/layout/activity_permissions.xml" value="0.1875" />
+        <entry key="..\:/TravelTime/app/src/main/res/layout/activity_permissions.xml" value="0.1" />
         <entry key="..\:/TravelTime/app/src/main/res/layout/activity_route_registration.xml" value="0.18432971014492755" />
         <entry key="..\:/TravelTime/app/src/main/res/layout/activity_route_search_screen.xml" value="0.2" />
         <entry key="..\:/TravelTime/app/src/main/res/layout/activity_signup_screen.xml" value="0.2" />
+        <entry key="..\:/TravelTime/app/src/main/res/layout/content_map_basic.xml" value="0.1875" />
       </map>
     </option>
   </component>
