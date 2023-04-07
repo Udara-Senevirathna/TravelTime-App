@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id = "@+id/bottom_home"
+        android:icon = "@drawable/ic_baseline_home_24"
+        android:title = "Home"/>
+
+    <item
+        android:id = "@+id/bottom_location"
+        android:icon = "@drawable/ic_baseline_location_on_24"
+        android:title = "Location"/>
+
+    <item
+        android:id = "@+id/bottom_bus"
+        android:icon = "@drawable/ic_baseline_directions_bus_24"
+        android:title = "Our Bus"/>
+
+    <item
+        android:id = "@+id/bottom_setting"
+        android:icon = "@drawable/ic_baseline_settings_24"
+        android:title = "Setting"/>
+
+    <item
+        android:id = "@+id/bottom_profile"
+        android:icon = "@drawable/ic_baseline_account_circle_24"
+        android:title = "Profile"/>
+</menu>

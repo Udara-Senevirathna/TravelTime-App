@@ -3,12 +3,23 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/TravelTime-App/app/src/main/res/drawable/bottom_background.xml" value="0.1245" />
+        <entry key="..\:/TravelTime-App/app/src/main/res/drawable/item_selector.xml" value="0.1245" />
         <entry key="..\:/TravelTime-App/app/src/main/res/drawable/lavender_border.xml" value="0.1" />
+        <entry key="..\:/TravelTime-App/app/src/main/res/layout/activity_bottom_navigation.xml" value="0.2" />
+        <entry key="..\:/TravelTime-App/app/src/main/res/layout/activity_get_started.xml" value="0.13541666666666666" />
+        <entry key="..\:/TravelTime-App/app/src/main/res/layout/activity_login_screen.xml" value="0.1265625" />
         <entry key="..\:/TravelTime-App/app/src/main/res/layout/activity_map_basic.xml" value="0.1" />
         <entry key="..\:/TravelTime-App/app/src/main/res/layout/activity_map_screen.xml" value="0.18" />
         <entry key="..\:/TravelTime-App/app/src/main/res/layout/activity_navigative.xml" value="0.184375" />
+        <entry key="..\:/TravelTime-App/app/src/main/res/layout/activity_route_search_screen.xml" value="0.1328125" />
+        <entry key="..\:/TravelTime-App/app/src/main/res/layout/activity_signup_screen.xml" value="0.1328125" />
+        <entry key="..\:/TravelTime-App/app/src/main/res/layout/activity_welcome_screen.xml" value="0.13541666666666666" />
         <entry key="..\:/TravelTime-App/app/src/main/res/layout/content_map_basic.xml" value="0.1" />
         <entry key="..\:/TravelTime-App/app/src/main/res/layout/fragment_first.xml" value="0.1" />
+        <entry key="..\:/TravelTime-App/app/src/main/res/layout/slider_screen.xml" value="0.184375" />
+        <entry key="..\:/TravelTime-App/app/src/main/res/menu/bottom_menu.xml" value="0.2" />
+        <entry key="..\:/TravelTime-App/app/src/main/res/menu/bottom_nav_menu.xml" value="0.2" />
         <entry key="..\:/TravelTime/app/src/main/res/drawable/bg.xml" value="0.1665" />
         <entry key="..\:/TravelTime/app/src/main/res/drawable/coustom_edittext.xml" value="0.1925" />
         <entry key="..\:/TravelTime/app/src/main/res/drawable/custom_edittext.xml" value="0.1295" />

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class LoginScreen extends AppCompatActivity {
@@ -25,12 +26,20 @@ public class LoginScreen extends AppCompatActivity {
 //        username = findViewById(R.id.username);
 //        password = findViewById(R.id.password);
         loginButton = findViewById(R.id.loginButton);
+        TextView sing_up = (TextView) findViewById(R.id.signupText);
 
+        sing_up.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginScreen.this, SignupScreen.class);
+                startActivity(intent);
+            }
+        });
         loginButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(LoginScreen.this, MapScreen.class);
+                Intent intent = new Intent(LoginScreen.this, RouteSearchScreen.class);
                 startActivity(intent);
 
 //                if (username.getText().toString().equals("user") && password.getText().toString().equals("1234")) {

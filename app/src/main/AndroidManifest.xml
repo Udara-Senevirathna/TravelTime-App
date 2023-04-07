@@ -15,6 +15,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TravelTime">
         <activity
+            android:name=".BottomNavigation"
+            android:exported="false"
+            android:label="@string/title_activity_bottom_navigation" />
+        <activity
+            android:name=".GetStarted"
+            android:exported="false" />
+        <activity
             android:name=".NavigativeActivity"
             android:exported="false" />
         <activity
@@ -40,9 +47,6 @@
             android:exported="false" />
         <activity
             android:name=".LoginScreen"
-            android:exported="false" />
-        <activity
-            android:name=".WelcomeScreen"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
