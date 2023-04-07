@@ -12,11 +12,15 @@
         <entry key="..\:/TravelTime-App/app/src/main/res/layout/activity_map_basic.xml" value="0.1" />
         <entry key="..\:/TravelTime-App/app/src/main/res/layout/activity_map_screen.xml" value="0.18" />
         <entry key="..\:/TravelTime-App/app/src/main/res/layout/activity_navigative.xml" value="0.184375" />
-        <entry key="..\:/TravelTime-App/app/src/main/res/layout/activity_route_search_screen.xml" value="0.1328125" />
+        <entry key="..\:/TravelTime-App/app/src/main/res/layout/activity_route_search_screen.xml" value="0.1" />
         <entry key="..\:/TravelTime-App/app/src/main/res/layout/activity_signup_screen.xml" value="0.1328125" />
         <entry key="..\:/TravelTime-App/app/src/main/res/layout/activity_welcome_screen.xml" value="0.13541666666666666" />
         <entry key="..\:/TravelTime-App/app/src/main/res/layout/content_map_basic.xml" value="0.1" />
         <entry key="..\:/TravelTime-App/app/src/main/res/layout/fragment_first.xml" value="0.1" />
+        <entry key="..\:/TravelTime-App/app/src/main/res/layout/fragment_home.xml" value="0.16530797101449277" />
+        <entry key="..\:/TravelTime-App/app/src/main/res/layout/fragment_home2.xml" value="0.16530797101449277" />
+        <entry key="..\:/TravelTime-App/app/src/main/res/layout/fragment_maps.xml" value="0.1859375" />
+        <entry key="..\:/TravelTime-App/app/src/main/res/layout/fragment_setting.xml" value="0.16530797101449277" />
         <entry key="..\:/TravelTime-App/app/src/main/res/layout/slider_screen.xml" value="0.184375" />
         <entry key="..\:/TravelTime-App/app/src/main/res/menu/bottom_menu.xml" value="0.2" />
         <entry key="..\:/TravelTime-App/app/src/main/res/menu/bottom_nav_menu.xml" value="0.2" />
