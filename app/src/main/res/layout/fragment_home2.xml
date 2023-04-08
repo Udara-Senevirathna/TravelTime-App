@@ -29,7 +29,7 @@
                     android:layout_height="wrap_content"
                     android:text="Route Search"
                     android:textAlignment="center"
-                    android:textColor="@color/purple_200"
+                    android:textColor="@color/teal_700"
                     android:textSize="32sp"
                     android:textStyle="bold" />
 
@@ -95,7 +95,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:layout_marginTop="30dp"
-                    android:backgroundTint="@color/purple_200"
+                    android:backgroundTint="@color/teal_700"
                     android:text="Search"
                     android:textSize="18sp"
                     app:cornerRadius="20dp" />

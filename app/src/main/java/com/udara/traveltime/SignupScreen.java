@@ -38,7 +38,7 @@ public class SignupScreen extends AppCompatActivity {
         signupButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(SignupScreen.this, RouteSearchScreen.class);
+                Intent intent = new Intent(SignupScreen.this, OTPScreen.class);
                 startActivity(intent);
             }
         });

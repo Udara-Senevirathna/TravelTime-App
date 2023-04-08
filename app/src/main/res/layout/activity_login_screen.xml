@@ -33,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:text="Login"
                 android:textAlignment="center"
-                android:textColor="@color/purple_200"
+                android:textColor="@color/teal_700"
                 android:textSize="36sp"
                 android:textStyle="bold" />
             <EditText
@@ -71,7 +71,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="30dp"
-                android:backgroundTint="@color/purple_200"
+                android:backgroundTint="@color/teal_700"
                 android:text="Login"
                 android:textSize="18sp"
                 app:cornerRadius="20dp" />
@@ -92,7 +92,7 @@
         android:layout_height="wrap_content"
         android:text="Not yet registered?"
 
-        android:textColor="@color/purple_200" />
+        android:textColor="@color/teal_700" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
