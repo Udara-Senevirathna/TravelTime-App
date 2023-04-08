@@ -14,7 +14,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TravelTime">
-
+        <activity
+            android:name=".OTPScreen"
+            android:exported="false" />
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
 
@@ -28,23 +30,13 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="YOUR_API_KEY" />
+            android:value="AIzaSyBo4WBRZb28gJec26BgTr5AOENUs1Mf1fo" />
 
-        <activity
-            android:name=".BottomNavigation"
-            android:exported="false"
-            android:label="@string/title_activity_bottom_navigation" />
         <activity
             android:name=".GetStarted"
             android:exported="false" />
         <activity
             android:name=".NavigativeActivity"
-            android:exported="false" />
-        <activity
-            android:name=".PermissionsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MapScreen"
             android:exported="false" />
         <activity
             android:name=".RouteRegistration"
