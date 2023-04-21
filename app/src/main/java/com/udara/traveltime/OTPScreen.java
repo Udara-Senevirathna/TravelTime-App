@@ -27,7 +27,6 @@ public class OTPScreen extends AppCompatActivity {
 
     // resent time in second
     private int resentTime = 60;
-
     private int selectedEtPostion  = 0;
 
     @Override
@@ -45,17 +44,14 @@ public class OTPScreen extends AppCompatActivity {
         resentBTN = (TextView) findViewById(R.id.resentBtn);
 
         final Button verifyBTN = findViewById(R.id.verifyBTN);
-
         final TextView otpEmail = (TextView) findViewById(R.id.otpEmail);
         final TextView otpMobile = (TextView) findViewById(R.id.otpMobile);
 
         // getting email and phone number
-
         final String getEmail = getIntent().getStringExtra("Email");
         final String getPhone = getIntent().getStringExtra("mobile");
 
         // setting email and mobile to textView
-
         otpEmail.setText(getEmail);
         otpMobile.setText(getPhone);
 
@@ -65,12 +61,9 @@ public class OTPScreen extends AppCompatActivity {
         OTPBox4.addTextChangedListener(textWatcher);
 
         // default open keyboard at OPTcode
-
         showKeyboard(OTPBox1);
 
-
         // start resent time count downer
-
         startCountDownTimer();
         resentBTN.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,18 +85,11 @@ public class OTPScreen extends AppCompatActivity {
                 if (generateOTP.length() == 4){
                     // handle your verification here
                 }
-
                 Intent intent = new Intent(OTPScreen.this, RouteSearchScreen.class);
                 startActivity(intent);
-
             }
-
-
         });
-
     }
-
-
 
     private void startCountDownTimer(){
         resendEnable = false;
@@ -111,10 +97,13 @@ public class OTPScreen extends AppCompatActivity {
 
         new CountDownTimer(resentTime * 1000 ,1000){
 
+            // Activate Resent code again
             @Override
             public void onTick(long millisUntilFinished){
                 resentBTN.setText("Resend Code (" + (millisUntilFinished / 1000) + ")");
             }
+
+            //Showing the Resent code
             @Override
             public void onFinish(){
                 resendEnable = true;
@@ -124,22 +113,19 @@ public class OTPScreen extends AppCompatActivity {
         }.start();
     }
 
-
+    //Get OTP code
     private void showKeyboard(EditText OTPCODE){
         OTPCODE.requestFocus();
         InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         inputMethodManager.showSoftInput(OTPCODE, InputMethodManager.SHOW_IMPLICIT);
     }
-
     private final TextWatcher textWatcher = new TextWatcher() {
         @Override
         public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
         }
 
         @Override
         public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
         }
 
         @Override
@@ -178,12 +164,10 @@ public class OTPScreen extends AppCompatActivity {
                 showKeyboard(OTPBox1);
             }
 
-
             return true;
 
         }else{
             return super.onKeyUp(keyCode, event);
         }
-
     }
 }

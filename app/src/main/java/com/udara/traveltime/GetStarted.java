@@ -14,9 +14,10 @@ public class GetStarted extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //Setting the layout xml file
         setContentView(R.layout.activity_get_started);
 
-        startButton = findViewById(R.id.startButton);
+        startButton = findViewById(R.id.startButton); //Getting the button data
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
