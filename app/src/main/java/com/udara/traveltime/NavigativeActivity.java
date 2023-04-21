@@ -22,9 +22,8 @@ public class NavigativeActivity extends AppCompatActivity {
     ViewPager.OnPageChangeListener viewPagerListener = new ViewPager.OnPageChangeListener() {
         @Override
         public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
         }
-
+        //Set visibility
         @Override
         public void onPageSelected(int position) {
 
@@ -48,12 +47,13 @@ public class NavigativeActivity extends AppCompatActivity {
         }
     };
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //Setting the layout xml file
         setContentView(R.layout.activity_navigative);
 
+        //Getting the button data
         backButton = findViewById(R.id.backButton);
         nextButton = findViewById(R.id.nextButton);
         skipButton = findViewById(R.id.skipButton);
@@ -95,6 +95,8 @@ public class NavigativeActivity extends AppCompatActivity {
         setDotIndicator(0);
         slideViewPager.addOnPageChangeListener(viewPagerListener);
 }
+
+    //Controlling Dot effect
     public void setDotIndicator(int position) {
         dots = new TextView[3];
         dotIndicator.removeAllViews();

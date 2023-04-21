@@ -15,7 +15,7 @@ public class ViewPagerAdapter extends PagerAdapter {
 
     Context context;
 
-    int sliderAllImages[] = {R.drawable.whatsapp_image_2023_04_06_at_17_55_31, R.drawable.whatsapp_image_2023_04_06_at_17_46_32, R.drawable.whatsapp_image_2023_04_06_at_17_55_31__1_};
+    int sliderAllImages[] = {R.drawable.untitled_design_removebg_preview__1_, R.drawable.__removebg_preview, R.drawable._23};
     int sliderAllTitle[] = {R.string.screen1, R.string.screen2, R.string.screen3};
     int sliderAllDescription[] = {R.string.screen1Description, R.string.screen2Description, R.string.screen3Description};
 

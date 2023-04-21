@@ -22,9 +22,11 @@ public class SignupScreen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //Setting the layout xml file
         setContentView(R.layout.activity_signup_screen);
 
-        signupButton = findViewById(R.id.signupButton);
+        signupButton = findViewById(R.id.signupButton);//Getting the button data
+        //Getting the text data
         TextView login = (TextView) findViewById(R.id.loginsText);
 
         login.setOnClickListener(new View.OnClickListener() {
@@ -42,15 +44,5 @@ public class SignupScreen extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-//        WindowCompat.setDecorFitsSystemWindows(getWindow(),false);
-//        setContentView(R.layout.activity_main);
-
-//        new Handler().postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                startActivity(new Intent(SignupScreen.this,RouteSearchScreen.class));
-//                finish();
-//            }
-//        }, 3800);
     }
 }

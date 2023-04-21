@@ -12,7 +12,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
         WindowCompat.setDecorFitsSystemWindows(getWindow(),false);
         setContentView(R.layout.activity_main);
 
@@ -20,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
                 startActivity(new Intent(MainActivity.this,NavigativeActivity.class));
-                finish();
+                finish(); //Main Activity was closed, Started NavigativeActivity
             }
         }, 3800);
     }

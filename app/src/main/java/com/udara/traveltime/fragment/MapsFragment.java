@@ -72,6 +72,7 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
         return binding.getRoot();
     }
 
+    //Map initialization
     private void mapInitialize() {
         LocationRequest locationRequest = new LocationRequest();
         locationRequest.setInterval(5000);
@@ -80,6 +81,7 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
         locationRequest.setFastestInterval(3000);
 
         binding.searchEdt.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            //Implement search location function
             @Override
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
                 if (i == EditorInfo.IME_ACTION_SEARCH
@@ -90,15 +92,13 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
                     goToSearchLocation();
                 }
 
-
                 return false;
             }
         });
 
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(getContext());
-
     }
-
+    //Goto the search location
     private void goToSearchLocation() {
 
         String searchLocation = binding.searchEdt.getText().toString();
@@ -121,15 +121,12 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
 
             if (marker != null) {
                 marker.remove();
-
             }
             markerOptions = new MarkerOptions();
             markerOptions.title(location);
             markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
             markerOptions.position(new LatLng(latitude, longitude));
             marker = mMap.addMarker(markerOptions);
-
-
         }
     }
 
@@ -140,7 +137,7 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
         mMap.animateCamera(update);
     }
 
-
+    //Set current location
     @Override
     public void onMapReady(GoogleMap googleMap) {
 
@@ -161,7 +158,6 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
                             @Override
                             public void onFailure(@NonNull Exception e) {
                                 Toast.makeText(getContext(), "error" + e.getMessage(), Toast.LENGTH_SHORT).show();
-
                             }
                         }).addOnSuccessListener(new OnSuccessListener<Location>() {
                             @Override

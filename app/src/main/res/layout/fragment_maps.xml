@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragment.MapsFragment">
 
     <fragment
@@ -27,20 +28,16 @@
             <EditText
                 android:id="@+id/searchEdt"
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:background="@drawable/untitleddd_1"
+                android:layout_height="40dp"
                 android:drawableStart="@drawable/ic_baseline_location_on_24"
                 android:drawableTint="@android:color/black"
                 android:drawablePadding="10dp"
                 android:hint="Search your Location"
-
+                android:textColor="@color/black"
                 android:paddingStart="10dp"
                 android:singleLine="true"
                 android:textColorHint="@color/grey"
                 android:textSize="16sp"/>
-
-
-
 
         </FrameLayout>
 
@@ -48,7 +45,8 @@
             android:layout_width="0dp"
             android:layout_height="30dp"
             android:layout_weight="1"
-            android:src="@drawable/ic_baseline_clear_24"
+            android:src="@drawable/ic_baseline_menu_24"
+            app:tint="@color/black"
             android:layout_gravity="center"/>
 
     </LinearLayout>

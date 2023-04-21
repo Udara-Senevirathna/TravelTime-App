@@ -53,11 +53,9 @@ public class RouteSearchScreen extends AppCompatActivity {
                         ReplaceFragment(new MapsFragment());
                         break;
 
-
                     case R.id.bottom_setting:
                         ReplaceFragment(new SettingFragment());
                         break;
-
                 }
                 return true;
             }
@@ -68,8 +66,5 @@ public class RouteSearchScreen extends AppCompatActivity {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.container, fragment);
         fragmentTransaction.commit();
-
-
-
     }
 }
