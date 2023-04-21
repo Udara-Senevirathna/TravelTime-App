@@ -10,7 +10,9 @@
 
     <ImageView
         android:layout_width="match_parent"
+
         android:layout_height="250dp"
+
         android:adjustViewBounds="true"
         android:src="@drawable/traveltime__4__removebg_preview" />
 
@@ -141,7 +143,9 @@
         android:layout_marginEnd="20dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="40dp"
+
         android:background="@color/teal_700"
+
         android:text="verify"
         android:textAllCaps="false"
         android:textColor="#ffffff"
@@ -168,7 +172,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Resend code"
+
             android:textColor="@color/teal_700"
+
             android:textStyle="bold"
             tools:ignore="HardcodedText" />
 
