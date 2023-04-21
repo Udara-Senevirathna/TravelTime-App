@@ -1,8 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<fragment xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/map"
-    android:name="com.google.android.gms.maps.SupportMapFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.MapsFragment" />
+    tools:context=".fragment.MapsFragment">
+
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".fragment.MapsFragment" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/white">
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="7"
+            android:layout_margin="10dp">
+
+            <EditText
+                android:id="@+id/searchEdt"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:background="@drawable/untitleddd_1"
+                android:drawableStart="@drawable/ic_baseline_location_on_24"
+                android:drawableTint="@android:color/black"
+                android:drawablePadding="10dp"
+                android:hint="Search your Location"
+
+                android:paddingStart="10dp"
+                android:singleLine="true"
+                android:textColorHint="@color/grey"
+                android:textSize="16sp"/>
+
+
+
+
+        </FrameLayout>
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:src="@drawable/ic_baseline_clear_24"
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

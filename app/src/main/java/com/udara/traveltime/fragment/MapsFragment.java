@@ -6,22 +6,30 @@ import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 
 import android.content.pm.PackageManager;
+import android.location.Address;
+import android.location.Geocoder;
 import android.location.Location;
 import android.os.Bundle;
 import android.os.TokenWatcher;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.Manifest;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -35,11 +43,17 @@ import com.karumi.dexter.listener.single.PermissionListener;
 import com.udara.traveltime.R;
 import com.udara.traveltime.databinding.FragmentMapsBinding;
 
-public class MapsFragment extends Fragment implements OnMapReadyCallback{
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+public class MapsFragment extends Fragment implements OnMapReadyCallback {
 
     FragmentMapsBinding binding;
     SupportMapFragment mapFragment;
     private GoogleMap mMap;
+    private Marker marker;
+    private MarkerOptions markerOptions;
 
     private FusedLocationProviderClient fusedLocationProviderClient;
 
@@ -65,8 +79,65 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback{
         locationRequest.setSmallestDisplacement(16);
         locationRequest.setFastestInterval(3000);
 
+        binding.searchEdt.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+                if (i == EditorInfo.IME_ACTION_SEARCH
+                        || i == EditorInfo.IME_ACTION_DONE
+                        || keyEvent.getAction() == keyEvent.ACTION_DOWN
+                        || keyEvent.getAction() == keyEvent.KEYCODE_ENTER
+                ) {
+                    goToSearchLocation();
+                }
+
+
+                return false;
+            }
+        });
+
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(getContext());
 
+    }
+
+    private void goToSearchLocation() {
+
+        String searchLocation = binding.searchEdt.getText().toString();
+        Geocoder geocoder = new Geocoder(getContext());
+        List<Address> list = new ArrayList<>();
+        try {
+            list = geocoder.getFromLocationName(searchLocation, 1);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        if (list.size() > 0) {
+            Address address = list.get(0);
+            String location = address.getAdminArea();
+            double latitude = address.getLatitude();
+            double longitude = address.getLongitude();
+            gotoLatLng(latitude, longitude, 17f);
+
+            // add marker to the search result
+
+            if (marker != null) {
+                marker.remove();
+
+            }
+            markerOptions = new MarkerOptions();
+            markerOptions.title(location);
+            markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
+            markerOptions.position(new LatLng(latitude, longitude));
+            marker = mMap.addMarker(markerOptions);
+
+
+        }
+    }
+
+    private void gotoLatLng(double latitude, double longitude, float v) {
+
+        LatLng latLng = new LatLng(latitude, longitude);
+        CameraUpdate update = CameraUpdateFactory.newLatLngZoom(latLng, 17f);
+        mMap.animateCamera(update);
     }
 
 
@@ -103,7 +174,7 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback{
 
                     @Override
                     public void onPermissionDenied(PermissionDeniedResponse permissionDeniedResponse) {
-                        Toast.makeText(getContext(), "Permission" +  permissionDeniedResponse.getPermissionName() + "" + "Was denied!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), "Permission" + permissionDeniedResponse.getPermissionName() + "" + "Was denied!", Toast.LENGTH_SHORT).show();
                     }
 
                     @Override

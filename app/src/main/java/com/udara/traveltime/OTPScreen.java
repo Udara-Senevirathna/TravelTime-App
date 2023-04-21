@@ -2,7 +2,12 @@ package com.udara.traveltime;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import androidx.appcompat.widget.AppCompatButton;
+
 import android.content.Context;
+import android.content.Intent;
+
+
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -19,6 +24,9 @@ public class OTPScreen extends AppCompatActivity {
     EditText OTPBox1, OTPBox2, OTPBox3, OTPBox4;
     TextView resentBTN;
 
+    AppCompatButton verifyBTN;
+
+
     // true after every second
     private boolean resendEnable = false;
 
@@ -31,6 +39,9 @@ public class OTPScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_otpscreen);
+
+
+        verifyBTN = findViewById(R.id.verifyBTN);
 
 
         OTPBox1 = (EditText) findViewById(R.id.OTPbox1);
@@ -89,12 +100,17 @@ public class OTPScreen extends AppCompatActivity {
                     // handle your verification here
                 }
 
+
+                Intent intent = new Intent(OTPScreen.this, RouteSearchScreen.class);
+                startActivity(intent);
+
             }
 
 
         });
 
     }
+
 
     private void startCountDownTimer(){
         resendEnable = false;

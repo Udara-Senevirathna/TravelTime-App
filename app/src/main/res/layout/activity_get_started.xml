@@ -24,7 +24,7 @@
         android:text="Easy Payment"
         android:textSize="30dp"
         android:textAlignment="center"
-        android:textColor="@color/purple_200"
+        android:textColor="@color/teal_700"
         android:textStyle="bold"/>
 
     <TextView
@@ -34,7 +34,7 @@
         android:text="@string/screen2Description"
         android:textSize="20sp"
         android:textAlignment="center"
-        android:textColor="@color/purple_200"
+        android:textColor="@color/teal_700"
         android:layout_marginHorizontal="30dp"/>
 
     <Button
@@ -42,6 +42,7 @@
         android:layout_height="60dp"
         android:text="Get Started"
         android:id="@+id/startButton"
+        android:backgroundTint="@color/teal_700"
         android:padding="8dp"
         android:textSize="20sp"
         android:layout_marginTop="20dp"
