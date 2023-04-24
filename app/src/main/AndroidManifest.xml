@@ -17,6 +17,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TravelTime">
         <activity
+            android:name=".AccountSettingsScreen"
+            android:exported="false" />
+        <activity
             android:name=".AboutApp"
             android:exported="false" />
         <activity
