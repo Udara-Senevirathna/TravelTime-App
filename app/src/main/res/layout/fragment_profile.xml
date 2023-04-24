@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    tools:context=".fragment.ProfileFragment"
     android:background="#fff">
     <!--    <ScrollView-->
     <!--        android:layout_width="match_parent"-->
@@ -27,8 +27,7 @@
                 android:scaleType="fitXY"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/wave" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/imageView2"
@@ -84,7 +83,6 @@
                     android:layout_marginEnd="32dp"
                     android:layout_marginBottom="10dp"
                     android:background="@drawable/btn_bg"
-                    android:drawableStart="@drawable/list"
                     android:drawableEnd="@drawable/arrow"
                     android:drawablePadding="20dp"
                     android:drawableTint="@color/black"
@@ -104,7 +102,7 @@
                     android:layout_marginEnd="32dp"
                     android:layout_marginBottom="10dp"
                     android:background="@drawable/btn_bg"
-                    android:drawableStart="@drawable/settings"
+
                     android:drawableEnd="@drawable/arrow"
                     android:drawablePadding="20dp"
                     android:drawableTint="@color/black"
@@ -126,7 +124,7 @@
                     android:layout_marginEnd="32dp"
                     android:layout_marginBottom="10dp"
                     android:background="@drawable/btn_bg"
-                    android:drawableStart="@drawable/account"
+
                     android:drawableEnd="@drawable/arrow"
                     android:drawablePadding="20dp"
                     android:drawableTint="@color/black"
@@ -146,7 +144,7 @@
                     android:layout_marginEnd="32dp"
                     android:layout_marginBottom="10dp"
                     android:background="@drawable/btn_bg"
-                    android:drawableStart="@drawable/notification"
+
                     android:drawableEnd="@drawable/arrow"
                     android:drawablePadding="20dp"
                     android:drawableTint="@color/black"
@@ -166,7 +164,7 @@
                     android:layout_marginEnd="32dp"
                     android:layout_marginBottom="10dp"
                     android:background="@drawable/btn_bg"
-                    android:drawableStart="@drawable/privacy"
+
                     android:drawableEnd="@drawable/arrow"
                     android:drawablePadding="20dp"
                     android:drawableTint="@color/black"
