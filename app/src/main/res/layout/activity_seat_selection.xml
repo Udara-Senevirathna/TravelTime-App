@@ -30,7 +30,7 @@
             android:textColor="@color/black"
             android:textSize="30dp"
             android:drawableStart="@drawable/back_arrow"
-            android:layout_marginRight="80dp"
+            android:layout_marginRight="90dp"
       />
         <TextView
             android:layout_width="wrap_content"
@@ -44,7 +44,7 @@
             android:layout_height="wrap_content"
             android:drawableStart="@drawable/list_icon"
             android:textColor="@color/black"
-            android:layout_marginLeft="80dp"
+            android:layout_marginLeft="90dp"
             android:textSize="30dp" />
 
     </LinearLayout>
@@ -70,6 +70,9 @@
              android:layout_height="wrap_content"
              android:text=""
              android:textColor="@color/white"
+             android:layout_marginLeft="50dp"
+             android:layout_marginRight="50dp"
+             android:drawableStart="@drawable/arrow"
              />
          <TextView
              android:layout_width="wrap_content"
@@ -79,6 +82,111 @@
              android:textColor="@color/white"
              />
      </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:textColor="@color/white"
+                android:drawableStart="@drawable/cal"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Wed, 15 March 2018"
+                android:textColor="@color/white"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBott="10dp"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/imageView7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:srcCompat="@tools:sample/avatars" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="30dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14dp"
+                        android:text="10.00 Am (10.00)"
+                        android:textColor="@color/black"
+                        android:drawableStart="@drawable/cal"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14dp"
+                        android:text="Kurunegala"
+                        android:textColor="@color/black"
+                        android:drawableStart="@drawable/cal"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14dp"
+                        android:text="Kandy"
+                        android:textColor="@color/black"
+                        android:drawableStart="@drawable/cal"
+                        />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Rs 150.00"
+                        android:textColor="@color/black"
+                        />
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+        </ScrollView>
 
 
 
