@@ -25,6 +25,11 @@ public class SignupScreen extends AppCompatActivity {
         //Setting the layout xml file
         setContentView(R.layout.activity_signup_screen);
 
+        EditText FirstName = findViewById(R.id.FirstName);
+        EditText LastName = findViewById(R.id.LastName);
+        EditText NIC = findViewById(R.id.NIC);
+        EditText Email = findViewById(R.id.Email);
+
         signupButton = findViewById(R.id.signupButton);//Getting the button data
         //Getting the text data
         TextView login = (TextView) findViewById(R.id.loginsText);
@@ -32,8 +37,22 @@ public class SignupScreen extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+
+                // keep data tmp until the verification has been completed
+                final String getFirstName = FirstName.getText().toString();
+                final String getLastName = LastName.getText().toString();
+                final String getNIC = NIC.getText().toString();
+                final String getEmail = Email.getText().toString();
+
                 Intent intent = new Intent(SignupScreen.this, LoginScreen.class);
+
+                intent.putExtra("f_name", getFirstName);
+                intent.putExtra("l_name", getLastName);
+                intent.putExtra("nic", getNIC);
+                intent.putExtra("email", getEmail);
                 startActivity(intent);
+
             }
         });
 
