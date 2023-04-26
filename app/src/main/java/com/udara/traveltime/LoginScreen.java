@@ -53,7 +53,7 @@ public class LoginScreen extends AppCompatActivity implements Shaker.OnShakeList
             @Override
             public void onClick(View view) {
                 // todo change back to the norml
-                Intent intent = new Intent(LoginScreen.this, ResultScreen.class);
+                Intent intent = new Intent(LoginScreen.this, SeatSelection.class);
                 startActivity(intent);
             }
         });
