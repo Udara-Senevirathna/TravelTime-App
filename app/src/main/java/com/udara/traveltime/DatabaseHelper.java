@@ -44,7 +44,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put("l_name", l_name);
         contentValues.put("email", email);
         contentValues.put("mobileNo", nic);
-        contentValues.put("passwd", "7");
+        contentValues.put("passwd", password);
         long result = MyDB.insert("users",null,contentValues);
         if(result==-1) return false;
         else

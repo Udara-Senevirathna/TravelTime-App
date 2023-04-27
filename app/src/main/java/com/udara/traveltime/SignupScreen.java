@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class SignupScreen extends AppCompatActivity {
 
@@ -45,14 +46,18 @@ public class SignupScreen extends AppCompatActivity {
                 final String getNIC = NIC.getText().toString();
                 final String getEmail = Email.getText().toString();
 
-                Intent intent = new Intent(SignupScreen.this, LoginScreen.class);
+                if (getFirstName.equals("") ||getLastName.equals("")||getNIC.equals("")||getEmail.equals(""))
+                    Toast.makeText(SignupScreen.this, "Please enter all fields", Toast.LENGTH_SHORT).show();
+                else {
 
-                intent.putExtra("f_name", getFirstName);
-                intent.putExtra("l_name", getLastName);
-                intent.putExtra("nic", getNIC);
-                intent.putExtra("email", getEmail);
-                startActivity(intent);
+                    Intent intent = new Intent(SignupScreen.this, LoginScreen.class);
 
+                    intent.putExtra("f_name", getFirstName);
+                    intent.putExtra("l_name", getLastName);
+                    intent.putExtra("nic", getNIC);
+                    intent.putExtra("email", getEmail);
+                    startActivity(intent);
+                }
             }
         });
 

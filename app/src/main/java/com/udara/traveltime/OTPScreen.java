@@ -16,6 +16,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class OTPScreen extends AppCompatActivity {
     EditText OTPBox1, OTPBox2, OTPBox3, OTPBox4;
@@ -28,6 +29,9 @@ public class OTPScreen extends AppCompatActivity {
     // resent time in second
     private int resentTime = 60;
     private int selectedEtPostion  = 0;
+    private  Boolean register_user;
+
+    DatabaseHelper MyDataDB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +39,9 @@ public class OTPScreen extends AppCompatActivity {
         setContentView(R.layout.activity_otpscreen);
 
         verifyBTN = findViewById(R.id.verifyBTN);
+
+        MyDataDB = new DatabaseHelper(this);
+
 
         OTPBox1 = (EditText) findViewById(R.id.OTPbox1);
         OTPBox2 = (EditText) findViewById(R.id.OTPbox2);
@@ -54,6 +61,14 @@ public class OTPScreen extends AppCompatActivity {
         // setting email and mobile to textView
         otpEmail.setText(getEmail);
         otpMobile.setText(getPhone);
+
+// getting email and phone number
+        final String getFname = getIntent().getStringExtra("f_name");
+        final String getLname = getIntent().getStringExtra("l_name");
+        final String getNIC = getIntent().getStringExtra("nic");
+        final String get_Email = getIntent().getStringExtra("email");
+
+
 
         OTPBox1.addTextChangedListener(textWatcher);
         OTPBox2.addTextChangedListener(textWatcher);
@@ -83,7 +98,26 @@ public class OTPScreen extends AppCompatActivity {
                 final String generateOTP = OTPBox1.getText().toString() + OTPBox2.getText().toString() + OTPBox3.getText().toString() + OTPBox4.getText().toString();
 
                 if (generateOTP.length() == 4){
-                    // handle your verification here
+
+                    Boolean checkuser = MyDataDB.checkusername(getEmail);
+                    if (checkuser==false){
+                        Boolean insert = MyDataDB.insertData(getFname,getLname,getNIC,get_Email,"5");
+                        if (insert==true){
+                            Toast.makeText(OTPScreen.this, "Registered Successfully", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(getApplicationContext(), RouteSearchScreen.class);
+                            startActivity(intent);
+                        }
+                        else {
+                            Toast.makeText(OTPScreen.this, "Registration Failed", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                    else {
+                        Toast.makeText(OTPScreen.this, "User Already exists please signing", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(getApplicationContext(), SignupScreen.class);
+                        startActivity(intent);
+                    }
+
+
                 }
                 Intent intent = new Intent(OTPScreen.this, RouteSearchScreen.class);
                 startActivity(intent);
