@@ -14,11 +14,7 @@ import android.widget.Toast;
 
 public class SignupScreen extends AppCompatActivity {
 
-    EditText FirstName;
-    EditText LastName;
-    EditText NIC;
-    EditText Email;
-    Button signupButton;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,18 +22,29 @@ public class SignupScreen extends AppCompatActivity {
         //Setting the layout xml file
         setContentView(R.layout.activity_signup_screen);
 
-        EditText FirstName = findViewById(R.id.FirstName);
-        EditText LastName = findViewById(R.id.LastName);
-        EditText NIC = findViewById(R.id.NIC);
-        EditText Email = findViewById(R.id.Email);
+        final EditText FirstName = findViewById(R.id.FirstName);
+        final EditText LastName = findViewById(R.id.LastName);
+        final EditText NIC = findViewById(R.id.NIC);
+        final EditText Email = findViewById(R.id.Email);
 
-        signupButton = findViewById(R.id.signupButton);//Getting the button data
+        Button signupButton = findViewById(R.id.signupButton);//Getting the button data
         //Getting the text data
         TextView login = (TextView) findViewById(R.id.loginsText);
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent = new Intent(SignupScreen.this, LoginScreen.class);
+                startActivity(intent);
+
+
+            }
+        });
+
+        signupButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
 
 
                 // keep data tmp until the verification has been completed
@@ -50,7 +57,7 @@ public class SignupScreen extends AppCompatActivity {
                     Toast.makeText(SignupScreen.this, "Please enter all fields", Toast.LENGTH_SHORT).show();
                 else {
 
-                    Intent intent = new Intent(SignupScreen.this, LoginScreen.class);
+                    Intent intent = new Intent(SignupScreen.this, OTPScreen.class);
 
                     intent.putExtra("f_name", getFirstName);
                     intent.putExtra("l_name", getLastName);
@@ -58,14 +65,6 @@ public class SignupScreen extends AppCompatActivity {
                     intent.putExtra("email", getEmail);
                     startActivity(intent);
                 }
-            }
-        });
-
-        signupButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(SignupScreen.this, OTPScreen.class);
-                startActivity(intent);
             }
         });
     }

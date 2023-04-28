@@ -55,12 +55,10 @@ public class OTPScreen extends AppCompatActivity {
         final TextView otpMobile = (TextView) findViewById(R.id.otpMobile);
 
         // getting email and phone number
-        final String getEmail = getIntent().getStringExtra("Email");
-        final String getPhone = getIntent().getStringExtra("mobile");
+//        final String getEmail = getIntent().getStringExtra("Email");
+//        final String getPhone = getIntent().getStringExtra("mobile");
 
-        // setting email and mobile to textView
-        otpEmail.setText(getEmail);
-        otpMobile.setText(getPhone);
+
 
 // getting email and phone number
         final String getFname = getIntent().getStringExtra("f_name");
@@ -69,6 +67,9 @@ public class OTPScreen extends AppCompatActivity {
         final String get_Email = getIntent().getStringExtra("email");
 
 
+        // setting email and mobile to textView
+        otpEmail.setText(get_Email);
+//        otpMobile.setText(getPhone);
 
         OTPBox1.addTextChangedListener(textWatcher);
         OTPBox2.addTextChangedListener(textWatcher);
@@ -97,12 +98,13 @@ public class OTPScreen extends AppCompatActivity {
             public void onClick(View view) {
                 final String generateOTP = OTPBox1.getText().toString() + OTPBox2.getText().toString() + OTPBox3.getText().toString() + OTPBox4.getText().toString();
 
-                if (generateOTP.length() == 4){
+                if (generateOTP.length()  == 4){
 
-                    Boolean checkuser = MyDataDB.checkusername(getEmail);
-                    if (checkuser==false){
-                        Boolean insert = MyDataDB.insertData(getFname,getLname,getNIC,get_Email,"5");
-                        if (insert==true){
+                    register_user = MyDataDB.checkusername(get_Email);
+
+                    if (!register_user){
+                        Boolean insert = MyDataDB.insertData(getFname,getLname,get_Email,getNIC,"5");
+                        if (insert){
                             Toast.makeText(OTPScreen.this, "Registered Successfully", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(getApplicationContext(), RouteSearchScreen.class);
                             startActivity(intent);
@@ -119,8 +121,7 @@ public class OTPScreen extends AppCompatActivity {
 
 
                 }
-                Intent intent = new Intent(OTPScreen.this, RouteSearchScreen.class);
-                startActivity(intent);
+//
             }
         });
     }

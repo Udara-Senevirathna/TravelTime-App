@@ -23,6 +23,8 @@ public class LoginScreen extends AppCompatActivity implements Shaker.OnShakeList
     private Sensor mAccelerometer;
     private Shaker mShaker;
 
+    DatabaseHelper MyDataDB;
+    Boolean checkuserpass;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,12 +36,21 @@ public class LoginScreen extends AppCompatActivity implements Shaker.OnShakeList
         // Get the accelerometer sensor
         mAccelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
 
+
+        // DB connection
+        MyDataDB = new DatabaseHelper(this);
+
         // Create a new ShakeDetector instance
         mShaker = new Shaker();
         mShaker.setOnShakeListener(this);
 
         loginButton = findViewById(R.id.loginButton);
         TextView sing_up = (TextView) findViewById(R.id.signupText);
+
+
+        final EditText username = findViewById(R.id.username);
+        final EditText passwd = findViewById(R.id.password1);
+
 
         sing_up.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,9 +63,29 @@ public class LoginScreen extends AppCompatActivity implements Shaker.OnShakeList
 
             @Override
             public void onClick(View view) {
-                // todo change back to the norml
-                Intent intent = new Intent(LoginScreen.this, SeatSelection.class);
-                startActivity(intent);
+
+                String user = username.getText().toString();
+                String pass = passwd.getText().toString();
+
+                if (user.equals("") || pass.equals(""))
+                    Toast.makeText(LoginScreen.this, "Please enter all fields", Toast.LENGTH_SHORT).show();
+
+                else{
+                    checkuserpass = MyDataDB.checkusernamepassword(user, pass);
+                    if (checkuserpass){
+                        Toast.makeText(LoginScreen.this, "LogIn Successful", Toast.LENGTH_SHORT).show();
+                        Intent intent= new Intent(getApplicationContext(), RouteSearchScreen.class);
+                        startActivity(intent);
+                    }
+                    else{
+                        Toast.makeText(LoginScreen.this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+
+//                // todo change back to the norml
+//                Intent intent = new Intent(LoginScreen.this, SeatSelection.class);
+//                startActivity(intent);
             }
         });
     }

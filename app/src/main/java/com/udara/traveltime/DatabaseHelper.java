@@ -22,7 +22,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase MyDB) {
-        MyDB.execSQL("create Table users(username TEXT primary key,f_name TEXT, l_name TEXT, nic TEXT, email TEXT, Passwd TEXT)");
+        MyDB.execSQL("create Table users(ID INTEGER primary key autoincrement,f_name TEXT, l_name TEXT, nic TEXT, email TEXT, Passwd TEXT)");
 
         MyDB.execSQL("create Table buses(id TEXT primary key, departure TEXT, arrival TEXT, date TEXT, total_seats TEXT)");
         MyDB.execSQL("create Table admin(username TEXT primary key, password TEXT, email TEXT, fullname TEXT)");
@@ -35,22 +35,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         MyDB.execSQL("drop Table if exists buses");
         MyDB.execSQL("drop table if exists admin");
     }
-
+// insert users.
     public Boolean insertData(String f_name, String l_name, String email, String nic, String password)
     {
         SQLiteDatabase MyDB = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("f_name", f_name);
         contentValues.put("l_name", l_name);
+        contentValues.put("nic", nic);
         contentValues.put("email", email);
-        contentValues.put("mobileNo", nic);
-        contentValues.put("passwd", password);
+        contentValues.put("Passwd", password);
         long result = MyDB.insert("users",null,contentValues);
         if(result==-1) return false;
         else
             return true;
     }
-
     public Boolean insertadmin(String fullname, String email, String username, String password)
     {
         SQLiteDatabase MyDB = this.getWritableDatabase();
@@ -67,7 +66,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public boolean checkusername(String username){
         SQLiteDatabase MyDB = this.getWritableDatabase();
-        Cursor cursor = MyDB.rawQuery("Select * from users where username = ?", new String[] {username});
+        Cursor cursor = MyDB.rawQuery("Select * from users where email = ?", new String[] {username});
         if (cursor.getCount()>0)
             return true;
         else
@@ -85,7 +84,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public boolean checkusernamepassword(String username, String password){
         SQLiteDatabase MyDB = this.getWritableDatabase();
-        Cursor cursor = MyDB.rawQuery("Select * from users where username = ? and password = ?", new String[] {username,password});
+        Cursor cursor = MyDB.rawQuery("Select * from users where email = ? and Passwd = ?", new String[] {username,password});
         if(cursor.getCount()>0)
             return true;
         else
@@ -115,7 +114,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         else
             return true;
     }
-
+//*********************
     public Boolean updateBus(String id, String departure, String arrival, String date, String total_seats)
     {
         SQLiteDatabase MyDB = this.getWritableDatabase();
