@@ -73,4 +73,5 @@ public class RouteSearchScreen extends AppCompatActivity {
         Intent intent = new Intent(RouteSearchScreen.this, ResultScreen.class);
         startActivity(intent);
     }
+
 }

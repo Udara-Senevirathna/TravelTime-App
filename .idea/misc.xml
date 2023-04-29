@@ -47,6 +47,7 @@
         <entry key="..\:/TravelTime-App/app/src/main/res/layout/slider_screen.xml" value="0.184375" />
         <entry key="..\:/TravelTime-App/app/src/main/res/menu/bottom_menu.xml" value="0.2" />
         <entry key="..\:/TravelTime-App/app/src/main/res/menu/bottom_nav_menu.xml" value="0.2" />
+
         <entry key="..\:/TravelTime-App2/app/src/main/res/drawable/custom_edit2.xml" value="0.1335" />
         <entry key="..\:/TravelTime-App2/app/src/main/res/drawable/custom_edittext.xml" value="0.1335" />
         <entry key="..\:/TravelTime-App2/app/src/main/res/drawable/ic_baseline_credit_card_24.xml" value="0.1335" />
@@ -59,6 +60,7 @@
         <entry key="..\:/TravelTime-App2/app/src/main/res/layout/activity_route_search_screen.xml" value="0.11041666666666666" />
         <entry key="..\:/TravelTime-App2/app/src/main/res/layout/activity_seat_selection.xml" value="0.1" />
         <entry key="..\:/TravelTime-App2/app/src/main/res/layout/activity_signup_screen.xml" value="0.1" />
+
         <entry key="..\:/TravelTime-App2/app/src/main/res/layout/fragment_home2.xml" value="0.11041666666666666" />
         <entry key="..\:/TravelTime-App2/app/src/main/res/layout/fragment_profile.xml" value="0.11041666666666666" />
         <entry key="..\:/TravelTime-App2/app/src/main/res/layout/fragment_setting.xml" value="0.11041666666666666" />
