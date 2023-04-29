@@ -30,14 +30,15 @@
                 android:textColor="@color/black"
                 android:textSize="30dp"
                 android:drawableStart="@drawable/back_arrow"
-                android:layout_marginRight="90dp"
-                />
+                android:layout_marginRight="90dp" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Select Depart Trip"
+                android:text="Available Routes"
                 android:textColor="@color/white"
-                android:textSize="20dp" />
+                android:textSize="20dp"
+                android:textStyle="bold"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -46,7 +47,6 @@
                 android:textColor="@color/black"
                 android:layout_marginLeft="90dp"
                 android:textSize="30dp" />
-
         </LinearLayout>
 
 
@@ -60,11 +60,10 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Kuruengala"
-                android:textSize="15dp"
-                android:textColor="@color/white"
+                android:text="Kurunagala"
+                android:textSize="16dp"
+                android:textColor="@color/white" />
 
-                />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -72,16 +71,16 @@
                 android:textColor="@color/white"
                 android:layout_marginLeft="50dp"
                 android:layout_marginRight="50dp"
-                android:drawableStart="@drawable/arrow"
-                />
+                android:drawableStart="@drawable/arrow" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Kandy"
-                android:textSize="15dp"
-                android:textColor="@color/white"
-                />
+                android:textSize="16dp"
+                android:textColor="@color/white" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -141,9 +140,9 @@
 
                         <ImageView
                             android:id="@+id/imageView7"
-                            android:layout_width="match_parent"
+                            android:layout_width="100dp"
                             android:layout_height="wrap_content"
-                            tools:srcCompat="@tools:sample/avatars" />
+                            />
 
                     </LinearLayout>
 
@@ -168,6 +167,7 @@
                             android:drawableStart="@drawable/track"
                             android:drawableTint="@color/black"
                             android:text="Kurunegala"
+                            android:textStyle="bold"
                             android:textColor="@color/black"
                             android:textSize="14dp" />
 
@@ -178,7 +178,8 @@
                             android:drawableTint="@color/black"
                             android:text="Kandy"
                             android:textColor="@color/black"
-                            android:textSize="14dp" />
+                            android:textSize="14dp"
+                            android:textStyle="bold" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -193,13 +194,25 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:orientation="vertical">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Rs 150.00"
                             android:textColor="@color/blue"
+                            />
+
+                        <Button
+                            android:layout_width="70dp"
+                            android:layout_height="30dp"
+                            android:text="Booking"
+                            android:textColor="@color/white"
+                            android:id="@+id/seatBookBtn"
+                            android:backgroundTint="@color/teal_700"
+                            android:textSize="7dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_gravity="center"
                             />
 
                     </LinearLayout>
@@ -360,6 +373,7 @@
                             android:text="Rs 150.00"
                             android:textColor="@color/blue"
                             />
+
 
                     </LinearLayout>
                 </LinearLayout>
@@ -991,6 +1005,8 @@
                             />
 
                     </LinearLayout>
+
+
                 </LinearLayout>
 
 
