@@ -14,6 +14,7 @@ import java.util.Date;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
+
     public static final String DBNAME = "Project.db";
 
     public DatabaseHelper(Context context) {
@@ -21,11 +22,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     @Override
+    public void onConfigure(SQLiteDatabase MyDB) {
+        super.onConfigure(MyDB);
+        MyDB.execSQL("PRAGMA foreign_keys=ON;");
+    }
+
+    @Override
     public void onCreate(SQLiteDatabase MyDB) {
+
+
         MyDB.execSQL("create Table users(ID INTEGER primary key autoincrement,f_name TEXT, l_name TEXT, nic TEXT, email TEXT, Passwd TEXT)");
 
         MyDB.execSQL("create Table buses(id TEXT primary key, departure TEXT, arrival TEXT, date TEXT, total_seats TEXT)");
         MyDB.execSQL("create Table admin(username TEXT primary key, password TEXT, email TEXT, fullname TEXT)");
+        MyDB.execSQL("create Table route(route_id primary key autoincrement, route_no TEXT, departure TEXT, arrival TEXT, date TEXT, time TEXT )");
 
     }
 

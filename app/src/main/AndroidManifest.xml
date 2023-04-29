@@ -17,6 +17,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TravelTime">
         <activity
+            android:name=".PaymentMethod"
+            android:exported="false" />
+        <activity
             android:name=".SeatSelection"
             android:exported="false" />
         <activity
