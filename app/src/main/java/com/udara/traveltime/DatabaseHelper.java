@@ -216,18 +216,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     //**************************************************************************************************
 
 // Get the user id by email
-    public String getUserIdByEmail(String busNo) {
+    public Cursor getBusPlateNO() {
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT BUSPLATEID FROM busReg WHERE BUSPLATEID=?", new String[]{busNo});
+        Cursor cursor = db.rawQuery("SELECT BUSPLATEID FROM busReg", null);
 
-        String REbusNO = null;
-        if (cursor.moveToFirst()) {
-            REbusNO = cursor.getString(0);
-        }
-
-        cursor.close();
-        db.close();
-        return REbusNO;
+        return cursor;
     }
 
 }

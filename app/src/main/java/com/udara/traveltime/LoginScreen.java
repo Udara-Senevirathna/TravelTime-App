@@ -86,7 +86,7 @@ public class LoginScreen extends AppCompatActivity implements Shaker.OnShakeList
 
 
 //                // todo comment this after testing
-                Intent intent = new Intent(LoginScreen.this, BusRegistration.class);
+                Intent intent = new Intent(LoginScreen.this, AdminDashBordNavipanel.class);
                 startActivity(intent);
             }
         });

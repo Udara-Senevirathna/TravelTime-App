@@ -93,15 +93,21 @@
         <entry key="..\:/projects/TravelTime-App/app/src/main/res/drawable/dot.xml" value="0.3285" />
         <entry key="..\:/projects/TravelTime-App/app/src/main/res/drawable/seat_bg.xml" value="0.223" />
         <entry key="..\:/projects/TravelTime-App/app/src/main/res/layout/activity_account_settings_screen.xml" value="0.25" />
+        <entry key="..\:/projects/TravelTime-App/app/src/main/res/layout/activity_admin_dash_bord_navipanel.xml" value="0.20820863616930313" />
         <entry key="..\:/projects/TravelTime-App/app/src/main/res/layout/activity_bus_registration.xml" value="0.20820863616930313" />
         <entry key="..\:/projects/TravelTime-App/app/src/main/res/layout/activity_login_screen.xml" value="0.23685335613510047" />
+        <entry key="..\:/projects/TravelTime-App/app/src/main/res/layout/activity_navigative.xml" value="0.15820489573889393" />
         <entry key="..\:/projects/TravelTime-App/app/src/main/res/layout/activity_result_screen.xml" value="0.25" />
         <entry key="..\:/projects/TravelTime-App/app/src/main/res/layout/activity_route_registration.xml" value="0.25" />
         <entry key="..\:/projects/TravelTime-App/app/src/main/res/layout/activity_route_search_screen.xml" value="0.16032492518170158" />
         <entry key="..\:/projects/TravelTime-App/app/src/main/res/layout/activity_seat_selection.xml" value="0.33" />
         <entry key="..\:/projects/TravelTime-App/app/src/main/res/layout/activity_signup_screen.xml" value="0.24754168448054725" />
+        <entry key="..\:/projects/TravelTime-App/app/src/main/res/layout/fragment_bus_register.xml" value="0.20820863616930313" />
         <entry key="..\:/projects/TravelTime-App/app/src/main/res/layout/fragment_profile.xml" value="0.3067484662576687" />
+        <entry key="..\:/projects/TravelTime-App/app/src/main/res/layout/fragment_routes_register.xml" value="0.20820863616930313" />
         <entry key="..\:/projects/TravelTime-App/app/src/main/res/layout/result_items.xml" value="0.25" />
+        <entry key="..\:/projects/TravelTime-App/app/src/main/res/menu/admin_bottom_menu.xml" value="0.20820863616930313" />
+        <entry key="..\:/projects/TravelTime-App/app/src/main/res/menu/bottom_menu.xml" value="0.20820863616930313" />
         <entry key="..\:/projects/TravelTime-App1/app/src/main/res/drawable/otp_box_color.xml" value="0.265" />
         <entry key="..\:/projects/TravelTime-App1/app/src/main/res/drawable/primary_color.xml" value="0.265" />
         <entry key="..\:/projects/TravelTime-App1/app/src/main/res/layout/activity_login_screen.xml" value="0.25" />

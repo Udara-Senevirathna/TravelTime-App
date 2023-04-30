@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:gravity="center"
     android:background="@drawable/untitleddd_1"
-    tools:context=".RouteRegistration">
+    tools:context=".fragment.RoutesRegister">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:orientation="vertical"
-            android:padding="24dp">
+            android:padding="20dp">
 
             <TextView
                 android:id="@+id/RouteRegistrationText"
@@ -35,6 +35,16 @@
                 android:textColor="@color/teal_700"
                 android:textSize="28sp"
                 android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="Route No"
+                android:textColor="@color/black"
+                android:background="@drawable/custom_edittext"
+                android:entries="@array/choices" />
+
 
             <EditText
                 android:layout_width="match_parent"

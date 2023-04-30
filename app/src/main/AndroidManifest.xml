@@ -17,6 +17,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TravelTime">
         <activity
+            android:name=".AdminDashBordNavipanel"
+            android:exported="false" />
+        <activity
             android:name=".PaymentMethod"
             android:exported="false" />
         <activity
@@ -54,12 +57,6 @@
             android:exported="false" />
         <activity
             android:name=".NavigativeActivity"
-            android:exported="false" />
-        <activity
-            android:name=".RouteRegistration"
-            android:exported="false" />
-        <activity
-            android:name=".BusRegistration"
             android:exported="false" />
         <activity
             android:name=".PaymentDetailsScreen"
