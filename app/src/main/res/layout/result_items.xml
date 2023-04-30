@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="8dp"
+    android:id="@+id/cardView"
+    android:background="@color/white"
+    app:cardElevation="2dp"
+    app:cardUseCompatPadding="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="@drawable/bg_1"
+        android:layout_height="110dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        >
+
+        <ImageView
+            android:id="@+id/list_pic"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="25dp"
+            android:src="@drawable/_23456" />
+
+        <TextView
+            android:id="@+id/listTile"
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:layout_toEndOf="@id/list_pic"
+            android:text="10.00 Am (10.00)"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/startLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_below="@id/listTile"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_toEndOf="@id/list_pic"
+            android:text="Kurunegala"
+            android:drawableStart="@drawable/track"
+            android:drawableTint="@color/black"
+            android:textColor="@color/black" />
+        <TextView
+            android:id="@+id/end_location"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_below="@id/startLocation"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_toEndOf="@id/list_pic"
+            android:text="Kandy"
+            android:drawableStart="@drawable/location"
+            android:drawableTint="@color/black"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/descrip"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_below="@id/end_location"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:paddingLeft="5dp"
+            android:layout_toEndOf="@id/list_pic"
+            android:drawableStart="@drawable/dot"
+            android:drawableTint="@color/black"
+            android:text="Make Travel easy with us"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/price"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="274dp"
+            android:layout_marginTop="26dp"
+            android:layout_toEndOf="@id/list_pic"
+            android:paddingLeft="5dp"
+            android:text="Rs 150.00"
+            android:textColor="@color/blue" />
+
+        <Button
+            android:id="@+id/op_btn"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:layout_alignEnd="@+id/list_pic"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="-344dp"
+            android:textSize="12dp"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="@color/teal_300"
+            android:text="Book" />
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
