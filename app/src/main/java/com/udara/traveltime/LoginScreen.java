@@ -63,29 +63,31 @@ public class LoginScreen extends AppCompatActivity implements Shaker.OnShakeList
 
             @Override
             public void onClick(View view) {
-
-                String user = username.getText().toString();
-                String pass = passwd.getText().toString();
-
-                if (user.equals("") || pass.equals(""))
-                    Toast.makeText(LoginScreen.this, "Please enter all fields", Toast.LENGTH_SHORT).show();
-
-                else{
-                    checkuserpass = MyDataDB.checkusernamepassword(user, pass);
-                    if (checkuserpass){
-                        Toast.makeText(LoginScreen.this, "LogIn Successful", Toast.LENGTH_SHORT).show();
-                        Intent intent= new Intent(getApplicationContext(), RouteSearchScreen.class);
-                        startActivity(intent);
-                    }
-                    else{
-                        Toast.makeText(LoginScreen.this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
-                    }
-                }
+            // todo uncomment this.
 
 
-//                // todo change back to the norml
-//                Intent intent = new Intent(LoginScreen.this, SeatSelection.class);
-//                startActivity(intent);
+//                String user = username.getText().toString();
+//                String pass = passwd.getText().toString();
+
+//                if (user.equals("") || pass.equals(""))
+//                    Toast.makeText(LoginScreen.this, "Please enter all fields", Toast.LENGTH_SHORT).show();
+//
+//                else{
+//                    checkuserpass = MyDataDB.checkusernamepassword(user, pass);
+//                    if (checkuserpass){
+//                        Toast.makeText(LoginScreen.this, "LogIn Successful", Toast.LENGTH_SHORT).show();
+//                        Intent intent= new Intent(getApplicationContext(), RouteSearchScreen.class);
+//                        startActivity(intent);
+//                    }
+//                    else{
+//                        Toast.makeText(LoginScreen.this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
+//                    }
+//                }
+
+
+//                // todo comment this after testing
+                Intent intent = new Intent(LoginScreen.this, BusRegistration.class);
+                startActivity(intent);
             }
         });
     }

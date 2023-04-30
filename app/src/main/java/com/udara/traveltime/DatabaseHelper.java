@@ -33,9 +33,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         MyDB.execSQL("create Table users(ID INTEGER primary key autoincrement,f_name TEXT, l_name TEXT, nic TEXT, email TEXT, Passwd TEXT)");
 
-        MyDB.execSQL("create Table buses(id TEXT primary key, departure TEXT, arrival TEXT, date TEXT, total_seats TEXT)");
+        // create bus registration table
+        MyDB.execSQL("create Table busReg(BUSPLATEID TEXT primary key, DNAME TEXT, NIC TEXT, TOTALSEAT TEXT)");
+        // create routes registration table
+        MyDB.execSQL("create Table routes(ROUTEID primary key autoincrement, BUSPLATEID TEXT, ROUTENO TEXT, DEPARTURE TEXT, ARRIAVAL TEXT, DATE TEXT, TIME TEXT, FOREIGN KEY (BUSPLATEID) REFERENCES busReg (BUSPLATEID))");
+
         MyDB.execSQL("create Table admin(username TEXT primary key, password TEXT, email TEXT, fullname TEXT)");
-        MyDB.execSQL("create Table route(route_id primary key autoincrement, route_no TEXT, departure TEXT, arrival TEXT, date TEXT, time TEXT )");
 
     }
 
@@ -44,7 +47,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         MyDB.execSQL("drop Table if exists users");
         MyDB.execSQL("drop Table if exists buses");
         MyDB.execSQL("drop table if exists admin");
+        MyDB.execSQL("drop table if exists routes");
     }
+
+    // **********************************************************************************************
 // insert users.
     public Boolean insertData(String f_name, String l_name, String email, String nic, String password)
     {
@@ -110,32 +116,37 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return false;
     }
 
-    public Boolean insertBus(String id, String departure, String arrival, String date, String total_seats)
+    //************************************************************************************************
+// bus registration table
+
+    public Boolean registerBus(String plateNO, String driverName, String NIC, String total_seats)
     {
         SQLiteDatabase MyDB = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put("id", id);
-        contentValues.put("departure", departure);
-        contentValues.put("arrival", arrival);
-        contentValues.put("date", date);
-        contentValues.put("total_seats", total_seats);
-        long result = MyDB.insert("buses",null,contentValues);
+        contentValues.put("BUSPLATEID", plateNO);
+        contentValues.put("DNAME", driverName);
+        contentValues.put("NIC", NIC);
+        contentValues.put("TOTALSEAT", total_seats);
+
+        long result = MyDB.insert("busReg",null,contentValues);
         if(result==-1) return false;
         else
             return true;
     }
-//*********************
-    public Boolean updateBus(String id, String departure, String arrival, String date, String total_seats)
+
+    public Boolean updateBus(String plateNO, String driverName, String NIC, String total_seats)
     {
         SQLiteDatabase MyDB = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put("departure", departure);
-        contentValues.put("arrival", arrival);
-        contentValues.put("date", date);
+
+        contentValues.put("BusPlateID", plateNO);
+        contentValues.put("Driver_name", driverName);
+        contentValues.put("NIC", NIC);
         contentValues.put("total_seats", total_seats);
-        Cursor cursor = MyDB.rawQuery("Select * from buses where id = ?", new String[] {id});
+
+        Cursor cursor = MyDB.rawQuery("Select * from buses where id = ?", new String[] {plateNO});
         if (cursor.getCount()>0){
-            long result = MyDB.update("buses", contentValues,"id=?", new String[] {id});
+            long result = MyDB.update("buses", contentValues,"id=?", new String[] {plateNO});
             if(result==-1) return false;
             else
                 return true;
@@ -183,21 +194,40 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         else
             return false;
     }
+    //************************************************************************************************
+    // bus routes registration table
+    public Boolean registerRoute(String plateNO, String routeNo, String departure, String arriaval, String date, String time)
+    {
+        SQLiteDatabase MyDB = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("BUSPLATEID", plateNO);
+        contentValues.put("ROUTENO", routeNo);
+        contentValues.put("DEPARTURE", departure);
+        contentValues.put("ARRIAVAL", arriaval);
+        contentValues.put("DATE", date);
+        contentValues.put("TIME", time);
 
+        long result = MyDB.insert("busReg",null,contentValues);
+        if(result==-1) return false;
+        else
+            return true;
+    }
 
+    //**************************************************************************************************
 
+// Get the user id by email
+    public String getUserIdByEmail(String busNo) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT BUSPLATEID FROM busReg WHERE BUSPLATEID=?", new String[]{busNo});
 
+        String REbusNO = null;
+        if (cursor.moveToFirst()) {
+            REbusNO = cursor.getString(0);
+        }
 
-
-
-
-
-
-
-
-
-
-
-
+        cursor.close();
+        db.close();
+        return REbusNO;
+    }
 
 }

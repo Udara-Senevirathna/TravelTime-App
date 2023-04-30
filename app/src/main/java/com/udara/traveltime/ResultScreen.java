@@ -17,15 +17,16 @@ public class ResultScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result_screen);
 
-        seatBookBtn = findViewById(R.id.seatBookBtn);
+//        seatBookBtn = findViewById(R.id.seatBookBtn);
 
-        // go to the seat booking page
-        seatBookBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(ResultScreen.this, SeatSelection.class);
-                startActivity(intent);
-            }
-        });
+//        go to the seat booking page
+//        seatBookBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(ResultScreen.this, SeatSelection.class);
+//                startActivity(intent);
+//            }
+//        });
+
     }
 }

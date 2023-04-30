@@ -11,4 +11,6 @@
     <color name="hintColor"> #808080 </color>
     <color name="teal_300">#D5DAD9</color>
     <color name="blue">#46E1EF</color>
+    <color name="transparent">#00FFFFFF</color>
+
 </resources>
