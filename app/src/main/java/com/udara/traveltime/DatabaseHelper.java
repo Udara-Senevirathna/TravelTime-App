@@ -36,7 +36,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // create bus registration table
         MyDB.execSQL("create Table busReg(BUSPLATEID TEXT primary key, DNAME TEXT, NIC TEXT, TOTALSEAT TEXT)");
         // create routes registration table
-        MyDB.execSQL("create Table routes(ROUTEID primary key autoincrement, BUSPLATEID TEXT, ROUTENO TEXT, DEPARTURE TEXT, ARRIAVAL TEXT, DATE TEXT, TIME TEXT, FOREIGN KEY (BUSPLATEID) REFERENCES busReg (BUSPLATEID))");
+        MyDB.execSQL("create Table routes(ROUTEID INTEGER primary key autoincrement, BUSPLATEID TEXT, ROUTENO TEXT, DEPARTURE TEXT, ARRIAVAL TEXT, DATE TEXT, TIME TEXT, FOREIGN KEY (BUSPLATEID) REFERENCES busReg (BUSPLATEID))");
 
         MyDB.execSQL("create Table admin(username TEXT primary key, password TEXT, email TEXT, fullname TEXT)");
 
@@ -48,6 +48,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         MyDB.execSQL("drop Table if exists buses");
         MyDB.execSQL("drop table if exists admin");
         MyDB.execSQL("drop table if exists routes");
+
     }
 
     // **********************************************************************************************
@@ -200,14 +201,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     {
         SQLiteDatabase MyDB = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put("BUSPLATEID", plateNO);
-        contentValues.put("ROUTENO", routeNo);
-        contentValues.put("DEPARTURE", departure);
-        contentValues.put("ARRIAVAL", arriaval);
-        contentValues.put("DATE", date);
-        contentValues.put("TIME", time);
+        contentValues.put("BUSPLATEID", "plateNO");
+        contentValues.put("ROUTENO", "routeNo");
+        contentValues.put("DEPARTURE", "departure");
+        contentValues.put("ARRIAVAL", "arriaval");
+        contentValues.put("DATE", "date");
+        contentValues.put("TIME", "time");
 
-        long result = MyDB.insert("busReg",null,contentValues);
+        long result = MyDB.insert("routes",null,contentValues);
         if(result==-1) return false;
         else
             return true;
@@ -219,7 +220,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public Cursor getBusPlateNO() {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT BUSPLATEID FROM busReg", null);
-
         return cursor;
     }
 

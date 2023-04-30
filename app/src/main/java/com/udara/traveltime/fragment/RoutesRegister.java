@@ -53,6 +53,7 @@ public class RoutesRegister extends Fragment {
 
 // Get the bus plate numbers from the database
         Cursor cursor = MyDB.getBusPlateNO();
+        busplateNumbers.add("Select BusNO");
         if (cursor.moveToFirst()) {
             do {
                 @SuppressLint("Range") String busplateno = cursor.getString(cursor.getColumnIndex("BUSPLATEID"));
@@ -103,15 +104,20 @@ public class RoutesRegister extends Fragment {
                 final String getarrival = arrival.getText().toString();
                 final String gettime = time.getText().toString();
 
+                Log.d("Spinner", "Selected item: " + getBus_No);
 
                 if(TextUtils.isEmpty(getBus_No) || TextUtils.isEmpty(getRouteNo) || TextUtils.isEmpty(getdeparture) || TextUtils.isEmpty(getarrival) || TextUtils.isEmpty(gettime)){
                     Toast.makeText(getContext(), "Empty fields", Toast.LENGTH_SHORT).show();
-                } else{
-
-                    boolean result = MyDB.registerRoute(getBus_No, getRouteNo, getdeparture, getarrival,"2023-10-12", gettime);
                 }
+                else{
 
-
+                    boolean result = MyDB.registerRoute(getBus_No, getRouteNo, getdeparture, getarrival,"2023-02-10", gettime);
+                    if(result){
+                        Toast.makeText(getContext(), "data added", Toast.LENGTH_SHORT).show();
+                    }else{
+                        Toast.makeText(getContext(), "not added", Toast.LENGTH_SHORT).show();
+                    }
+                }
 
             }
         });
