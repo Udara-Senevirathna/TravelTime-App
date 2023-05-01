@@ -7,6 +7,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 
@@ -30,6 +31,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase MyDB) {
 
+        Log.d("MyDBHelper", "onCreate() called");
 
         MyDB.execSQL("create Table users(ID INTEGER primary key autoincrement,f_name TEXT, l_name TEXT, nic TEXT, email TEXT, Passwd TEXT)");
 
@@ -39,6 +41,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         MyDB.execSQL("create Table routes(ROUTEID INTEGER primary key autoincrement, BUSPLATEID TEXT, ROUTENO TEXT, DEPARTURE TEXT, ARRIAVAL TEXT, DATE TEXT, TIME TEXT, FOREIGN KEY (BUSPLATEID) REFERENCES busReg (BUSPLATEID))");
 
         MyDB.execSQL("create Table admin(username TEXT primary key, password TEXT, email TEXT, fullname TEXT)");
+
+        MyDB.execSQL("INSERT INTO admin (username, password, email, fullname) VALUES ('admin', '123', 'udara@gmail.com', 'Udara jeewamali')");
+
 
     }
 
@@ -107,6 +112,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         else
             return false;
     }
+
+
 
     public boolean checkadminusernamepassword(String username, String password){
         SQLiteDatabase MyDB = this.getWritableDatabase();
@@ -221,6 +228,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT BUSPLATEID FROM busReg", null);
         return cursor;
+    }
+    // check if the email is already exits
+    public boolean checkEmailAllReadyReg(String email){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("Select * from users where email = ?", new String[] {email});
+        if(cursor.getCount()>0)
+            return true;
+        else
+            return false;
     }
 
 }

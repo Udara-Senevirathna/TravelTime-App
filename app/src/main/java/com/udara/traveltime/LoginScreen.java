@@ -24,7 +24,7 @@ public class LoginScreen extends AppCompatActivity implements Shaker.OnShakeList
     private Shaker mShaker;
 
     DatabaseHelper MyDataDB;
-    Boolean checkuserpass;
+    Boolean checkuserpass, admincheckuserpass;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,28 +66,41 @@ public class LoginScreen extends AppCompatActivity implements Shaker.OnShakeList
             // todo uncomment this.
 
 
-//                String user = username.getText().toString();
-//                String pass = passwd.getText().toString();
-
-//                if (user.equals("") || pass.equals(""))
+                String user = username.getText().toString();
+                String pass = passwd.getText().toString();
+                Boolean result = MyDataDB.checkEmailAllReadyReg(user);
+                if (user.equals("") || pass.equals("")){
 //                    Toast.makeText(LoginScreen.this, "Please enter all fields", Toast.LENGTH_SHORT).show();
-//
-//                else{
-//                    checkuserpass = MyDataDB.checkusernamepassword(user, pass);
-//                    if (checkuserpass){
-//                        Toast.makeText(LoginScreen.this, "LogIn Successful", Toast.LENGTH_SHORT).show();
-//                        Intent intent= new Intent(getApplicationContext(), RouteSearchScreen.class);
-//                        startActivity(intent);
+                    username.setError("Fill this Field");
+                    passwd.setError("Fill this Field");
+
+                }
+                else{
+
+//                    if(!result){
+////                    Toast.makeText(LoginScreen.this, "Wrong email address", Toast.LENGTH_SHORT).show();
+//                        username.setError("Wrong Email Address");
 //                    }
-//                    else{
-//                        Toast.makeText(LoginScreen.this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
-//                    }
-//                }
+                    checkuserpass = MyDataDB.checkusernamepassword(user, pass);
+                    admincheckuserpass = MyDataDB.checkusernamepassword(user, pass);
+                    if (checkuserpass){
+                        Toast.makeText(LoginScreen.this, "LogIn Successful", Toast.LENGTH_SHORT).show();
+                        Intent intent= new Intent(getApplicationContext(), RouteSearchScreen.class);
+                        startActivity(intent);
+                    }else if(admincheckuserpass) {
+                        Toast.makeText(LoginScreen.this, "LogIn As admin", Toast.LENGTH_SHORT).show();
+                        Intent intent= new Intent(getApplicationContext(), AdminDashBordNavipanel.class);
+                        startActivity(intent);
+                    }
+                    else{
+                        Toast.makeText(LoginScreen.this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
+                    }
+                }
 
 
-//                // todo comment this after testing
-                Intent intent = new Intent(LoginScreen.this, AdminDashBordNavipanel.class);
-                startActivity(intent);
+////                // todo comment this after testing
+//                Intent intent = new Intent(LoginScreen.this, AdminDashBordNavipanel.class);
+//                startActivity(intent);
             }
         });
     }

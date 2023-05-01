@@ -26,6 +26,8 @@ public class SignupScreen extends AppCompatActivity {
         final EditText LastName = findViewById(R.id.LastName);
         final EditText NIC = findViewById(R.id.NIC);
         final EditText Email = findViewById(R.id.Email);
+        final EditText pass = findViewById(R.id.Password);
+        final EditText passC = findViewById(R.id.Password2);
 
         Button signupButton = findViewById(R.id.signupButton);//Getting the button data
         //Getting the text data
@@ -52,9 +54,24 @@ public class SignupScreen extends AppCompatActivity {
                 final String getLastName = LastName.getText().toString();
                 final String getNIC = NIC.getText().toString();
                 final String getEmail = Email.getText().toString();
+                final String getpass = pass.getText().toString();
+                final String getpassC = passC.getText().toString();
 
-                if (getFirstName.equals("") ||getLastName.equals("")||getNIC.equals("")||getEmail.equals(""))
-                    Toast.makeText(SignupScreen.this, "Please enter all fields", Toast.LENGTH_SHORT).show();
+                if (getFirstName.equals("") ||getLastName.equals("")||getNIC.equals("")||getEmail.equals("") || getpass.equals("")) {
+                    FirstName.setError("Fill this field");
+                    LastName.setError("Fill this field");
+                    NIC.setError("Fill this field");
+                    Email.setError("Fill this field");
+                    pass.setError("Fill this field");
+                }else if(!getpass.equals(getpassC)){
+                    pass.setError("Password is didn't match");
+                    passC.setError("Password is didn't match");
+                } else if (getpass.length() <= 7){
+                    pass.setError("Password is short ");
+                } else if (!(getNIC.trim().length() == 10) && (!getNIC.trim().endsWith("V") || !getNIC.trim().endsWith("v"))) {
+                    NIC.setError("NIC invalid");
+                }
+
                 else {
 
                     Intent intent = new Intent(SignupScreen.this, OTPScreen.class);
@@ -63,6 +80,7 @@ public class SignupScreen extends AppCompatActivity {
                     intent.putExtra("l_name", getLastName);
                     intent.putExtra("nic", getNIC);
                     intent.putExtra("email", getEmail);
+                    intent.putExtra("pass", getpass);
                     startActivity(intent);
                 }
             }

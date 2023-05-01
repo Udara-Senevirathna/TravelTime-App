@@ -65,6 +65,7 @@ public class OTPScreen extends AppCompatActivity {
         final String getLname = getIntent().getStringExtra("l_name");
         final String getNIC = getIntent().getStringExtra("nic");
         final String get_Email = getIntent().getStringExtra("email");
+        final String get_pass = getIntent().getStringExtra("pass");
 
 
         // setting email and mobile to textView
@@ -103,7 +104,7 @@ public class OTPScreen extends AppCompatActivity {
                     register_user = MyDataDB.checkusername(get_Email);
 
                     if (!register_user){
-                        Boolean insert = MyDataDB.insertData(getFname,getLname,get_Email,getNIC,"5");
+                        Boolean insert = MyDataDB.insertData(getFname,getLname,get_Email,getNIC,get_pass);
                         if (insert){
                             Toast.makeText(OTPScreen.this, "Registered Successfully", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(getApplicationContext(), RouteSearchScreen.class);

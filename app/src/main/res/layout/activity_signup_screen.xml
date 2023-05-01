@@ -38,7 +38,7 @@
 
             <EditText
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="45dp"
                 android:id="@+id/FirstName"
                 android:background="@drawable/custom_edittext"
                 android:drawableLeft="@drawable/ic_baseline_person_24"
@@ -48,39 +48,39 @@
                 android:padding="8dp"
                 android:textColor="@color/black"
                 android:textColorHighlight="@color/cardview_dark_background"
-                android:layout_marginTop="40dp"/>
+                android:layout_marginTop="25dp"/>
 
             <EditText
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
                 android:id="@+id/LastName"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginTop="25dp"
                 android:background="@drawable/custom_edittext"
                 android:drawableLeft="@drawable/ic_baseline_person_24"
                 android:drawablePadding="8dp"
                 android:hint="Last Name"
-                android:textColorHint="@color/hintColor"
                 android:padding="8dp"
                 android:textColor="@color/black"
                 android:textColorHighlight="@color/cardview_dark_background"
-                android:layout_marginTop="40dp"/>
+                android:textColorHint="@color/hintColor" />
 
             <EditText
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
                 android:id="@+id/NIC"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginTop="25dp"
                 android:background="@drawable/custom_edittext"
                 android:drawableLeft="@drawable/ic_baseline_person_24"
                 android:drawablePadding="8dp"
                 android:hint="NIC"
-                android:textColorHint="@color/hintColor"
                 android:padding="8dp"
                 android:textColor="@color/black"
                 android:textColorHighlight="@color/cardview_dark_background"
-                android:layout_marginTop="40dp"/>
+                android:textColorHint="@color/hintColor" />
 
             <EditText
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="45dp"
                 android:id="@+id/Email"
                 android:background="@drawable/custom_edittext"
                 android:drawableLeft="@drawable/ic_baseline_email_24"
@@ -91,12 +91,40 @@
                 android:padding="8dp"
                 android:textColor="@color/black"
                 android:textColorHighlight="@color/cardview_dark_background"
-                android:layout_marginTop="40dp"/>
+                android:layout_marginTop="25dp"/>
 
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:id="@+id/Password"
+                android:background="@drawable/custom_edittext"
+                android:drawableLeft="@drawable/ic_baseline_lock_24"
+                app:drawableTint="@color/black"
+                android:drawablePadding="8dp"
+                android:hint="Password"
+                android:textColorHint="@color/hintColor"
+                android:padding="8dp"
+                android:textColor="@color/black"
+                android:textColorHighlight="@color/cardview_dark_background"
+                android:layout_marginTop="25dp"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:id="@+id/Password2"
+                android:background="@drawable/custom_edittext"
+                android:drawableLeft="@drawable/ic_baseline_lock_24"
+                app:drawableTint="@color/black"
+                android:drawablePadding="8dp"
+                android:hint="Confirm Password"
+                android:textColorHint="@color/hintColor"
+                android:padding="8dp"
+                android:textColor="@color/black"
+                android:textColorHighlight="@color/cardview_dark_background"
+                android:layout_marginTop="25dp"/>
             <Button
                 android:id="@+id/signupButton"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="50dp"
                 android:layout_marginTop="30dp"
                 android:backgroundTint="@color/teal_700"
                 android:text="Sign Up"
@@ -113,7 +141,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="horizontal"
-        android:layout_marginTop="5dp">
+        >
 
         <TextView
             android:layout_width="wrap_content"
@@ -121,16 +149,16 @@
             android:text="Do you have account?"
             android:textColor="@color/teal_700"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/loginsText"
-        android:padding="8dp"
-        android:layout_marginStart="5dp"
-        android:text="Login"
-        android:textSize="14sp"
-        android:textColor="@color/teal_700"
-        android:textStyle="bold"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/loginsText"
+            android:padding="8dp"
+            android:layout_marginStart="5dp"
+            android:text="Login"
+            android:textSize="14sp"
+            android:textColor="@color/teal_700"
+            android:textStyle="bold"/>
 
     </LinearLayout>
 </LinearLayout>
