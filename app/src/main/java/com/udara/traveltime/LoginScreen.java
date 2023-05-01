@@ -66,8 +66,8 @@ public class LoginScreen extends AppCompatActivity implements Shaker.OnShakeList
             // todo uncomment this.
 
 
-                String user = username.getText().toString();
-                String pass = passwd.getText().toString();
+                String user = username.getText().toString().trim();
+                String pass = passwd.getText().toString().trim();
                 Boolean result = MyDataDB.checkEmailAllReadyReg(user);
                 if (user.equals("") || pass.equals("")){
 //                    Toast.makeText(LoginScreen.this, "Please enter all fields", Toast.LENGTH_SHORT).show();
@@ -82,7 +82,7 @@ public class LoginScreen extends AppCompatActivity implements Shaker.OnShakeList
 //                        username.setError("Wrong Email Address");
 //                    }
                     checkuserpass = MyDataDB.checkusernamepassword(user, pass);
-                    admincheckuserpass = MyDataDB.checkusernamepassword(user, pass);
+                    admincheckuserpass = MyDataDB.checkadminusernamepassword(user, pass);
                     if (checkuserpass){
                         Toast.makeText(LoginScreen.this, "LogIn Successful", Toast.LENGTH_SHORT).show();
                         Intent intent= new Intent(getApplicationContext(), RouteSearchScreen.class);
