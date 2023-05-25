@@ -1,5 +1,6 @@
 package com.udara.traveltime;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.WindowCompat;
 
@@ -11,6 +12,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class SignupScreen extends AppCompatActivity {
 
@@ -87,6 +94,23 @@ public class SignupScreen extends AppCompatActivity {
     }
 
     private void registerUser(String getFirstName, String getLastName, String getNIC, String getEmail, String getpass) {
+
+        // set firebase authentication / initialize the firebase.
+        FirebaseAuth auth = FirebaseAuth.getInstance();
+        auth.signInWithEmailAndPassword(getEmail, getpass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                Toast.makeText(SignupScreen.this, "Sign in section", Toast.LENGTH_SHORT).show();
+
+                // firebase get the current users
+                FirebaseUser firebaseUser = auth.getCurrentUser();
+
+                // store the data in the firebase
+                RWDataToFirebase(getFirstName, getLastName, getNIC);
+
+
+            }
+        });
 
 
     }
