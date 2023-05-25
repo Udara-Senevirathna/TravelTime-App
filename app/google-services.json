@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1033401549770",
+    "project_id": "traveltime-9f6f8",
+    "storage_bucket": "traveltime-9f6f8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1033401549770:android:985439a3a1a11275534533",
+        "android_client_info": {
+          "package_name": "com.udara.traveltime"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1033401549770-noq8rph5tvc7529rbiq1ic6m3o236c8g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAvirZUFrZH_OEP8Ul1F0zHwAvGkBvp3Ak"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1033401549770-noq8rph5tvc7529rbiq1ic6m3o236c8g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
