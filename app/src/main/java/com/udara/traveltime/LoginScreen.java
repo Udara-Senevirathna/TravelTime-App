@@ -1,9 +1,11 @@
 package com.udara.traveltime;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
@@ -157,7 +159,29 @@ public class LoginScreen extends AppCompatActivity implements Shaker.OnShakeList
     }
 
     private void AlertDialog() {
+        // setup the alert message
+        AlertDialog.Builder builder = new AlertDialog.Builder(LoginScreen.this);
+        builder.setTitle("Email Not Verified");
+        builder.setMessage("Please verify your email now. You can't login without email verification.");
 
+        // open Email apps if user clicked on continue button
+        builder.setPositiveButton("Continue", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                // sent email to the email address that account has been registered with
+                Intent intent = new Intent(Intent.ACTION_MAIN);
+                intent.addCategory(Intent.CATEGORY_APP_EMAIL);
+                intent.addFlags(intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+            }
+        });
+
+        // create the Alert Dialog
+        AlertDialog alertDialog = builder.create();
+
+        // show dialog box
+
+        alertDialog.show();
 
     }
 
