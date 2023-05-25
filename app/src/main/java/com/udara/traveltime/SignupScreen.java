@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -112,9 +113,34 @@ public class SignupScreen extends AppCompatActivity {
 
                 // get reference from the database "register users"
                 DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users");
+                databaseReference.child(firebaseUser.getUid()).setValue(rwDataToFirebas).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if(task.isSuccessful()){
+                            Toast.makeText(SignupScreen.this, "User Registered Successful", Toast.LENGTH_SHORT).show();
+                            // send email verification
+                            firebaseUser.sendEmailVerification();
+                            // open user profile after registration
+                            Intent intent = new Intent(SignupScreen.this, MainActivity.class);
+                            // prevent user go back to the registration screen after registration.
+                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+
+
+                            startActivity(intent);
+                            finish(); // close the registration activity.
+                        }else{
+                            Toast.makeText(SignupScreen.this, "User Registered not Successful", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+
+            }
+        }).addOnFailureListener(new OnFailureListener() { // indicate database errors.
+            @Override
+            public void onFailure(Exception e) {
+                Toast.makeText(SignupScreen.this, e.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
-
 
     }
 }
