@@ -184,7 +184,22 @@ public class LoginScreen extends AppCompatActivity implements Shaker.OnShakeList
         alertDialog.show();
 
     }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (firebaseAuth.getCurrentUser() != null){
 
+            Toast.makeText(LoginScreen.this, "Already login", Toast.LENGTH_SHORT).show();
+
+            // go to the user profile
+
+            Intent intent = new Intent(LoginScreen.this, RouteSearchScreen.class);
+            startActivity(intent);
+            finish(); // prevent from the back to the login page.
+        }else{
+            Toast.makeText(LoginScreen.this, "you can log in now", Toast.LENGTH_SHORT).show();
+        }
+    }
     @Override
     protected void onResume() {
         super.onResume();
