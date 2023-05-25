@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="@drawable/untitleddd_1"
+    android:background="@color/teal_300"
     tools:context=".fragment.RoutesRegister">
 
     <androidx.cardview.widget.CardView
@@ -39,16 +39,16 @@
             <Spinner
                 android:id="@+id/spinner"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="45dp"
                 android:hint="Route No"
                 android:textColor="@color/black"
                 android:background="@drawable/custom_edittext"
-                android:entries="@array/choices" />
-
+                android:entries="@array/choices"
+                android:layout_marginTop="25dp"/>
 
             <EditText
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="45dp"
                 android:id="@+id/RouteNo"
                 android:background="@drawable/custom_edittext"
                 android:drawablePadding="8dp"
@@ -57,11 +57,11 @@
                 android:padding="8dp"
                 android:textColor="@color/black"
                 android:textColorHighlight="@color/cardview_dark_background"
-                android:layout_marginTop="40dp"/>
+                android:layout_marginTop="25dp"/>
 
             <EditText
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="45dp"
                 android:id="@+id/Departure_Location"
                 android:background="@drawable/custom_edittext"
                 android:drawablePadding="8dp"
@@ -70,11 +70,11 @@
                 android:padding="8dp"
                 android:textColor="@color/black"
                 android:textColorHighlight="@color/cardview_dark_background"
-                android:layout_marginTop="40dp"/>
+                android:layout_marginTop="25dp"/>
 
             <EditText
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="45dp"
                 android:id="@+id/Arrival_Location"
                 android:background="@drawable/custom_edittext"
                 android:drawablePadding="8dp"
@@ -83,11 +83,11 @@
                 android:padding="8dp"
                 android:textColor="@color/black"
                 android:textColorHighlight="@color/cardview_dark_background"
-                android:layout_marginTop="40dp"/>
+                android:layout_marginTop="25dp"/>
 
             <EditText
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="45dp"
                 android:id="@+id/Times"
                 android:background="@drawable/custom_edittext"
                 android:drawablePadding="8dp"
@@ -96,8 +96,7 @@
                 android:padding="8dp"
                 android:textColor="@color/black"
                 android:textColorHighlight="@color/cardview_dark_background"
-                android:layout_marginTop="40dp"/>
-
+                android:layout_marginTop="25dp"/>
 
             <Button
                 android:id="@+id/registerButton"
@@ -106,9 +105,9 @@
                 android:layout_marginTop="30dp"
                 android:backgroundTint="@color/teal_700"
                 android:text="Register"
+                android:textColor="@color/white"
                 android:textSize="18sp"
                 app:cornerRadius="20dp" />
-
 
         </LinearLayout>
 

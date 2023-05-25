@@ -61,6 +61,27 @@
         <entry key="..\:/TravelTime-App2/app/src/main/res/layout/fragment_home2.xml" value="0.11041666666666666" />
         <entry key="..\:/TravelTime-App2/app/src/main/res/layout/fragment_profile.xml" value="0.11041666666666666" />
         <entry key="..\:/TravelTime-App2/app/src/main/res/layout/fragment_setting.xml" value="0.11041666666666666" />
+        <entry key="..\:/TravelTime-App3/app/src/main/res/layout/activity_about_app.xml" value="0.1644021739130435" />
+        <entry key="..\:/TravelTime-App3/app/src/main/res/layout/activity_account_settings_screen.xml" value="0.1" />
+        <entry key="..\:/TravelTime-App3/app/src/main/res/layout/activity_bus_list_update.xml" value="0.16417272338606242" />
+        <entry key="..\:/TravelTime-App3/app/src/main/res/layout/activity_login_screen.xml" value="0.16621376811594202" />
+        <entry key="..\:/TravelTime-App3/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/TravelTime-App3/app/src/main/res/layout/activity_navigative.xml" value="0.16621376811594202" />
+        <entry key="..\:/TravelTime-App3/app/src/main/res/layout/activity_otpscreen.xml" value="0.1" />
+        <entry key="..\:/TravelTime-App3/app/src/main/res/layout/activity_payment_details_screen.xml" value="0.10244786944696282" />
+        <entry key="..\:/TravelTime-App3/app/src/main/res/layout/activity_payment_method.xml" value="0.15" />
+        <entry key="..\:/TravelTime-App3/app/src/main/res/layout/activity_result_screen.xml" value="0.16621376811594202" />
+        <entry key="..\:/TravelTime-App3/app/src/main/res/layout/activity_route_search_screen.xml" value="0.16621376811594202" />
+        <entry key="..\:/TravelTime-App3/app/src/main/res/layout/activity_seat_selection.xml" value="0.1" />
+        <entry key="..\:/TravelTime-App3/app/src/main/res/layout/activity_signup_screen.xml" value="0.16621376811594202" />
+        <entry key="..\:/TravelTime-App3/app/src/main/res/layout/fragment_bus_register.xml" value="0.1" />
+        <entry key="..\:/TravelTime-App3/app/src/main/res/layout/fragment_dashboard.xml" value="0.12227447627191107" />
+        <entry key="..\:/TravelTime-App3/app/src/main/res/layout/fragment_home2.xml" value="0.16621376811594202" />
+        <entry key="..\:/TravelTime-App3/app/src/main/res/layout/fragment_maps.xml" value="0.1644021739130435" />
+        <entry key="..\:/TravelTime-App3/app/src/main/res/layout/fragment_profile.xml" value="0.16" />
+        <entry key="..\:/TravelTime-App3/app/src/main/res/layout/fragment_routes_register.xml" value="0.1" />
+        <entry key="..\:/TravelTime-App3/app/src/main/res/layout/result_items.xml" value="0.12227447627191107" />
+        <entry key="..\:/TravelTime-App3/app/src/main/res/menu/bottom_menu.xml" value="0.2" />
         <entry key="..\:/TravelTime/app/src/main/res/drawable/bg.xml" value="0.1665" />
         <entry key="..\:/TravelTime/app/src/main/res/drawable/coustom_edittext.xml" value="0.1925" />
         <entry key="..\:/TravelTime/app/src/main/res/drawable/custom_edittext.xml" value="0.1295" />

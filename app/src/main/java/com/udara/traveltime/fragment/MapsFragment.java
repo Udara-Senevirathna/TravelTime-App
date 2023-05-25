@@ -48,7 +48,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MapsFragment extends Fragment implements OnMapReadyCallback {
-
     FragmentMapsBinding binding;
     SupportMapFragment mapFragment;
     private GoogleMap mMap;
@@ -64,7 +63,6 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
                              @Nullable Bundle savedInstanceState) {
 
         binding = FragmentMapsBinding.inflate(inflater, container, false);
-
         mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
@@ -91,7 +89,6 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
                 ) {
                     goToSearchLocation();
                 }
-
                 return false;
             }
         });
@@ -106,7 +103,6 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
         List<Address> list = new ArrayList<>();
         try {
             list = geocoder.getFromLocationName(searchLocation, 1);
-
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -118,7 +114,6 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
             gotoLatLng(latitude, longitude, 17f);
 
             // add marker to the search result
-
             if (marker != null) {
                 marker.remove();
             }
@@ -131,7 +126,6 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
     }
 
     private void gotoLatLng(double latitude, double longitude, float v) {
-
         LatLng latLng = new LatLng(latitude, longitude);
         CameraUpdate update = CameraUpdateFactory.newLatLngZoom(latLng, 17f);
         mMap.animateCamera(update);
@@ -140,7 +134,6 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
     //Set current location
     @Override
     public void onMapReady(GoogleMap googleMap) {
-
         mMap = googleMap;
         Dexter.withContext(getContext())
                 .withPermission(Manifest.permission.ACCESS_FINE_LOCATION)

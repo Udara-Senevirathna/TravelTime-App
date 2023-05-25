@@ -29,15 +29,12 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-
 public class BusRegister extends Fragment {
     EditText Bus_No;
     EditText DriverName;
     EditText NIC_NO;
     EditText Sheet;
-
     Button regButton;
-
     DatabaseHelper MyDB;
 
     @Override
@@ -50,16 +47,12 @@ public class BusRegister extends Fragment {
         DriverName = view.findViewById(R.id.DriverName);
         NIC_NO = view.findViewById(R.id.NIC_NO);
         Sheet = view.findViewById(R.id.Sheet);
-
-
         regButton = view.findViewById(R.id.regButton);
-
         MyDB = new DatabaseHelper(this.getContext());
 
         regButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 final String getBusNo = Bus_No.getText().toString();
                 final String getDriverName = DriverName.getText().toString();
                 final String getNIC_NO = NIC_NO.getText().toString();
@@ -72,19 +65,16 @@ public class BusRegister extends Fragment {
                         Toast.makeText(getContext(), "INC is Wrong", Toast.LENGTH_SHORT).show();
                     }else {
                         // add data to the database
-
                         Boolean result = MyDB.registerBus(getBusNo, getDriverName, getNIC_NO, getSheet);
                         if (result) {
                             Toast.makeText(getContext(), "Data is added to the database", Toast.LENGTH_SHORT).show();
                         }else{
                             Toast.makeText(getContext(), "Data is not added to the database", Toast.LENGTH_SHORT).show();
-
                         }
                     }
                 }
             }
         });
-
         return view;
     }
 }

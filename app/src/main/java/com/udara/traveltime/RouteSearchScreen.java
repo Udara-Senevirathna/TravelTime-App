@@ -21,6 +21,7 @@ import com.udara.traveltime.databinding.ActivityMainBinding;
 import com.udara.traveltime.databinding.ActivityRouteSearchScreenBinding;
 import com.udara.traveltime.fragment.HomeFragment;
 import com.udara.traveltime.fragment.MapsFragment;
+import com.udara.traveltime.fragment.ProfileFragment;
 import com.udara.traveltime.fragment.SettingFragment;
 
 public class RouteSearchScreen extends AppCompatActivity {
@@ -44,7 +45,6 @@ public class RouteSearchScreen extends AppCompatActivity {
         binding.navBottomBar.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-
                 switch (item.getItemId()) {
                     case R.id.bottom_home:
                         ReplaceFragment(new HomeFragment());
@@ -53,9 +53,8 @@ public class RouteSearchScreen extends AppCompatActivity {
                     case R.id.bottom_location:
                         ReplaceFragment(new MapsFragment());
                         break;
-
-                    case R.id.bottom_setting:
-                        ReplaceFragment(new SettingFragment());
+                    case R.id.bottom_profile:
+                        ReplaceFragment(new ProfileFragment());
                         break;
                 }
                 return true;
@@ -70,8 +69,7 @@ public class RouteSearchScreen extends AppCompatActivity {
     }
     // go to the account settings page
     public void goToActivity(View view) {
-        Intent intent = new Intent(RouteSearchScreen.this, ResultScreen.class);
+        Intent intent = new Intent(RouteSearchScreen.this, AccountSettingsScreen.class);
         startActivity(intent);
     }
-
 }

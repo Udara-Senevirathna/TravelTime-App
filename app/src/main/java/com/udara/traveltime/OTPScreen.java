@@ -42,7 +42,6 @@ public class OTPScreen extends AppCompatActivity {
 
         MyDataDB = new DatabaseHelper(this);
 
-
         OTPBox1 = (EditText) findViewById(R.id.OTPbox1);
         OTPBox2 = (EditText) findViewById(R.id.OTPbox2);
         OTPBox3 = (EditText) findViewById(R.id.OTPbox3);
@@ -54,19 +53,12 @@ public class OTPScreen extends AppCompatActivity {
         final TextView otpEmail = (TextView) findViewById(R.id.otpEmail);
         final TextView otpMobile = (TextView) findViewById(R.id.otpMobile);
 
-        // getting email and phone number
-//        final String getEmail = getIntent().getStringExtra("Email");
-//        final String getPhone = getIntent().getStringExtra("mobile");
-
-
-
 // getting email and phone number
         final String getFname = getIntent().getStringExtra("f_name");
         final String getLname = getIntent().getStringExtra("l_name");
         final String getNIC = getIntent().getStringExtra("nic");
         final String get_Email = getIntent().getStringExtra("email");
         final String get_pass = getIntent().getStringExtra("pass");
-
 
         // setting email and mobile to textView
         otpEmail.setText(get_Email);
@@ -107,8 +99,9 @@ public class OTPScreen extends AppCompatActivity {
                         Boolean insert = MyDataDB.insertData(getFname,getLname,get_Email,getNIC,get_pass);
                         if (insert){
                             Toast.makeText(OTPScreen.this, "Registered Successfully", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(getApplicationContext(), RouteSearchScreen.class);
+                            Intent intent = new Intent(getApplicationContext(), LoginScreen.class);
                             startActivity(intent);
+                            Toast.makeText(OTPScreen.this, "Login using new account", Toast.LENGTH_SHORT).show();
                         }
                         else {
                             Toast.makeText(OTPScreen.this, "Registration Failed", Toast.LENGTH_SHORT).show();
@@ -119,10 +112,7 @@ public class OTPScreen extends AppCompatActivity {
                         Intent intent = new Intent(getApplicationContext(), SignupScreen.class);
                         startActivity(intent);
                     }
-
-
                 }
-//
             }
         });
     }

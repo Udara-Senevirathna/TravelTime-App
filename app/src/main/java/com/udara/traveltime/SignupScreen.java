@@ -46,16 +46,12 @@ public class SignupScreen extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(SignupScreen.this, LoginScreen.class);
                 startActivity(intent);
-
-
             }
         });
 
         signupButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-
 
                 // keep data tmp until the verification has been completed
                 final String getFirstName = FirstName.getText().toString();
@@ -82,6 +78,7 @@ public class SignupScreen extends AppCompatActivity {
 
                 else {
 
+
 //                    Intent intent = new Intent(SignupScreen.this, OTPScreen.class);
 //
 //                    intent.putExtra("f_name", getFirstName);
@@ -91,6 +88,7 @@ public class SignupScreen extends AppCompatActivity {
 //                    intent.putExtra("pass", getpass);
 //                    startActivity(intent);
                     registerUser(getFirstName, getLastName, getNIC, getEmail, getpass);
+
                 }
             }
         });

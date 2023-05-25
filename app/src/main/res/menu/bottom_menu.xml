@@ -16,10 +16,6 @@
         android:icon = "@drawable/ic_baseline_directions_bus_24"
         android:title = "Our Bus"/>
 
-    <item
-        android:id = "@+id/bottom_setting"
-        android:icon = "@drawable/ic_baseline_settings_24"
-        android:title = "Setting"/>
 
     <item
         android:id = "@+id/bottom_profile"

@@ -1,7 +1,5 @@
 package com.udara.traveltime;
 
-
-
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -15,9 +13,7 @@ import java.util.Date;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
-
     public static final String DBNAME = "Project.db";
-
     public DatabaseHelper(Context context) {
         super(context, "Project.db", null, 1);
     }
@@ -32,19 +28,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase MyDB) {
 
         Log.d("MyDBHelper", "onCreate() called");
-
         MyDB.execSQL("create Table users(ID INTEGER primary key autoincrement,f_name TEXT, l_name TEXT, nic TEXT, email TEXT, Passwd TEXT)");
-
         // create bus registration table
         MyDB.execSQL("create Table busReg(BUSPLATEID TEXT primary key, DNAME TEXT, NIC TEXT, TOTALSEAT TEXT)");
         // create routes registration table
         MyDB.execSQL("create Table routes(ROUTEID INTEGER primary key autoincrement, BUSPLATEID TEXT, ROUTENO TEXT, DEPARTURE TEXT, ARRIAVAL TEXT, DATE TEXT, TIME TEXT, FOREIGN KEY (BUSPLATEID) REFERENCES busReg (BUSPLATEID))");
-
         MyDB.execSQL("create Table admin(username TEXT primary key, password TEXT, email TEXT, fullname TEXT)");
-
         MyDB.execSQL("INSERT INTO admin (username, password, email, fullname) VALUES ('admin', '123', 'udara@gmail.com', 'Udara jeewamali')");
-
-
     }
 
     @Override
@@ -53,9 +43,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         MyDB.execSQL("drop Table if exists buses");
         MyDB.execSQL("drop table if exists admin");
         MyDB.execSQL("drop table if exists routes");
-
     }
-
     // **********************************************************************************************
 // insert users.
     public Boolean insertData(String f_name, String l_name, String email, String nic, String password)
@@ -113,8 +101,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return false;
     }
 
-
-
     public boolean checkadminusernamepassword(String username, String password){
         SQLiteDatabase MyDB = this.getWritableDatabase();
         Cursor cursor = MyDB.rawQuery("Select * from admin where email = ? and password = ?", new String[] {username,password});
@@ -126,7 +112,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     //************************************************************************************************
 // bus registration table
-
     public Boolean registerBus(String plateNO, String driverName, String NIC, String total_seats)
     {
         SQLiteDatabase MyDB = this.getWritableDatabase();
@@ -193,7 +178,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor data = MyDB.rawQuery("Select * from buses", null);
         return data;*/
 
-
     public boolean checkid(String id){
         SQLiteDatabase MyDB = this.getWritableDatabase();
         Cursor cursor = MyDB.rawQuery("Select * from buses where id = ?", new String[] {id});
@@ -222,7 +206,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     //**************************************************************************************************
-
 // Get the user id by email
     public Cursor getBusPlateNO() {
         SQLiteDatabase db = this.getReadableDatabase();
@@ -238,5 +221,4 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         else
             return false;
     }
-
 }

@@ -25,6 +25,7 @@ public class LoginScreen extends AppCompatActivity implements Shaker.OnShakeList
 
     DatabaseHelper MyDataDB;
     Boolean checkuserpass, admincheckuserpass;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,7 +37,6 @@ public class LoginScreen extends AppCompatActivity implements Shaker.OnShakeList
         // Get the accelerometer sensor
         mAccelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
 
-
         // DB connection
         MyDataDB = new DatabaseHelper(this);
 
@@ -47,10 +47,8 @@ public class LoginScreen extends AppCompatActivity implements Shaker.OnShakeList
         loginButton = findViewById(R.id.loginButton);
         TextView sing_up = (TextView) findViewById(R.id.signupText);
 
-
         final EditText username = findViewById(R.id.username);
         final EditText passwd = findViewById(R.id.password1);
-
 
         sing_up.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,23 +62,14 @@ public class LoginScreen extends AppCompatActivity implements Shaker.OnShakeList
             @Override
             public void onClick(View view) {
             // todo uncomment this.
-
-
                 String user = username.getText().toString().trim();
                 String pass = passwd.getText().toString().trim();
                 Boolean result = MyDataDB.checkEmailAllReadyReg(user);
                 if (user.equals("") || pass.equals("")){
-//                    Toast.makeText(LoginScreen.this, "Please enter all fields", Toast.LENGTH_SHORT).show();
                     username.setError("Fill this Field");
                     passwd.setError("Fill this Field");
-
                 }
                 else{
-
-//                    if(!result){
-////                    Toast.makeText(LoginScreen.this, "Wrong email address", Toast.LENGTH_SHORT).show();
-//                        username.setError("Wrong Email Address");
-//                    }
                     checkuserpass = MyDataDB.checkusernamepassword(user, pass);
                     admincheckuserpass = MyDataDB.checkadminusernamepassword(user, pass);
                     if (checkuserpass){
@@ -96,11 +85,6 @@ public class LoginScreen extends AppCompatActivity implements Shaker.OnShakeList
                         Toast.makeText(LoginScreen.this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
                     }
                 }
-
-
-////                // todo comment this after testing
-//                Intent intent = new Intent(LoginScreen.this, AdminDashBordNavipanel.class);
-//                startActivity(intent);
             }
         });
     }
