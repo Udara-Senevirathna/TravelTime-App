@@ -96,49 +96,41 @@ public class SignupScreen extends AppCompatActivity {
 
     private void registerUser(String getFirstName, String getLastName, String getNIC, String getEmail, String getpass) {
 
-        // set firebase authentication / initialize the firebase.
-        FirebaseAuth auth = FirebaseAuth.getInstance();
-        auth.createUserWithEmailAndPassword(getEmail, getpass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+        FirebaseAuth  auth = FirebaseAuth.getInstance();
+        // create new user
+        auth.createUserWithEmailAndPassword(getEmail, getpass).addOnCompleteListener(SignupScreen.this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()) {
-                    Toast.makeText(SignupScreen.this, "Enter to the register section", Toast.LENGTH_SHORT).show();
-                    // get current user id.
-                    FirebaseUser firebaseUser = auth.getCurrentUser();
-                    if (firebaseUser != null) {
-                        // get the data and use these data store in the real time database in firebase.
-                        RWDataToFirebas writeReadFirebase = new RWDataToFirebas(getFirstName, getLastName, getNIC);
+                Toast.makeText(SignupScreen.this, "Enter to the register section", Toast.LENGTH_SHORT).show();
+                // get current user id.
+                FirebaseUser firebaseUser = auth.getCurrentUser();
 
-                        // get reference from the database "register users"
-                        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users");
+                // get the data and use these data store in the real time database in firebase.
+                RWDataToFirebas writeReadFirebase = new RWDataToFirebas(getFirstName, getLastName, getNIC);
 
-                        databaseReference.child(firebaseUser.getUid()).setValue(writeReadFirebase).addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                                if (task.isSuccessful()) {
-                                    Toast.makeText(SignupScreen.this, "User Registered Successful", Toast.LENGTH_SHORT).show();
-                                    // send email verification
-                                    firebaseUser.sendEmailVerification();
-                                    // open user profile after registration
-                                    Intent intent = new Intent(SignupScreen.this, LoginScreen.class);
-                                    // prevent user go back to the registration screen after registration.
-                                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                // get reference from the database "register users"
+                DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("RegUsers");
 
-                                    startActivity(intent);
-                                    finish(); // close the registration activity.
-                                } else {
-                                    Toast.makeText(SignupScreen.this, "User Registered not Successful", Toast.LENGTH_SHORT).show();
-                                }
-                            }
-                        });
-                    } else {
-                        // Handle the case when the firebaseUser is null
-                        Toast.makeText(SignupScreen.this, "User Registration Failed: User is null", Toast.LENGTH_SHORT).show();
+                databaseReference.child(firebaseUser.getUid()).setValue(writeReadFirebase).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if(task.isSuccessful()){
+                            Toast.makeText(SignupScreen.this, "User Registered Successful", Toast.LENGTH_SHORT).show();
+                            // send email verification
+                            firebaseUser.sendEmailVerification();
+                            // open user profile after registration
+                            Intent intent = new Intent(SignupScreen.this, MainActivity.class);
+                            // prevent user go back to the registration screen after registration.
+                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+
+
+                            startActivity(intent);
+                            finish(); // close the registration activity.
+                        }else{
+                            Toast.makeText(SignupScreen.this, "User Registered not Successful", Toast.LENGTH_SHORT).show();
+                        }
                     }
-                } else {
-                    // Handle the case when the task is not successful
-                    Toast.makeText(SignupScreen.this, "User Registration Failed: " + task.getException(), Toast.LENGTH_SHORT).show();
-                }
+                });
             }
         }).addOnFailureListener(new OnFailureListener() { // indicate database errors.
             @Override
@@ -146,6 +138,7 @@ public class SignupScreen extends AppCompatActivity {
                 Toast.makeText(SignupScreen.this, e.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+
     }
 
 }

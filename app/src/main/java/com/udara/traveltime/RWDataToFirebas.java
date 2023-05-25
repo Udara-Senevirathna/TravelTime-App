@@ -6,15 +6,14 @@ import java.io.Serializable;
 
 public class RWDataToFirebas implements Serializable {
 
-    private String firstName, lastName, NIC;
 
-    public RWDataToFirebas() {
-    }
+    private String firstName, lastName, nic;
+    public RWDataToFirebas(){}
 
-    public RWDataToFirebas(String firstName, String lastName, String NIC) {
+    public RWDataToFirebas(String firstName, String lastName, String nic){
         this.firstName = firstName;
         this.lastName = lastName;
-        this.NIC = NIC;
+        this.nic = nic;
     }
 
     // Getter and setter methods for each property
@@ -35,11 +34,11 @@ public class RWDataToFirebas implements Serializable {
         this.lastName = lastName;
     }
 
-    public String getNIC() {
-        return NIC;
+    public String getNic() {
+        return nic;
     }
 
-    public void setNIC(String NIC) {
-        this.NIC = NIC;
+    public void setNic(String mobileNumber) {
+        this.nic = nic;
     }
 }

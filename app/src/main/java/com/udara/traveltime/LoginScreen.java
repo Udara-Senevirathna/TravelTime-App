@@ -35,7 +35,7 @@ public class LoginScreen extends AppCompatActivity implements Shaker.OnShakeList
     private Shaker mShaker;
 
     DatabaseHelper MyDataDB;
-    Boolean checkuserpass, admincheckuserpass;
+//    Boolean checkuserpass, admincheckuserpass;
     FirebaseAuth firebaseAuth;
 
     @Override
@@ -80,12 +80,13 @@ public class LoginScreen extends AppCompatActivity implements Shaker.OnShakeList
             // todo uncomment this.
                 String user = username.getText().toString().trim();
                 String pass = passwd.getText().toString().trim();
-                Boolean result = MyDataDB.checkEmailAllReadyReg(user);
+//                Boolean result = MyDataDB.checkEmailAllReadyReg(user);
                 if (user.equals("") || pass.equals("")){
                     username.setError("Fill this Field");
                     passwd.setError("Fill this Field");
                 }
                 else{
+
 //                    checkuserpass = MyDataDB.checkusernamepassword(user, pass);
 //                    admincheckuserpass = MyDataDB.checkadminusernamepassword(user, pass);
 //                    if (checkuserpass){
@@ -119,6 +120,9 @@ public class LoginScreen extends AppCompatActivity implements Shaker.OnShakeList
 
                     if(firebaseUser.isEmailVerified()){
                         Toast.makeText(LoginScreen.this, "You've log in", Toast.LENGTH_SHORT).show();
+                        // go to the main screen
+                        Intent intent = new Intent(LoginScreen.this, RouteSearchScreen.class);
+                        startActivity(intent);
 
                     }else {
 
@@ -131,9 +135,7 @@ public class LoginScreen extends AppCompatActivity implements Shaker.OnShakeList
 
                     Toast.makeText(LoginScreen.this, firebaseUser.toString(), Toast.LENGTH_SHORT).show();
 
-                    // go to the main screen
-                    Intent intent = new Intent(LoginScreen.this, RouteSearchScreen.class);
-                    startActivity(intent);
+
 
 
                 }else{
@@ -193,6 +195,7 @@ public class LoginScreen extends AppCompatActivity implements Shaker.OnShakeList
             Intent intent = new Intent(LoginScreen.this, RouteSearchScreen.class);
             startActivity(intent);
             finish();
+
         }else{
             Toast.makeText(LoginScreen.this, "you can log in now", Toast.LENGTH_SHORT).show();
         }
