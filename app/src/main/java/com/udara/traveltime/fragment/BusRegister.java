@@ -35,7 +35,6 @@ public class BusRegister extends Fragment {
     EditText NIC_NO;
     EditText Sheet;
     Button regButton;
-    DatabaseHelper MyDB;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -48,7 +47,7 @@ public class BusRegister extends Fragment {
         NIC_NO = view.findViewById(R.id.NIC_NO);
         Sheet = view.findViewById(R.id.Sheet);
         regButton = view.findViewById(R.id.regButton);
-        MyDB = new DatabaseHelper(this.getContext());
+
 
         regButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,12 +64,11 @@ public class BusRegister extends Fragment {
                         Toast.makeText(getContext(), "INC is Wrong", Toast.LENGTH_SHORT).show();
                     }else {
                         // add data to the database
-                        Boolean result = MyDB.registerBus(getBusNo, getDriverName, getNIC_NO, getSheet);
-                        if (result) {
-                            Toast.makeText(getContext(), "Data is added to the database", Toast.LENGTH_SHORT).show();
-                        }else{
-                            Toast.makeText(getContext(), "Data is not added to the database", Toast.LENGTH_SHORT).show();
-                        }
+//                        if (result) {
+//                            Toast.makeText(getContext(), "Data is added to the database", Toast.LENGTH_SHORT).show();
+//                        }else{
+//                            Toast.makeText(getContext(), "Data is not added to the database", Toast.LENGTH_SHORT).show();
+//                        }
                     }
                 }
             }
