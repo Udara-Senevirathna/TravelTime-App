@@ -187,15 +187,12 @@ public class LoginScreen extends AppCompatActivity implements Shaker.OnShakeList
     @Override
     protected void onStart() {
         super.onStart();
+         // auto login and prevent from coming back to the previous account.
         if (firebaseAuth.getCurrentUser() != null){
-
             Toast.makeText(LoginScreen.this, "Already login", Toast.LENGTH_SHORT).show();
-
-            // go to the user profile
-
             Intent intent = new Intent(LoginScreen.this, RouteSearchScreen.class);
             startActivity(intent);
-            finish(); // prevent from the back to the login page.
+            finish();
         }else{
             Toast.makeText(LoginScreen.this, "you can log in now", Toast.LENGTH_SHORT).show();
         }
