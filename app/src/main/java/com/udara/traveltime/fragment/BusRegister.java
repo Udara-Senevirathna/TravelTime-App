@@ -64,11 +64,7 @@ public class BusRegister extends Fragment {
                         Toast.makeText(getContext(), "INC is Wrong", Toast.LENGTH_SHORT).show();
                     }else {
                         // add data to the database
-//                        if (result) {
-//                            Toast.makeText(getContext(), "Data is added to the database", Toast.LENGTH_SHORT).show();
-//                        }else{
-//                            Toast.makeText(getContext(), "Data is not added to the database", Toast.LENGTH_SHORT).show();
-//                        }
+
                     }
                 }
             }
