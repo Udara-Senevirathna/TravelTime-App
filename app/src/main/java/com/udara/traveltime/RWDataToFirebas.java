@@ -1,39 +1,45 @@
 package com.udara.traveltime;
 
+
+
 import java.io.Serializable;
 
 public class RWDataToFirebas implements Serializable {
 
-    private String getfirstName, getlastName, getNIC;
+    private String firstName, lastName, NIC;
 
-    public RWDataToFirebas(){}
-
-    public RWDataToFirebas(String firstName, String lastName, String getNIC){
-        this.getfirstName = firstName;
-        this.getlastName = lastName;
-        this.getNIC = getNIC;
-    }
-    // setters
-    public void setFname(String firstName){
-        this.getfirstName = firstName;
-
-    }
-    public void setLname(String lastName){
-        this.getlastName = lastName;
-    }
-    public void setNIC(String nic){
-        this.getNIC = nic;
+    public RWDataToFirebas() {
     }
 
-    // getters
+    public RWDataToFirebas(String firstName, String lastName, String NIC) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.NIC = NIC;
+    }
 
-    public String getFName(){
-        return this.getfirstName;
+    // Getter and setter methods for each property
+
+    public String getFirstName() {
+        return firstName;
     }
-    public String getLname(){
-        return this.getlastName;
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
-    public String getNIC(String nic){
-        return  this.getNIC;
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getNIC() {
+        return NIC;
+    }
+
+    public void setNIC(String NIC) {
+        this.NIC = NIC;
     }
 }
