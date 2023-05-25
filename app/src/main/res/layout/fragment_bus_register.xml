@@ -9,7 +9,6 @@
     android:gravity="center"
     android:background="@color/teal_300"
     tools:context=".fragment.BusRegister">
-
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
