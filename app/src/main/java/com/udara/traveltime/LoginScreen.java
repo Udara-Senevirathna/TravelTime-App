@@ -1,5 +1,6 @@
 package com.udara.traveltime;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -13,6 +14,14 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
+import com.google.firebase.auth.FirebaseAuthInvalidUserException;
+import com.google.firebase.auth.FirebaseUser;
+
 public class LoginScreen extends AppCompatActivity implements Shaker.OnShakeListener {
 
     EditText username;
@@ -25,6 +34,7 @@ public class LoginScreen extends AppCompatActivity implements Shaker.OnShakeList
 
     DatabaseHelper MyDataDB;
     Boolean checkuserpass, admincheckuserpass;
+    FirebaseAuth firebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +56,10 @@ public class LoginScreen extends AppCompatActivity implements Shaker.OnShakeList
 
         loginButton = findViewById(R.id.loginButton);
         TextView sing_up = (TextView) findViewById(R.id.signupText);
+
+
+        // initialize the firebase
+        firebaseAuth = FirebaseAuth.getInstance();
 
         final EditText username = findViewById(R.id.username);
         final EditText passwd = findViewById(R.id.password1);
@@ -70,23 +84,76 @@ public class LoginScreen extends AppCompatActivity implements Shaker.OnShakeList
                     passwd.setError("Fill this Field");
                 }
                 else{
-                    checkuserpass = MyDataDB.checkusernamepassword(user, pass);
-                    admincheckuserpass = MyDataDB.checkadminusernamepassword(user, pass);
-                    if (checkuserpass){
-                        Toast.makeText(LoginScreen.this, "LogIn Successful", Toast.LENGTH_SHORT).show();
-                        Intent intent= new Intent(getApplicationContext(), RouteSearchScreen.class);
-                        startActivity(intent);
-                    }else if(admincheckuserpass) {
-                        Toast.makeText(LoginScreen.this, "LogIn As admin", Toast.LENGTH_SHORT).show();
-                        Intent intent= new Intent(getApplicationContext(), AdminDashBordNavipanel.class);
-                        startActivity(intent);
+//                    checkuserpass = MyDataDB.checkusernamepassword(user, pass);
+//                    admincheckuserpass = MyDataDB.checkadminusernamepassword(user, pass);
+//                    if (checkuserpass){
+//                        Toast.makeText(LoginScreen.this, "LogIn Successful", Toast.LENGTH_SHORT).show();
+//                        Intent intent= new Intent(getApplicationContext(), RouteSearchScreen.class);
+//                        startActivity(intent);
+//                    }else if(admincheckuserpass) {
+//                        Toast.makeText(LoginScreen.this, "LogIn As admin", Toast.LENGTH_SHORT).show();
+//                        Intent intent= new Intent(getApplicationContext(), AdminDashBordNavipanel.class);
+//                        startActivity(intent);
+//                    }
+//                    else{
+//                        Toast.makeText(LoginScreen.this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
+//                    }
+
+                    // firebase login
+                    userLogin(user, pass);
+                }
+            }
+        });
+    }
+
+    private void userLogin(String user, String pass) {
+        FirebaseAuth  auth = FirebaseAuth.getInstance();
+        firebaseAuth.signInWithEmailAndPassword(user, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if(task.isSuccessful()){
+
+                    FirebaseUser firebaseUser = auth.getCurrentUser();
+
+                    if(firebaseUser.isEmailVerified()){
+                        Toast.makeText(LoginScreen.this, "You've log in", Toast.LENGTH_SHORT).show();
+
+                    }else {
+
+                        // sent verified link to the email address.
+                        firebaseUser.sendEmailVerification();
+                        firebaseAuth.signOut();
+
+                        showAlertDialog();
                     }
-                    else{
-                        Toast.makeText(LoginScreen.this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
+
+                    Toast.makeText(LoginScreen.this, firebaseUser.toString(), Toast.LENGTH_SHORT).show();
+
+                    // go to the main screen
+                    Intent intent = new Intent(LoginScreen.this, RouteSearchScreen.class);
+                    startActivity(intent);
+
+
+                }else{
+                    // catch exception that trow from the firebase
+                    try{
+                        throw task.getException();
+
+                    }catch (FirebaseAuthInvalidUserException e){
+                        username.setError("User does not exits or not valid, please try again");
+                        username.requestFocus();
+
+                    }catch (FirebaseAuthInvalidCredentialsException e){
+                        username.setError("Invalid Credentials");
+                        username.requestFocus();
+                    }catch (Exception e) {
+                        Toast.makeText(LoginScreen.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+
                     }
                 }
             }
         });
+
     }
 
     @Override
