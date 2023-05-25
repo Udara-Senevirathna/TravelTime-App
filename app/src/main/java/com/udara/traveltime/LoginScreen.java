@@ -124,7 +124,7 @@ public class LoginScreen extends AppCompatActivity implements Shaker.OnShakeList
                         firebaseUser.sendEmailVerification();
                         firebaseAuth.signOut();
 
-                        showAlertDialog();
+                        AlertDialog();
                     }
 
                     Toast.makeText(LoginScreen.this, firebaseUser.toString(), Toast.LENGTH_SHORT).show();
@@ -153,6 +153,11 @@ public class LoginScreen extends AppCompatActivity implements Shaker.OnShakeList
                 }
             }
         });
+
+    }
+
+    private void AlertDialog() {
+
 
     }
 
