@@ -18,6 +18,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class SignupScreen extends AppCompatActivity {
 
@@ -106,9 +108,10 @@ public class SignupScreen extends AppCompatActivity {
                 FirebaseUser firebaseUser = auth.getCurrentUser();
 
                 // store the data in the firebase
-                RWDataToFirebase(getFirstName, getLastName, getNIC);
+                RWDataToFirebas rwDataToFirebas = new RWDataToFirebas (getFirstName, getLastName, getNIC);
 
-
+                // get reference from the database "register users"
+                DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users");
             }
         });
 
