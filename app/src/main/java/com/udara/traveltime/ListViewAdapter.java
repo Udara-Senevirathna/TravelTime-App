@@ -23,14 +23,15 @@ public class ListViewAdapter extends RecyclerView.Adapter<MyListHolder> {
     @NonNull
     @Override
     public MyListHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new MyListHolder(LayoutInflater.from(context).inflate(R.layout.recepit_list, parent, false));
+        return new MyListHolder(LayoutInflater.from(context).inflate(R.layout.result_items, parent, false));
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyListHolder holder, int position) {
-        holder.title.setText(list_items.get(position).getName());
-        holder.description.setText(list_items.get(position).getDescription());
-        holder.image.setImageResource(list_items.get(position).getImage());
+        holder.depatureLocation.setText(list_items.get(position).getDepature_location());
+        holder.arrivalLocation.setText(list_items.get(position).getArrival_location());
+        holder.time.setText(list_items.get(position).getTime());
+//        holder.image.setImageResource(list_items.get(position).getImage());
     }
 
     @Override

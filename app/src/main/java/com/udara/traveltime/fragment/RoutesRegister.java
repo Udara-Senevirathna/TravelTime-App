@@ -68,6 +68,7 @@ Spinner spinner;
         departure = view.findViewById(R.id.Departure_Location);
         arrival = view.findViewById(R.id.Arrival_Location);
         time = view.findViewById(R.id.Times);
+        String  price = "150.00";
 
         // get the current uid
         String uid = firebaseUser.getUid();
@@ -139,14 +140,14 @@ Spinner spinner;
 //                    }else{
 //                        Toast.makeText(getContext(), "not added", Toast.LENGTH_SHORT).show();
 //                    }
-                    RegisterRoutes(getBus_No, getRouteNo, getdeparture, getarrival,"2023-02-10", gettime);
+                    RegisterRoutes(getBus_No, getRouteNo, getdeparture, getarrival,"2023-02-10", gettime, price);
                 }
             }
         });
         return view;
     }
 
-    private void RegisterRoutes(String getBus_no, String getRouteNo, String getdeparture, String getarrival, String s, String gettime) {
+    private void RegisterRoutes(String getBus_no, String getRouteNo, String getdeparture, String getarrival, String s, String gettime, String price) {
         firebaseUser = firebaseAuth.getCurrentUser();
 
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Register Routes");
@@ -154,10 +155,12 @@ Spinner spinner;
 
         Map<String, Object> dataMap = new HashMap<>();
         dataMap.put("Uid", firebaseUser.getUid()); // Use firebaseUser.getUid() to get the user's unique ID
+        dataMap.put("Route_ID", pushId);
         dataMap.put("Bus_No", getBus_no);
         dataMap.put("Route_No", getRouteNo);
         dataMap.put("Departure", getdeparture);
         dataMap.put("Arrival", getarrival);
+        dataMap.put("Price", price);
         dataMap.put("Date", s);
         dataMap.put("Time", gettime);
 

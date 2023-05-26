@@ -89,8 +89,9 @@ public class ResultScreen extends AppCompatActivity {
                     list_items.add(new list_items(departureLocation, arrivalLocation, "time"));
                 }
 
-                recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
-                recyclerView.setAdapter(new ListViewAdapter(getContext(),list_items));
+                recyclerView.setLayoutManager(new LinearLayoutManager(ResultScreen.this));
+                recyclerView.setAdapter(new ListViewAdapter(ResultScreen.this, list_items));
+
             }
 
 

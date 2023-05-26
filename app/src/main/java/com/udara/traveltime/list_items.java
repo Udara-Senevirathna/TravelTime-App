@@ -27,11 +27,11 @@ public class list_items {
         this.arrival_location = Arrival_location;
     }
 
-    public String getImage() {
+    public String getTime() {
         return time;
     }
 
-    public void setImage(String Time) {
+    public void setTime(String Time) {
         this.time = Time;
     }
 
