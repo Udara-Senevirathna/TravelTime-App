@@ -36,6 +36,7 @@ public class ListViewAdapter extends RecyclerView.Adapter<MyListHolder> {
         holder.route_no.setText(list_items.get(position).getRoute_no());
 //        holder.route_button_id.setText(list_items.get(position).route_button_id);
 //        holder.image.setImageResource(list_items.get(position).getImage());
+        holder.route_button_id.setTag(list_items.get(position).getRoute_button_id());
     }
 
     @Override
