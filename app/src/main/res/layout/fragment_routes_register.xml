@@ -42,6 +42,8 @@
                 android:layout_height="45dp"
                 android:hint="Route No"
                 android:textColor="@color/black"
+                android:theme="@style/CardView"
+                android:spinnerMode="dropdown"
                 android:background="@drawable/custom_edittext"
                 android:entries="@array/choices"
                 android:layout_marginTop="25dp"/>

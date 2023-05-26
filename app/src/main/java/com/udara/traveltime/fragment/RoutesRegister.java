@@ -32,11 +32,14 @@ import com.udara.traveltime.DatabaseHelper;
 import com.udara.traveltime.R;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 public class RoutesRegister extends Fragment {
 //    DatabaseHelper MyDB;
-    Spinner Bus_No;
+Spinner spinner;
     EditText routeNo;
     EditText departure;
     EditText arrival;
@@ -48,45 +51,32 @@ public class RoutesRegister extends Fragment {
 
     FirebaseAuth firebaseAuth;
     FirebaseUser firebaseUser;
+
     @SuppressLint("CutPasteId")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_routes_register, container, false);
-        // Find the TextView with ID text_view and assign it to a variable
-//        MyDB = new DatabaseHelper(getContext());
 
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseUser = firebaseAuth.getCurrentUser();
 
         List<String> busplateNumbers = new ArrayList<String>();
 
-        Spinner spinner = view.findViewById(R.id.spinner);
-        Bus_No = view.findViewById(R.id.spinner);
+        spinner = view.findViewById(R.id.spinner);
         routeNo = view.findViewById(R.id.RouteNo);
         departure = view.findViewById(R.id.Departure_Location);
         arrival = view.findViewById(R.id.Arrival_Location);
         time = view.findViewById(R.id.Times);
 
-// Get the bus plate numbers from the database
-//        Cursor cursor = MyDB.getBusPlateNO();
-//        busplateNumbers.add("Select BusNO");
-//        if (cursor.moveToFirst()) {
-//            do {
-//                @SuppressLint("Range") String busplateno = cursor.getString(cursor.getColumnIndex("BUSPLATEID"));
-//                busplateNumbers.add(busplateno);
-//            } while (cursor.moveToNext());
-//        }
-
-
         // get the current uid
-
         String uid = firebaseUser.getUid();
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Register Bus");
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                busplateNumbers.clear(); // Clear the list before populating it again
                 // Iterate through each child of the dataSnapshot
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     // Get the value of the busNo from each child
@@ -96,6 +86,10 @@ public class RoutesRegister extends Fragment {
                     // Example: Log the busNo value
                     Log.d("BusNo", busNo);
                 }
+                // Update the adapter when the data changes
+                ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, busplateNumbers);
+                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                spinner.setAdapter(adapter);
             }
 
             @Override
@@ -104,27 +98,16 @@ public class RoutesRegister extends Fragment {
             }
         });
 
-// Create an ArrayAdapter using the bus plate numbers
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, busplateNumbers);
-
-// Specify the layout to use when the list of choices appears
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-// Apply the adapter to the spinner
-        spinner.setAdapter(adapter);
-
-
-
         RouteRegButton = view.findViewById(R.id.registerButton);
 
-
-        Bus_No.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 // Get the selected item
                 selectedItem = parent.getItemAtPosition(position).toString();
                 // Do something with the selected item
                 Log.d("Spinner", "Selected item: " + selectedItem);
+
             }
 
             @Override
@@ -132,6 +115,7 @@ public class RoutesRegister extends Fragment {
                 // Do nothing
             }
         });
+
 
         RouteRegButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -144,7 +128,7 @@ public class RoutesRegister extends Fragment {
 
                 Log.d("Spinner", "Selected item: " + getBus_No);
 
-                if(TextUtils.isEmpty(getBus_No) || TextUtils.isEmpty(getRouteNo) || TextUtils.isEmpty(getdeparture) || TextUtils.isEmpty(getarrival) || TextUtils.isEmpty(gettime)){
+                if( TextUtils.isEmpty(getRouteNo) || TextUtils.isEmpty(getdeparture) || TextUtils.isEmpty(getarrival) || TextUtils.isEmpty(gettime)){
                     Toast.makeText(getContext(), "Empty fields", Toast.LENGTH_SHORT).show();
                 }
                 else{
@@ -165,6 +149,21 @@ public class RoutesRegister extends Fragment {
     private void RegisterRoutes(String getBus_no, String getRouteNo, String getdeparture, String getarrival, String s, String gettime) {
         firebaseUser = firebaseAuth.getCurrentUser();
 
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Register Routes");
+        String pushId = databaseReference.push().getKey(); // Generate a unique key for the data entry
 
+        Map<String, Object> dataMap = new HashMap<>();
+        dataMap.put("Uid", firebaseUser.getUid()); // Use firebaseUser.getUid() to get the user's unique ID
+        dataMap.put("Bus_No", getBus_no);
+        dataMap.put("Route_No", getRouteNo);
+        dataMap.put("Departure", getdeparture);
+        dataMap.put("Arrival", getarrival);
+        dataMap.put("Date", s);
+        dataMap.put("Time", gettime);
+
+        databaseReference.child(pushId).setValue(dataMap); // Save the data under the generated key
+
+        Toast.makeText(getContext(), "Data Insert Success", Toast.LENGTH_SHORT).show();
     }
+
 }
