@@ -25,6 +25,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.udara.traveltime.R;
+import com.udara.traveltime.ResultScreen;
+
+import javax.xml.transform.Result;
 
 public class HomeFragment extends Fragment {
 
@@ -52,15 +55,21 @@ public class HomeFragment extends Fragment {
                 Log.d("FirebaseData","I am here");
 
                 // Attach a ValueEventListener to the query
-                String arrivalLo = "", depatureLo = "", deteLo = "", timeLo = "";
-                // get the data
-                arrivalLo = arrivalLocation.getText().toString();
-                depatureLo = depatureLocation.getText().toString();
-                deteLo = date.getText().toString();
-                timeLo = time.getText().toString();
+//                String arrivalLo = "", depatureLo = "", deteLo = "", timeLo = "";
+//                // get the data
+//                arrivalLo = arrivalLocation.getText().toString();
+//                depatureLo = depatureLocation.getText().toString();
+//                deteLo = date.getText().toString();
+//                timeLo = time.getText().toString();
 
                 // Create a query to search for nodes with a specific arrival location
-                Query query = databaseReference.orderByChild("Arrival").equalTo(arrivalLo);
+                Query query = databaseReference.orderByChild("Arrival").equalTo("Mawathagama");
+                QueryParcelable queryParcelable = new QueryParcelable(query);
+                // sent the result to the result screen
+
+                Intent intent = new Intent(requireActivity(), ResultScreen.class);
+                intent.putExtra("Query", query);
+
 
                 query.addValueEventListener(new ValueEventListener() {
                     @Override
@@ -89,14 +98,8 @@ public class HomeFragment extends Fragment {
                     }
                 });
 
-
-
-
             }
         });
-
-
-
 
         return view;
     }
