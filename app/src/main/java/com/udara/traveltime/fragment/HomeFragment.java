@@ -34,12 +34,9 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home2, container, false);
-
-
         SearchButton = view.findViewById(R.id.searchButton);
         // Assume you have a Firebase database reference
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Register Routes");
-
 
         SearchButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,8 +52,6 @@ public class HomeFragment extends Fragment {
                 Log.d("FirebaseData","I am here");
 
                 // Attach a ValueEventListener to the query
-
-
                 String arrivalLo = "", depatureLo = "", deteLo = "", timeLo = "";
                 // get the data
                 arrivalLo = arrivalLocation.getText().toString();
@@ -64,8 +59,7 @@ public class HomeFragment extends Fragment {
                 deteLo = date.getText().toString();
                 timeLo = time.getText().toString();
 
-
-// Create a query to search for nodes with a specific arrival location
+                // Create a query to search for nodes with a specific arrival location
                 Query query = databaseReference.orderByChild("Arrival").equalTo(arrivalLo);
 
                 query.addValueEventListener(new ValueEventListener() {
