@@ -23,6 +23,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthInvalidUserException;
 import com.google.firebase.auth.FirebaseUser;
+import com.udara.traveltime.fragment.BusRegisterFragment;
 
 public class LoginScreen extends AppCompatActivity implements Shaker.OnShakeListener {
 
@@ -192,7 +193,7 @@ public class LoginScreen extends AppCompatActivity implements Shaker.OnShakeList
          // auto login and prevent from coming back to the previous account.
         if (firebaseAuth.getCurrentUser() != null){
             Toast.makeText(LoginScreen.this, "Already login", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(LoginScreen.this, RouteSearchScreen.class);
+            Intent intent = new Intent(LoginScreen.this, AdminDashBordNavipanel.class);  // todo change this code back to the ROUTE SEARCH
             startActivity(intent);
             finish();
 

@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:gravity="center"
     android:background="@color/teal_300"
-    tools:context=".fragment.BusRegister">
+    tools:context=".fragment.BusRegisterFragment">
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
