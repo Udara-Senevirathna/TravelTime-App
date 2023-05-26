@@ -18,9 +18,10 @@ public class list_items {
         return depature_location;
     }
 
-    public void setName(String Depature_location) {
+    public void setDepature_location(String Depature_location) {
         this.depature_location = Depature_location;
     }
+
 
     public String getArrival_location() {
         return arrival_location;
@@ -48,7 +49,7 @@ public class list_items {
     }
 
     public String getBus_no() {
-        return time;
+        return bus_no;
     }
 
     public void setBus_no(String Bus_no) {

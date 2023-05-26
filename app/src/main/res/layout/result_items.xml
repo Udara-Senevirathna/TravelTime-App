@@ -128,6 +128,27 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+<!--        <TextView-->
+<!--            android:id="@+id/bus_no"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_alignParentBottom="true"-->
+<!--            android:layout_marginEnd="255dp"-->
+<!--            android:layout_marginBottom="17dp"-->
+<!--            android:layout_toStartOf="@+id/op_btn"-->
+<!--            android:text="Bus No"-->
+<!--            android:textColor="@color/black" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/Route_no"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_alignParentBottom="true"-->
+<!--            android:layout_marginEnd="126dp"-->
+<!--            android:layout_marginBottom="17dp"-->
+<!--            android:layout_toStartOf="@+id/op_btn"-->
+<!--            android:text="Route Number"-->
+<!--            android:textColor="@color/black" />-->
 
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

@@ -90,7 +90,7 @@ public class ResultScreen extends AppCompatActivity {
                     Log.d("FirebaseData", "Departure Location: " + departureLocation);
                     Log.d("FirebaseData", "Arrival Location: " + arrivalLocation);
 
-                    list_items.add(new list_items(departureLocation, arrivalLocation, time, busNo, routeNo, price, routeNo));
+                    list_items.add(new list_items(departureLocation, arrivalLocation, time, price , routeNo, busNo,  routeNo));
                 }
 
                 recyclerView.setLayoutManager(new LinearLayoutManager(ResultScreen.this));
