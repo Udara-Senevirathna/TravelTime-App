@@ -66,10 +66,11 @@ public class HomeFragment extends Fragment {
                 // Create a query to search for nodes with a specific arrival location
                 Query query = databaseReference.orderByChild("Arrival").equalTo("Mawathagama");
                 QueryParcelable queryParcelable = new QueryParcelable(query);
-                // sent the result to the result screen
 
+
+                // sent the result to the result screen
                 Intent intent = new Intent(requireActivity(), ResultScreen.class);
-                intent.putExtra("Query", query);
+                intent.putExtra("Query", queryParcelable);
 
 
                 query.addValueEventListener(new ValueEventListener() {
