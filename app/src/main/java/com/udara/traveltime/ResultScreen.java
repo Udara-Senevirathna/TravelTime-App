@@ -79,6 +79,10 @@ public class ResultScreen extends AppCompatActivity {
                     String routeNo = snapshot.child("Route_No").getValue(String.class);
                     String departureLocation = snapshot.child("Departure").getValue(String.class);
                     String arrivalLocation = snapshot.child("Arrival").getValue(String.class);
+                    String price = snapshot.child("Price").getValue(String.class);
+                    String Route_Id = snapshot.child("Route_ID").getValue(String.class);
+                    String time = snapshot.child("Time").getValue(String.class);
+
 
                     // Do something with the retrieved data
                     Log.d("FirebaseData", "Bus No: " + busNo);
@@ -86,7 +90,7 @@ public class ResultScreen extends AppCompatActivity {
                     Log.d("FirebaseData", "Departure Location: " + departureLocation);
                     Log.d("FirebaseData", "Arrival Location: " + arrivalLocation);
 
-                    list_items.add(new list_items(departureLocation, arrivalLocation, "time"));
+                    list_items.add(new list_items(departureLocation, arrivalLocation, time, busNo, routeNo, price, routeNo));
                 }
 
                 recyclerView.setLayoutManager(new LinearLayoutManager(ResultScreen.this));
