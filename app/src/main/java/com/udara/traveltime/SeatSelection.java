@@ -28,10 +28,7 @@ public class SeatSelection extends AppCompatActivity {
 
         ConfirmBtn = findViewById(R.id.ConfirmBtn);
 
-        // initialize the firebase
-        firebaseAuth = FirebaseAuth.getInstance();
 
-        FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
 
         depatureTitle = findViewById(R.id.depature_location_id);
         arrivalTitle = findViewById(R.id.arrival_location_id);
@@ -67,5 +64,14 @@ public class SeatSelection extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    private void MakeBookingSeat(String seatSlected) {
+        // initialize the firebase
+        firebaseAuth = FirebaseAuth.getInstance();
+        FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+
+
+        WriteMakeBooking makeBooking = new WriteMakeBooking(seatSlected);
     }
 }
