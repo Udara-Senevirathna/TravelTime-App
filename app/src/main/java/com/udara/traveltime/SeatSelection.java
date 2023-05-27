@@ -5,19 +5,21 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class SeatSelection extends AppCompatActivity {
 
     Button ConfirmBtn;
     TextView depatureTitle, arrivalTitle,tmptext;
     FirebaseAuth firebaseAuth;
-
+    String SeatSlected;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +30,8 @@ public class SeatSelection extends AppCompatActivity {
 
         // initialize the firebase
         firebaseAuth = FirebaseAuth.getInstance();
+
+        FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
 
         depatureTitle = findViewById(R.id.depature_location_id);
         arrivalTitle = findViewById(R.id.arrival_location_id);
@@ -50,6 +54,15 @@ public class SeatSelection extends AppCompatActivity {
         ConfirmBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                if(TextUtils.isEmpty(SeatSlected)){
+                    Toast.makeText(SeatSelection.this, "Seat not selected", Toast.LENGTH_SHORT).show();
+                }else{
+
+                    MakeBookingSeat(SeatSlected);
+                }
+
+
                 Intent intent = new Intent(SeatSelection.this, PaymentDetailsScreen.class);
                 startActivity(intent);
             }
