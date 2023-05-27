@@ -2,6 +2,7 @@ package com.udara.traveltime;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -58,6 +59,9 @@ public class ListViewAdapter extends RecyclerView.Adapter<MyListHolder> {
                     listener.onItemClick(position);
                     Log.d("TN", "HI HI");
                     Log.d("TN", String.valueOf( list_items.get(position).getRoute_button_id()));
+                    String buttonClickedId = list_items.get(position).getRoute_button_id();
+
+
                 }
             }
         });

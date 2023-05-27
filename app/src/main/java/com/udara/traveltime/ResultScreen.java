@@ -82,16 +82,13 @@ public class ResultScreen extends AppCompatActivity {
                 adapter.setOnItemClickListener(new ListViewAdapter.OnItemClickListener() {
                     public void onItemClick(int position) {
                         // Start SeatSelectionActivity with the corresponding data
-                        Toast.makeText(ResultScreen.this, "Button is clicked", Toast.LENGTH_SHORT).show();
-                        Button seatBookBtn = findViewById(R.id.op_btn);
-                        int buttonId = seatBookBtn.getId();
                         list_items selectedItem = list_items.get(position);
                         Intent intent = new Intent(ResultScreen.this, SeatSelection.class);
                         intent.putExtra("BusNo", selectedItem.getBus_no());
                         intent.putExtra("RouteNo", selectedItem.getRoute_no());
                         intent.putExtra("Departure", getDeparture);
                         intent.putExtra("Arrival", getArrival);
-                        intent.putExtra("ButtonId", buttonId);  // Corrected key name
+                        intent.putExtra("ButtonClickedId", selectedItem.getRoute_button_id());
                         startActivity(intent);
                     }
                 });

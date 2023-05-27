@@ -30,7 +30,8 @@ public class SeatSelection extends AppCompatActivity {
 
         final String getDeparture = getIntent().getStringExtra("Departure");
         final String getArrival = getIntent().getStringExtra("Arrival");
-        final String ButtonId = getIntent().getStringExtra("buttonId");
+        final String ButtonId = getIntent().getStringExtra("ButtonId");
+        String buttonClickedId = getIntent().getStringExtra("ButtonClickedId");
 
 
         // set the title to the header
@@ -38,7 +39,7 @@ public class SeatSelection extends AppCompatActivity {
         arrivalTitle.setText(String.valueOf(ButtonId));
 
         tmptext.setText(ButtonId);
-        Toast.makeText(this,String.valueOf(ButtonId), Toast.LENGTH_SHORT).show();
+        Toast.makeText(this,String.valueOf(buttonClickedId), Toast.LENGTH_SHORT).show();
         // go to the payment page
         ConfirmBtn.setOnClickListener(new View.OnClickListener() {
             @Override
