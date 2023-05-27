@@ -27,7 +27,8 @@
             android:exported="false" />
         <activity
             android:name=".SeatSelection"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Seat Selection" />
         <activity
             android:name=".ResultScreen"
             android:exported="false" />

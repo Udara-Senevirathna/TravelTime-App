@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -26,86 +27,81 @@ import java.util.List;
 public class ResultScreen extends AppCompatActivity {
 
     Button seatBookBtn;
-
     TextView depatureText, arrivalText;
-
-    // access the recycleview
     private RecyclerView recyclerView;
-
-    // initialize list veriable
     List<list_items> list_items;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result_screen);
 
         recyclerView = findViewById(R.id.recycleView2);
-        list_items = new ArrayList<list_items>();
+        list_items = new ArrayList<>();
 
-
+        seatBookBtn = findViewById(R.id.op_btn);
         depatureText = findViewById(R.id.StartLocation1);
         arrivalText = findViewById(R.id.end_location1);
 
         final String getDeparture = getIntent().getStringExtra("Departure");
         final String getArrival = getIntent().getStringExtra("Arrival");
-        final String getDate = getIntent().getStringExtra("Date");
-        final String getTime = getIntent().getStringExtra("Time");
 
-
-
-        // set the title to the header
         depatureText.setText(getDeparture);
         arrivalText.setText(getArrival);
-        // todo have't set the date, to the head screen
 
-        // Assume you have a Firebase database reference
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Register Routes");
-
-        // Create a query to search for nodes with the specified arrival and departure locations
         Query query = databaseReference.orderByChild("Arrival").equalTo(getArrival);
-
-
-
 
         query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-
+                list_items.clear();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    // Retrieve the data from the child node
                     String busNo = snapshot.child("Bus_No").getValue(String.class);
                     String routeNo = snapshot.child("Route_No").getValue(String.class);
                     String departureLocation = snapshot.child("Departure").getValue(String.class);
                     String arrivalLocation = snapshot.child("Arrival").getValue(String.class);
                     String price = snapshot.child("Price").getValue(String.class);
-                    String Route_Id = snapshot.child("Route_ID").getValue(String.class);
+                    String routeId = snapshot.child("Route_ID").getValue(String.class);
                     String time = snapshot.child("Time").getValue(String.class);
 
-
-                    // Do something with the retrieved data
                     Log.d("FirebaseData", "Bus No: " + busNo);
                     Log.d("FirebaseData", "Route No: " + routeNo);
                     Log.d("FirebaseData", "Departure Location: " + departureLocation);
                     Log.d("FirebaseData", "Arrival Location: " + arrivalLocation);
 
-                    list_items.add(new list_items(departureLocation, arrivalLocation, time, price , routeNo, busNo,  routeNo));
+                    list_items.add(new list_items(departureLocation, arrivalLocation, time, price, routeNo, busNo, routeId));
                 }
 
                 recyclerView.setLayoutManager(new LinearLayoutManager(ResultScreen.this));
-                recyclerView.setAdapter(new ListViewAdapter(ResultScreen.this, list_items));
+                ListViewAdapter adapter = new ListViewAdapter(ResultScreen.this, list_items);
+                recyclerView.setAdapter(adapter);
 
+                // Set the click listener for the button after setting up the adapter
+                adapter.setOnItemClickListener(new ListViewAdapter.OnItemClickListener() {
+                    public void onItemClick(int position) {
+                        // Start SeatSelectionActivity with the corresponding data
+                        Toast.makeText(ResultScreen.this, "Button is clicked", Toast.LENGTH_SHORT).show();
+                        Button seatBookBtn = findViewById(R.id.op_btn);
+                        int buttonId = seatBookBtn.getId();
+                        list_items selectedItem = list_items.get(position);
+                        Intent intent = new Intent(ResultScreen.this, SeatSelection.class);
+                        intent.putExtra("BusNo", selectedItem.getBus_no());
+                        intent.putExtra("RouteNo", selectedItem.getRoute_no());
+                        intent.putExtra("Departure", getDeparture);
+                        intent.putExtra("Arrival", getArrival);
+                        intent.putExtra("ButtonId", buttonId);  // Corrected key name
+                        startActivity(intent);
+                    }
+                });
             }
-
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                // Handle any errors that occur during the data retrieval
-                Log.d("FirebaseData","I am here ooo");
+                Log.d("FirebaseData", "I am here ooo");
             }
         });
-
 
     }
 }
