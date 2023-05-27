@@ -10,10 +10,13 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class SeatSelection extends AppCompatActivity {
 
     Button ConfirmBtn;
     TextView depatureTitle, arrivalTitle,tmptext;
+    FirebaseAuth firebaseAuth;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -22,6 +25,9 @@ public class SeatSelection extends AppCompatActivity {
         setContentView(R.layout.activity_seat_selection);
 
         ConfirmBtn = findViewById(R.id.ConfirmBtn);
+
+        // initialize the firebase
+        firebaseAuth = FirebaseAuth.getInstance();
 
         depatureTitle = findViewById(R.id.depature_location_id);
         arrivalTitle = findViewById(R.id.arrival_location_id);
