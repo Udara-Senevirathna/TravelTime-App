@@ -1,115 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
-    tools:context=".SeatSelection">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:background="@color/teal_700"
-        android:orientation="vertical">
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=""
-                android:textColor="@color/black"
-                android:textSize="30dp"
-                android:drawableStart="@drawable/back_arrow"
-                android:layout_marginRight="90dp"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Select Depart Trip"
-                android:textColor="@color/white"
-                android:textSize="20dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:drawableStart="@drawable/list_icon"
-                android:textColor="@color/black"
-                android:layout_marginLeft="90dp"
-                android:textSize="30dp" />
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/depature_location_id"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Kuruengala"
-                android:textSize="15dp"
-                android:textColor="@color/white"
-
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=""
-                android:textColor="@color/white"
-                android:layout_marginLeft="50dp"
-                android:layout_marginRight="50dp"
-                android:drawableStart="@drawable/arrow"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:id="@+id/arrival_location_id"
-                android:layout_height="wrap_content"
-                android:text="Kandy"
-                android:textSize="15dp"
-                android:textColor="@color/white"
-                />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:gravity="center"
-            android:layout_marginBottom="10dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="15dp"
-                android:textColor="@color/white"
-                android:drawableStart="@drawable/cal"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Wed, 15 March 2018"
-                android:textColor="@color/white"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-
-                />
-        </LinearLayout>
-    </LinearLayout>
+    android:id="@+id/seat_view"
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -125,115 +20,110 @@
                 android:gravity="center"
                 android:layout_height="wrap_content">
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_height="wrap_content">
 
-                <Button
-                    android:id="@+id/my_button1"
-                    android:layout_margin="5dp"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:tag="1"
-                    android:background="@color/black"
-                    app:backgroundTint="#D1D0D0"
-                    android:onClick="handleButtonClick"
-                    app:backgroundTintMode="screen" />
-                <Button
-                    android:id="@+id/my_button2"
-                    android:tag="2"
-                    android:layout_width="50dp"
-                    android:layout_margin="5dp"
-                    android:layout_height="50dp"
-                    android:background="@color/black"
-                    app:backgroundTint="#D1D0D0"
-                    android:onClick="handleButtonClick"
-                    app:backgroundTintMode="screen" />
-                <TextView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_margin="5dp"/>
-                <Button
-                    android:id="@+id/my_button3"
-                    android:tag="3"
-                    android:layout_width="50dp"
-                    android:layout_margin="5dp"
-                    android:layout_height="50dp"
-                    android:onClick="handleButtonClick"
-                    android:background="@color/black"
-                    app:backgroundTint="#D1D0D0"
-                    app:backgroundTintMode="screen" />
-                <Button
-                    android:id="@+id/my_button4"
-                    android:tag="4"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_margin="5dp"
-                    android:onClick="handleButtonClick"
-                    android:background="@color/black"
-                    app:backgroundTint="#D1D0D0"
-                    app:backgroundTintMode="screen" />
-                <Button
-                    android:id="@+id/my_button5"
-                    android:tag="5"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_margin="5dp"
-                    android:onClick="handleButtonClick"
-                    android:background="@color/black"
-                    app:backgroundTint="#D1D0D0"
-                    app:backgroundTintMode="screen" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                    <Button
+                        android:id="@+id/my_button1"
+                        android:layout_margin="5dp"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:tag="1"
+                        android:background="@color/black"
+                        app:backgroundTint="#D1D0D0"
+                        app:backgroundTintMode="screen" />
+                    <Button
+                        android:id="@+id/my_button2"
+                        android:tag="2"
+                        android:layout_width="50dp"
+                        android:layout_margin="5dp"
+                        android:layout_height="50dp"
+                        android:background="@color/black"
+                        app:backgroundTint="#D1D0D0"
+                        app:backgroundTintMode="screen" />
+                    <TextView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_margin="5dp"/>
+                    <Button
+                        android:id="@+id/my_button3"
+                        android:tag="3"
+                        android:layout_width="50dp"
+                        android:layout_margin="5dp"
+                        android:layout_height="50dp"
+                        android:background="@color/black"
+                        app:backgroundTint="#D1D0D0"
+                        app:backgroundTintMode="screen" />
+                    <Button
+                        android:id="@+id/my_button4"
+                        android:tag="4"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_margin="5dp"
+                        android:background="@color/black"
+                        app:backgroundTint="#D1D0D0"
+                        app:backgroundTintMode="screen" />
+                    <Button
+                        android:id="@+id/my_button5"
+                        android:tag="5"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_margin="5dp"
+                        android:background="@color/black"
+                        app:backgroundTint="#D1D0D0"
+                        app:backgroundTintMode="screen" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
 
-                <Button
-                    android:id="@+id/my_button6"
-                    android:layout_margin="5dp"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:background="@color/black"
-                    app:backgroundTint="#D1D0D0"
-                    app:backgroundTintMode="screen" />
-                <Button
-                    android:id="@+id/my_button7"
-                    android:layout_width="50dp"
-                    android:layout_margin="5dp"
-                    android:layout_height="50dp"
-                    android:background="@color/black"
-                    app:backgroundTint="#D1D0D0"
-                    app:backgroundTintMode="screen" />
-                <TextView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_margin="5dp"/>
-                <Button
-                    android:id="@+id/my_button8"
-                    android:layout_width="50dp"
-                    android:layout_margin="5dp"
-                    android:layout_height="50dp"
-                    android:background="@color/black"
-                    app:backgroundTint="#D1D0D0"
-                    app:backgroundTintMode="screen" />
-                <Button
-                    android:id="@+id/my_button9"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_margin="5dp"
-                    android:background="@color/black"
-                    app:backgroundTint="#D1D0D0"
-                    app:backgroundTintMode="screen" />
-                <Button
-                    android:id="@+id/my_button10"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_margin="5dp"
-                    android:background="@color/black"
-                    app:backgroundTint="#D1D0D0"
-                    app:backgroundTintMode="screen" />
-            </LinearLayout>
+                    <Button
+                        android:id="@+id/my_button6"
+                        android:layout_margin="5dp"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:background="@color/black"
+                        app:backgroundTint="#D1D0D0"
+                        app:backgroundTintMode="screen" />
+                    <Button
+                        android:id="@+id/my_button7"
+                        android:layout_width="50dp"
+                        android:layout_margin="5dp"
+                        android:layout_height="50dp"
+                        android:background="@color/black"
+                        app:backgroundTint="#D1D0D0"
+                        app:backgroundTintMode="screen" />
+                    <TextView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_margin="5dp"/>
+                    <Button
+                        android:id="@+id/my_button8"
+                        android:layout_width="50dp"
+                        android:layout_margin="5dp"
+                        android:layout_height="50dp"
+                        android:background="@color/black"
+                        app:backgroundTint="#D1D0D0"
+                        app:backgroundTintMode="screen" />
+                    <Button
+                        android:id="@+id/my_button9"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_margin="5dp"
+                        android:background="@color/black"
+                        app:backgroundTint="#D1D0D0"
+                        app:backgroundTintMode="screen" />
+                    <Button
+                        android:id="@+id/my_button10"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_margin="5dp"
+                        android:background="@color/black"
+                        app:backgroundTint="#D1D0D0"
+                        app:backgroundTintMode="screen" />
+                </LinearLayout>
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
@@ -692,8 +582,7 @@
             </LinearLayout>
 
         </ScrollView>
-
-
-
     </LinearLayout>
-</LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.icu.text.SimpleDateFormat;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -21,7 +22,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
+import java.util.HashMap;
 
 public class SeatSelection extends AppCompatActivity {
 
@@ -29,6 +33,8 @@ public class SeatSelection extends AppCompatActivity {
     TextView depatureTitle, arrivalTitle,tmptext;
     FirebaseAuth firebaseAuth;
     String SeatSlected = "1";
+    String[] array;
+    ArrayList<String> list;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,23 +43,35 @@ public class SeatSelection extends AppCompatActivity {
 
         ConfirmBtn = findViewById(R.id.ConfirmBtn);
 
+         array = new String[]{};
+
+        // Convert the array to an ArrayList
+        list = new ArrayList<>(Arrays.asList(array));
 
 
+//
+//        Button[] buttons = new Button[10]; // Update the array size based on the number of buttons you have
+//
+////        buttons[0] = findViewById(R.id.my_button1);
+//        buttons[1] = findViewById(R.id.my_button2);
+//
+//        final String buttonClickedIdSeatColor = getIntent().getStringExtra("ButtonClickedId");
+//
+//        for (Button button : buttons) {
+//            if (button != null && button.getTag().equals(buttonClickedIdSeatColor)) {
+//                button.setBackgroundColor(getResources().getColor(R.color.red));
+//                break; // Exit the loop once the clicked button is found and colored
+//            }
+//        }
 
-        Button[] buttons = new Button[10]; // Update the array size based on the number of buttons you have
-
-        buttons[0] = findViewById(R.id.my_button1);
-        buttons[1] = findViewById(R.id.my_button2);
-
-        final String buttonClickedIdSeatColor = getIntent().getStringExtra("ButtonClickedId");
-
-        for (Button button : buttons) {
-            if (button != null && button.getTag().equals(buttonClickedIdSeatColor)) {
-                button.setBackgroundColor(getResources().getColor(R.color.red));
-                break; // Exit the loop once the clicked button is found and colored
-            }
-        }
-
+//        Button seatButton = findViewById(R.id.my_button1);
+//        seatButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                // Change the button's background color when clicked
+//                seatButton.setBackgroundColor(getResources().getColor(R.color.red));
+//            }
+//        });
 
 
         depatureTitle = findViewById(R.id.depature_location_id);
@@ -140,5 +158,52 @@ public class SeatSelection extends AppCompatActivity {
                     }
                 });
     }
+    public void handleButtonClick(View view) {
+        // Perform action based on the clicked button
+
+        Button my_button1, my_button2;
+        my_button1 = findViewById(R.id.my_button1);
+        my_button2 = findViewById(R.id.my_button2);
+        int buttonId = view.getId();
+        switch (buttonId) {
+            case R.id.my_button1:
+
+                if (my_button1.isSelected()) {
+                    // Button is already selected, so deselect it
+                    my_button1.setSelected(false);
+                    // Reset button color to default
+                    my_button1.setBackgroundColor(getResources().getColor(android.R.color.transparent));
+                    list.remove(String.valueOf(1));
+                    Log.d("TN", String.valueOf(list));
+                } else {
+                    // Button is not selected, so select it
+                    my_button1.setSelected(true);
+                    // Change button color when selected
+                    my_button1.setBackgroundColor(getResources().getColor(R.color.red));
+                    list.add(String.valueOf(1));
+                    Log.d("TN", String.valueOf(list));
+                }
+                break;
+            case R.id.my_button2:
+                if (my_button2.isSelected()) {
+                    // Button is already selected, so deselect it
+                    my_button2.setSelected(false);
+                    // Reset button color to default
+                    my_button2.setBackgroundColor(getResources().getColor(android.R.color.transparent));
+                    list.remove(String.valueOf(2));
+                    Log.d("TN", String.valueOf(list));
+                } else {
+                    // Button is not selected, so select it
+                    my_button2.setSelected(true);
+                    // Change button color when selected
+                    my_button2.setBackgroundColor(getResources().getColor(R.color.red));
+                    list.add(String.valueOf(2));
+                    Log.d("TN", String.valueOf(list));
+                }
+                break;
+            // Add cases for other buttons
+        }
+    }
+
 
 }
