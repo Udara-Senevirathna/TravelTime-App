@@ -114,20 +114,22 @@ public class SeatSelection extends AppCompatActivity {
                     Log.d("FirebaseData", "seatNo: " + seatNo);
 //                    Log.d("FirebaseData", status);
 
-//                    // Get the button associated with the seat
-//                    Button button = getButtonForSeat(seatNo);
-//
-//                    if (button != null) {
-//                        // Set button color based on seat status
-//                        boolean isBooked = snapshot.child("bookingStatus").getValue(Boolean.class);
-//                        if (isBooked) {
-//                            // Seat is booked, set button color to red
-//                            button.setBackgroundColor(getResources().getColor(R.color.red));
-//                        } else {
-//                            // Seat is available, set button color to green
-//                            button.setBackgroundColor(getResources().getColor(R.color.red));
-//                        }
-//                    }
+                    // Get the button associated with the seat
+                    Button button = getButtonForSeat(seatNo);
+
+                    if (button != null) {
+                        // Set button color based on seat status
+                        boolean isBooked = Boolean.TRUE.equals(snapshot.child("bookingStatus").getValue(Boolean.class));
+                        if (isBooked) {
+                            // Seat is booked, set button color to red
+                            button.setBackgroundColor(getResources().getColor(R.color.red));
+                            // Lock the button
+                            button.setEnabled(false);
+                        } else {
+                            // Seat is available, set button color to green
+                            button.setBackgroundColor(getResources().getColor(R.color.red));
+                        }
+                    }
                 }
             }
 
