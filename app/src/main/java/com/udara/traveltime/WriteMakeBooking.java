@@ -3,13 +3,14 @@ package com.udara.traveltime;
 import java.io.Serializable;
 
 public class WriteMakeBooking implements Serializable {
-    private String selectedSeat, route_id, userId, date, time;
-    private  int bookingStatus;
-    public WriteMakeBooking(String selectedSeat, String FirebaseUserID, String Route_id, int BookingStatus, String Date, String Time) {
+    private String selectedSeat, route_id, userId, bookingKey, date, time;
+    private  boolean bookingStatus;
+    public WriteMakeBooking(String selectedSeat, String FirebaseUserID, String Route_id, boolean BookingStatus,String BookingKey, String Date, String Time) {
         this.selectedSeat = selectedSeat;
         this.route_id = Route_id;
         this.userId = FirebaseUserID;
         this.bookingStatus = BookingStatus;
+        this.bookingKey = BookingKey;
         this.date = Date;
         this.time = Time;
     }
@@ -57,11 +58,19 @@ public class WriteMakeBooking implements Serializable {
     }
 
 
-    public int getBookingStatus() {
+    public boolean getBookingStatus() {
         return this.bookingStatus;
     }
 
-    public void setBookingStatus(int BookingStatus) {
+    public void setBookingStatus(boolean BookingStatus) {
         this.bookingStatus = BookingStatus;
+    }
+
+    public String getBookingKey() {
+        return this.bookingKey;
+    }
+
+    public void setBookingKey(String BookingKey) {
+        this.bookingKey = BookingKey;
     }
 }
