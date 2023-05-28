@@ -65,13 +65,23 @@ public class PaymentMethod extends AppCompatActivity {
                 } else if (TextUtils.isEmpty(exDate)) {
                     exdate.setError("This filed is required.");
                 } else{
-                    boolean bookingStatus = true;
-                    MakeBookingSeat(buttonClickedId, bookingStatus);
+                    boolean makePay = makePayment(holdName);
+                    if(makePay){
+
+                    }else{
+                        boolean bookingStatus = true;
+                        MakeBookingSeat(buttonClickedId, bookingStatus);
+                    }
                 }
 
             }
         });
 
+    }
+
+    private boolean makePayment(String holdName) {
+
+        return true;
     }
 
 
