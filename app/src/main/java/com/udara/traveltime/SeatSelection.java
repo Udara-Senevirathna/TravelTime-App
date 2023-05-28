@@ -160,14 +160,12 @@ public class SeatSelection extends AppCompatActivity {
     }
     public void handleButtonClick(View view) {
         // Perform action based on the clicked button
-
         Button my_button1, my_button2;
         my_button1 = findViewById(R.id.my_button1);
         my_button2 = findViewById(R.id.my_button2);
         int buttonId = view.getId();
         switch (buttonId) {
             case R.id.my_button1:
-
                 if (my_button1.isSelected()) {
                     // Button is already selected, so deselect it
                     my_button1.setSelected(false);
