@@ -35,8 +35,7 @@ public class SeatSelection extends AppCompatActivity {
 
     Button ConfirmBtn;
     TextView depatureTitle, arrivalTitle,tmptext;
-    FirebaseAuth firebaseAuth;
-    String SeatSlected = "1";
+
     String[] array;
     ArrayList<String> list;
     @SuppressLint("MissingInflatedId")
@@ -51,31 +50,6 @@ public class SeatSelection extends AppCompatActivity {
 
         // Convert the array to an ArrayList
         list = new ArrayList<>(Arrays.asList(array));
-
-
-//
-//        Button[] buttons = new Button[10]; // Update the array size based on the number of buttons you have
-//
-////        buttons[0] = findViewById(R.id.my_button1);
-//        buttons[1] = findViewById(R.id.my_button2);
-//
-//        final String buttonClickedIdSeatColor = getIntent().getStringExtra("ButtonClickedId");
-//
-//        for (Button button : buttons) {
-//            if (button != null && button.getTag().equals(buttonClickedIdSeatColor)) {
-//                button.setBackgroundColor(getResources().getColor(R.color.red));
-//                break; // Exit the loop once the clicked button is found and colored
-//            }
-//        }
-
-//        Button seatButton = findViewById(R.id.my_button1);
-//        seatButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                // Change the button's background color when clicked
-//                seatButton.setBackgroundColor(getResources().getColor(R.color.red));
-//            }
-//        });
 
 
         depatureTitle = findViewById(R.id.depature_location_id);
@@ -145,73 +119,19 @@ public class SeatSelection extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                if(TextUtils.isEmpty(SeatSlected)){
+                if(list.isEmpty()){
                     Toast.makeText(SeatSelection.this, "Seat not selected", Toast.LENGTH_SHORT).show();
                 }else{
-                    if(!TextUtils.isEmpty(SeatSlected)){
-                        boolean bookingStatus = true;
-                        MakeBookingSeat(SeatSlected, buttonClickedId, bookingStatus);
-                    }
+                    Intent intent = new Intent(SeatSelection.this, PaymentMethod.class);
+                    intent.putStringArrayListExtra("SeatSelectedList", new ArrayList<>(list));
+                    intent.putExtra("BookingID", buttonClickedId);
+                    startActivity(intent);
 
                 }
-
-
-                Intent intent = new Intent(SeatSelection.this, PaymentMethod.class);
-                startActivity(intent);
             }
         });
     }
 
-    private void MakeBookingSeat(String seatSelected, String routeId, boolean bookingStatus) {
-        // Initialize Firebase
-        firebaseAuth = FirebaseAuth.getInstance();
-        FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
-
-        // Get current date and time
-        Calendar calendar = Calendar.getInstance();
-
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
-        String formattedDate = dateFormat.format(calendar.getTime());
-        String formattedTime = timeFormat.format(calendar.getTime());
-
-        if(list.isEmpty()){
-            Toast.makeText(this, "You've not selected any seat", Toast.LENGTH_SHORT).show();
-        }else {
-            for (int i = 0; i <= (list.size() -1 ); i++) {
-
-
-                // Get reference to the "BookingSeat" node in the database
-                DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("BookingSeat");
-
-                // Generate a unique key for the booking
-                String bookingKey = databaseReference.push().getKey();
-
-                // Create an instance of WriteMakeBooking with the selected seat, user ID, and route ID
-                WriteMakeBooking makeBooking = new WriteMakeBooking(list.get(i), firebaseUser.getUid(), routeId, bookingStatus, bookingKey, formattedDate, formattedTime);
-
-                // Store the booking under the generated key
-                databaseReference.child(bookingKey).setValue(makeBooking)
-                        .addOnSuccessListener(new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void aVoid) {
-                                Toast.makeText(SeatSelection.this, "Write data successfully", Toast.LENGTH_SHORT).show();
-                                // Booking stored successfully
-                                // You can perform any further actions here
-                            }
-                        })
-                        .addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                // Failed to store the booking
-                                // You can handle the error here
-                            }
-                        });
-
-            }
-        }
-
-    }
     public void handleButtonClick(View view) {
         // Perform action based on the clicked button
         Button my_button1, my_button2, my_button3, my_button4, my_button5;
