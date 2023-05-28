@@ -28,7 +28,7 @@ public class SeatSelection extends AppCompatActivity {
     Button ConfirmBtn;
     TextView depatureTitle, arrivalTitle,tmptext;
     FirebaseAuth firebaseAuth;
-    String SeatSlected;
+    String SeatSlected = "1";
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +36,23 @@ public class SeatSelection extends AppCompatActivity {
         setContentView(R.layout.activity_seat_selection);
 
         ConfirmBtn = findViewById(R.id.ConfirmBtn);
+
+
+
+
+        Button[] buttons = new Button[10]; // Update the array size based on the number of buttons you have
+
+        buttons[0] = findViewById(R.id.my_button1);
+        buttons[1] = findViewById(R.id.my_button2);
+
+        final String buttonClickedIdSeatColor = getIntent().getStringExtra("ButtonClickedId");
+
+        for (Button button : buttons) {
+            if (button != null && button.getTag().equals(buttonClickedIdSeatColor)) {
+                button.setBackgroundColor(getResources().getColor(R.color.red));
+                break; // Exit the loop once the clicked button is found and colored
+            }
+        }
 
 
 
@@ -68,8 +85,11 @@ public class SeatSelection extends AppCompatActivity {
                 if(TextUtils.isEmpty(SeatSlected)){
                     Toast.makeText(SeatSelection.this, "Seat not selected", Toast.LENGTH_SHORT).show();
                 }else{
+                    if(!TextUtils.isEmpty(SeatSlected)){
+                        int bookingStatus = 1;
+                        MakeBookingSeat(SeatSlected, buttonClickedId, bookingStatus);
+                    }
 
-                    MakeBookingSeat(SeatSlected, buttonClickedId);
                 }
 
 
@@ -79,7 +99,7 @@ public class SeatSelection extends AppCompatActivity {
         });
     }
 
-    private void MakeBookingSeat(String seatSelected, String routeId) {
+    private void MakeBookingSeat(String seatSelected, String routeId, int bookingStatus) {
         // Initialize Firebase
         firebaseAuth = FirebaseAuth.getInstance();
         FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
@@ -94,7 +114,7 @@ public class SeatSelection extends AppCompatActivity {
 
 
         // Create an instance of WriteMakeBooking with the selected seat, user ID, and route ID
-        WriteMakeBooking makeBooking = new WriteMakeBooking(seatSelected, firebaseUser.getUid(), routeId, formattedDate , formattedTime);
+        WriteMakeBooking makeBooking = new WriteMakeBooking(seatSelected, firebaseUser.getUid(), routeId, bookingStatus  , formattedDate , formattedTime);
 
         // Get reference to the "BookingSeat" node in the database
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("BookingSeat");
@@ -107,6 +127,7 @@ public class SeatSelection extends AppCompatActivity {
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
+                        Toast.makeText(SeatSelection.this, "Write data successfully", Toast.LENGTH_SHORT).show();
                         // Booking stored successfully
                         // You can perform any further actions here
                     }

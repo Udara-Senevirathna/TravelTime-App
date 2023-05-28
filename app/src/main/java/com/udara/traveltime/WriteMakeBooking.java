@@ -4,11 +4,12 @@ import java.io.Serializable;
 
 public class WriteMakeBooking implements Serializable {
     private String selectedSeat, route_id, userId, date, time;
-
-    public WriteMakeBooking(String selectedSeat, String FirebaseUserID, String Route_id, String Date, String Time) {
+    private  int bookingStatus;
+    public WriteMakeBooking(String selectedSeat, String FirebaseUserID, String Route_id, int BookingStatus, String Date, String Time) {
         this.selectedSeat = selectedSeat;
         this.route_id = Route_id;
         this.userId = FirebaseUserID;
+        this.bookingStatus = BookingStatus;
         this.date = Date;
         this.time = Time;
     }
@@ -53,5 +54,14 @@ public class WriteMakeBooking implements Serializable {
 
     public void setTime(String Time) {
         this.time = Time;
+    }
+
+
+    public int getBookingStatus() {
+        return this.bookingStatus;
+    }
+
+    public void setBookingStatus(int BookingStatus) {
+        this.bookingStatus = BookingStatus;
     }
 }
