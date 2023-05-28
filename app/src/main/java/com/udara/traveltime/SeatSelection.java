@@ -156,7 +156,7 @@ public class SeatSelection extends AppCompatActivity {
                 }
 
 
-                Intent intent = new Intent(SeatSelection.this, PaymentDetailsScreen.class);
+                Intent intent = new Intent(SeatSelection.this, PaymentMethod.class);
                 startActivity(intent);
             }
         });
