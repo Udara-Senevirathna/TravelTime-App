@@ -160,9 +160,12 @@ public class SeatSelection extends AppCompatActivity {
     }
     public void handleButtonClick(View view) {
         // Perform action based on the clicked button
-        Button my_button1, my_button2;
+        Button my_button1, my_button2, my_button3, my_button4, my_button5;
         my_button1 = findViewById(R.id.my_button1);
         my_button2 = findViewById(R.id.my_button2);
+        my_button3 = findViewById(R.id.my_button3);
+        my_button4 = findViewById(R.id.my_button4);
+        my_button5 = findViewById(R.id.my_button5);
         int buttonId = view.getId();
         switch (buttonId) {
             case R.id.my_button1:
@@ -196,6 +199,57 @@ public class SeatSelection extends AppCompatActivity {
                     // Change button color when selected
                     my_button2.setBackgroundColor(getResources().getColor(R.color.red));
                     list.add(String.valueOf(2));
+                    Log.d("TN", String.valueOf(list));
+                }
+                break;
+            case R.id.my_button3:
+                if (my_button3.isSelected()) {
+                    // Button is already selected, so deselect it
+                    my_button3.setSelected(false);
+                    // Reset button color to default
+                    my_button3.setBackgroundColor(getResources().getColor(android.R.color.transparent));
+                    list.remove(String.valueOf(3));
+                    Log.d("TN", String.valueOf(list));
+                } else {
+                    // Button is not selected, so select it
+                    my_button3.setSelected(true);
+                    // Change button color when selected
+                    my_button3.setBackgroundColor(getResources().getColor(R.color.red));
+                    list.add(String.valueOf(3));
+                    Log.d("TN", String.valueOf(list));
+                }
+                break;
+            case R.id.my_button4:
+                if (my_button4.isSelected()) {
+                    // Button is already selected, so deselect it
+                    my_button4.setSelected(false);
+                    // Reset button color to default
+                    my_button4.setBackgroundColor(getResources().getColor(android.R.color.transparent));
+                    list.remove(String.valueOf(4));
+                    Log.d("TN", String.valueOf(list));
+                } else {
+                    // Button is not selected, so select it
+                    my_button4.setSelected(true);
+                    // Change button color when selected
+                    my_button4.setBackgroundColor(getResources().getColor(R.color.red));
+                    list.add(String.valueOf(4));
+                    Log.d("TN", String.valueOf(list));
+                }
+                break;
+            case R.id.my_button5:
+                if (my_button5.isSelected()) {
+                    // Button is already selected, so deselect it
+                    my_button5.setSelected(false);
+                    // Reset button color to default
+                    my_button5.setBackgroundColor(getResources().getColor(android.R.color.transparent));
+                    list.remove(String.valueOf(5));
+                    Log.d("TN", String.valueOf(list));
+                } else {
+                    // Button is not selected, so select it
+                    my_button5.setSelected(true);
+                    // Change button color when selected
+                    my_button5.setBackgroundColor(getResources().getColor(R.color.red));
+                    list.add(String.valueOf(5));
                     Log.d("TN", String.valueOf(list));
                 }
                 break;
