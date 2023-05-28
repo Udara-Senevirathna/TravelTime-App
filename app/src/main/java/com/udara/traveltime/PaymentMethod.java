@@ -51,7 +51,20 @@ public class PaymentMethod extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                if(!list.isEmpty()){
+                String cardNo = cardNumber.getText().toString();
+                String holdName = holderName.getText().toString();
+                String cvvNo = cvv.getText().toString();
+                String exDate = exdate.getText().toString();
+
+                if(TextUtils.isEmpty(cardNo)){
+                    cardNumber.setError("This filed is required.");
+                } else if (TextUtils.isEmpty(holdName)) {
+                    holderName.setError("This filed is required.");
+                } else if (TextUtils.isEmpty(cvvNo)) {
+                    cvv.setError("This filed is required.");
+                } else if (TextUtils.isEmpty(exDate)) {
+                    exdate.setError("This filed is required.");
+                } else{
                     boolean bookingStatus = true;
                     MakeBookingSeat(buttonClickedId, bookingStatus);
                 }
