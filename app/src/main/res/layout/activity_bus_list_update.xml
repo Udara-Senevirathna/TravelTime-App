@@ -43,7 +43,7 @@
                 android:layout_height="30dp"
                 android:id="@+id/listName"
                 android:text="Name"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textSize="20sp"
                 android:layout_marginTop="25dp"
                 android:layout_marginStart="30dp"
