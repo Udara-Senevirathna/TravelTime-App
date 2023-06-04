@@ -7,8 +7,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="@drawable/untitleddd_1"
-    tools:context=".BusRegistration">
+    android:background="@color/teal_300"
+    tools:context=".fragment.BusRegister">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -32,7 +32,7 @@
                 android:layout_height="wrap_content"
                 android:text="Bus Registration"
                 android:textAlignment="center"
-                android:textColor="@color/purple_200"
+                android:textColor="@color/teal_700"
                 android:textSize="28sp"
                 android:textStyle="bold" />
 
@@ -88,21 +88,17 @@
                 android:textColorHighlight="@color/cardview_dark_background"
                 android:layout_marginTop="40dp"/>
 
-
             <Button
                 android:id="@+id/regButton"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="30dp"
-                android:backgroundTint="@color/purple_200"
+                android:backgroundTint="@color/teal_700"
                 android:text="Register"
+                android:textColor="@color/white"
                 android:textSize="18sp"
                 app:cornerRadius="20dp" />
-
-
         </LinearLayout>
-
     </androidx.cardview.widget.CardView>
-
 </LinearLayout>
 

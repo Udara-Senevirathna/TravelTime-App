@@ -26,11 +26,8 @@ import com.udara.traveltime.R;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class RoutesRegister extends Fragment {
-
     DatabaseHelper MyDB;
-
     Spinner Bus_No;
     EditText routeNo;
     EditText departure;
@@ -69,8 +66,6 @@ public class RoutesRegister extends Fragment {
 
 // Apply the adapter to the spinner
         spinner.setAdapter(adapter);
-
-
 
         Bus_No = view.findViewById(R.id.spinner);
         routeNo = view.findViewById(R.id.RouteNo);
@@ -118,12 +113,8 @@ public class RoutesRegister extends Fragment {
                         Toast.makeText(getContext(), "not added", Toast.LENGTH_SHORT).show();
                     }
                 }
-
             }
         });
-
-
-
         return view;
     }
 }

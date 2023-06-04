@@ -33,7 +33,7 @@
                 android:text="Sign Up"
                 android:textAlignment="center"
                 android:textColor="@color/teal_700"
-                android:textSize="36sp"
+                android:textSize="30sp"
                 android:textStyle="bold" />
 
             <EditText
@@ -54,7 +54,7 @@
                 android:id="@+id/LastName"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="20dp"
                 android:background="@drawable/custom_edittext"
                 android:drawableLeft="@drawable/ic_baseline_person_24"
                 android:drawablePadding="8dp"
@@ -68,7 +68,7 @@
                 android:id="@+id/NIC"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="20dp"
                 android:background="@drawable/custom_edittext"
                 android:drawableLeft="@drawable/ic_baseline_person_24"
                 android:drawablePadding="8dp"
@@ -87,11 +87,12 @@
                 app:drawableTint="@color/black"
                 android:drawablePadding="8dp"
                 android:hint="Email"
+                android:singleLine="true"
                 android:textColorHint="@color/hintColor"
                 android:padding="8dp"
                 android:textColor="@color/black"
                 android:textColorHighlight="@color/cardview_dark_background"
-                android:layout_marginTop="25dp"/>
+                android:layout_marginTop="20dp"/>
 
             <EditText
                 android:layout_width="match_parent"
@@ -106,7 +107,7 @@
                 android:padding="8dp"
                 android:textColor="@color/black"
                 android:textColorHighlight="@color/cardview_dark_background"
-                android:layout_marginTop="25dp"/>
+                android:layout_marginTop="20dp"/>
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
@@ -120,12 +121,13 @@
                 android:padding="8dp"
                 android:textColor="@color/black"
                 android:textColorHighlight="@color/cardview_dark_background"
-                android:layout_marginTop="25dp"/>
+                android:layout_marginTop="20dp"/>
+
             <Button
                 android:id="@+id/signupButton"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="25dp"
                 android:backgroundTint="@color/teal_700"
                 android:text="Sign Up"
                 android:textColor="@color/white"
@@ -140,8 +142,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:orientation="horizontal"
-        >
+        android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
@@ -154,7 +155,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/loginsText"
             android:padding="8dp"
-            android:layout_marginStart="5dp"
+            android:layout_marginStart="10dp"
             android:text="Login"
             android:textSize="14sp"
             android:textColor="@color/teal_700"

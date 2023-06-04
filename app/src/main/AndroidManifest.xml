@@ -17,6 +17,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TravelTime">
         <activity
+            android:name=".BusListUpdate"
+            android:exported="false" />
+        <activity
             android:name=".AdminDashBordNavipanel"
             android:exported="false" />
         <activity
@@ -50,7 +53,7 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyBo4WBRZb28gJec26BgTr5AOENUs1Mf1fo" />
+            android:value="AIzaSyC0VB1spdQdkPENkKwZf-SFWGd41klg7xU" />
 
         <activity
             android:name=".GetStarted"

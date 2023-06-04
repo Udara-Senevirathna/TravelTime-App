@@ -165,8 +165,8 @@
         android:textColor="@color/white"
         android:textSize="18sp"
         app:cornerRadius="20dp"
-        tools:layout_editor_absoluteX="96dp"
-        tools:layout_editor_absoluteY="540dp" />
+        tools:layout_editor_absoluteX="83dp"
+        tools:layout_editor_absoluteY="689dp" />
 
     <ImageView
         android:id="@+id/imageView3"
@@ -184,8 +184,8 @@
         android:layout_width="60dp"
         android:layout_height="50dp"
         app:srcCompat="@drawable/_006865_200"
-        tools:layout_editor_absoluteX="328dp"
-        tools:layout_editor_absoluteY="425dp" />
+        tools:layout_editor_absoluteX="322dp"
+        tools:layout_editor_absoluteY="438dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

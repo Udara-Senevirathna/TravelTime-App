@@ -38,7 +38,6 @@
                 android:singleLine="true"
                 android:textColorHint="@color/grey"
                 android:textSize="16sp"/>
-
         </FrameLayout>
 
         <ImageView
@@ -48,7 +47,5 @@
             android:src="@drawable/ic_baseline_menu_24"
             app:tint="@color/black"
             android:layout_gravity="center"/>
-
     </LinearLayout>
-
 </RelativeLayout>
