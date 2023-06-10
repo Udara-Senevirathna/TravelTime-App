@@ -33,7 +33,7 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/DepartureLocation"
+                    android:id="@+id/dp_location"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginTop="40dp"
@@ -50,7 +50,7 @@
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:id="@+id/ArrivalLocation"
+                    android:id="@+id/al_location"
                     android:background="@drawable/custom_edittext"
                     android:drawableLeft="@drawable/ic_baseline_location_on_24"
                     android:drawablePadding="8dp"
@@ -80,7 +80,7 @@
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:id="@+id/Time"
+                    android:id="@+id/travel_Time"
                     android:background="@drawable/custom_edittext"
                     android:drawableLeft="@drawable/ic_baseline_access_time_24"
                     android:drawableTint="@color/black"

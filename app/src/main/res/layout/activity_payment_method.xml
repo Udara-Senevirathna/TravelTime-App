@@ -105,6 +105,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.649" />
 
+
     <EditText
         android:id="@+id/ExpireDate"
         android:layout_width="175dp"
@@ -118,11 +119,10 @@
         android:textColorHint="@color/hintColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.131"
+        app:layout_constraintHorizontal_bias="0.067"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.701" />
-
+        app:layout_constraintVertical_bias="0.7" />
 
     <TextView
         android:id="@+id/Text4"
@@ -151,7 +151,7 @@
         android:textColorHint="@color/hintColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.877"
+        app:layout_constraintHorizontal_bias="0.932"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.7" />
@@ -165,8 +165,10 @@
         android:textColor="@color/white"
         android:textSize="18sp"
         app:cornerRadius="20dp"
-        tools:layout_editor_absoluteX="83dp"
-        tools:layout_editor_absoluteY="689dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ExpireDate" />
 
     <ImageView
         android:id="@+id/imageView3"
@@ -183,9 +185,13 @@
         android:id="@+id/imageView5"
         android:layout_width="60dp"
         android:layout_height="50dp"
-        app:srcCompat="@drawable/_006865_200"
-        tools:layout_editor_absoluteX="322dp"
-        tools:layout_editor_absoluteY="438dp" />
+        app:layout_constraintBottom_toTopOf="@+id/Text4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.914"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/Text2"
+        app:layout_constraintVertical_bias="0.614"
+        app:srcCompat="@drawable/_006865_200" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -96,22 +96,22 @@ public class SignupScreen extends AppCompatActivity {
 
     private void registerUser(String getFirstName, String getLastName, String getNIC, String getEmail, String getpass) {
 
-        // set firebase authentication / initialize the firebase.
-        FirebaseAuth auth = FirebaseAuth.getInstance();
-        auth.signInWithEmailAndPassword(getEmail, getpass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+        FirebaseAuth  auth = FirebaseAuth.getInstance();
+        // create new user
+        auth.createUserWithEmailAndPassword(getEmail, getpass).addOnCompleteListener(SignupScreen.this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                Toast.makeText(SignupScreen.this, "Sign in section", Toast.LENGTH_SHORT).show();
-
-                // firebase get the current users
+                Toast.makeText(SignupScreen.this, "Enter to the register section", Toast.LENGTH_SHORT).show();
+                // get current user id.
                 FirebaseUser firebaseUser = auth.getCurrentUser();
 
-                // store the data in the firebase
-                RWDataToFirebas rwDataToFirebas = new RWDataToFirebas (getFirstName, getLastName, getNIC);
+                // get the data and use these data store in the real time database in firebase.
+                RWDataToFirebas writeReadFirebase = new RWDataToFirebas(getFirstName, getLastName, getNIC);
 
                 // get reference from the database "register users"
-                DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users");
-                databaseReference.child(firebaseUser.getUid()).setValue(rwDataToFirebas).addOnCompleteListener(new OnCompleteListener<Void>() {
+                DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("RegUsers");
+
+                databaseReference.child(firebaseUser.getUid()).setValue(writeReadFirebase).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if(task.isSuccessful()){
@@ -131,7 +131,6 @@ public class SignupScreen extends AppCompatActivity {
                         }
                     }
                 });
-
             }
         }).addOnFailureListener(new OnFailureListener() { // indicate database errors.
             @Override
@@ -141,4 +140,5 @@ public class SignupScreen extends AppCompatActivity {
         });
 
     }
+
 }
