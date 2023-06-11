@@ -41,8 +41,8 @@
 
     <EditText
         android:id="@+id/cardName2"
-        android:layout_width="350dp"
-        android:layout_height="45dp"
+        android:layout_width="284dp"
+        android:layout_height="43dp"
         android:background="@drawable/custom_edit2"
         android:drawablePadding="8dp"
         android:hint="Name"
@@ -61,21 +61,21 @@
         android:id="@+id/Text2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Card Number"
         android:padding="35dp"
+        android:text="Card Number"
         android:textColor="@color/black"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.483" />
+        app:layout_constraintVertical_bias="0.488" />
 
     <EditText
         android:id="@+id/cardNumber"
-        android:layout_width="350dp"
-        android:layout_height="45dp"
+        android:layout_width="281dp"
+        android:layout_height="41dp"
         android:background="@drawable/custom_edit2"
         android:drawablePadding="8dp"
         android:hint="1234 1234 1234 1234 "
@@ -85,10 +85,10 @@
         android:textColorHint="@color/hintColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.54" />
+        app:layout_constraintVertical_bias="0.546" />
 
     <TextView
         android:id="@+id/Text3"
@@ -108,8 +108,8 @@
 
     <EditText
         android:id="@+id/ExpireDate"
-        android:layout_width="175dp"
-        android:layout_height="45dp"
+        android:layout_width="143dp"
+        android:layout_height="36dp"
         android:background="@drawable/custom_edit2"
         android:drawablePadding="8dp"
         android:hint="MM/YY"
@@ -119,29 +119,29 @@
         android:textColorHint="@color/hintColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.067"
+        app:layout_constraintHorizontal_bias="0.16"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.7" />
+        app:layout_constraintVertical_bias="0.687" />
 
     <TextView
         android:id="@+id/Text4"
-        android:layout_width="199dp"
-        android:layout_height="47dp"
+        android:layout_width="133dp"
+        android:layout_height="56dp"
         android:text="Security Code"
         android:textColor="@color/black"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.884"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.655" />
+        app:layout_constraintVertical_bias="0.669" />
 
     <EditText
         android:id="@+id/Code"
-        android:layout_width="175dp"
-        android:layout_height="45dp"
+        android:layout_width="127dp"
+        android:layout_height="38dp"
         android:background="@drawable/custom_edit2"
         android:drawablePadding="8dp"
         android:hint="CVC"
@@ -151,10 +151,10 @@
         android:textColorHint="@color/hintColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.932"
+        app:layout_constraintHorizontal_bias="0.841"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.7" />
+        app:layout_constraintVertical_bias="0.686" />
 
     <Button
         android:id="@+id/PayButton"
@@ -187,10 +187,10 @@
         android:layout_height="50dp"
         app:layout_constraintBottom_toTopOf="@+id/Text4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.914"
+        app:layout_constraintHorizontal_bias="0.826"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/Text2"
-        app:layout_constraintVertical_bias="0.614"
+        app:layout_constraintVertical_bias="0.681"
         app:srcCompat="@drawable/_006865_200" />
 
 

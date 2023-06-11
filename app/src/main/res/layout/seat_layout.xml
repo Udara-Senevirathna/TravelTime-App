@@ -81,6 +81,7 @@
 
                     <Button
                         android:id="@+id/my_button6"
+                        android:tag="6"
                         android:layout_margin="5dp"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
@@ -89,6 +90,7 @@
                         app:backgroundTintMode="screen" />
                     <Button
                         android:id="@+id/my_button7"
+                        android:tag="7"
                         android:layout_width="50dp"
                         android:layout_margin="5dp"
                         android:layout_height="50dp"
@@ -101,6 +103,7 @@
                         android:layout_margin="5dp"/>
                     <Button
                         android:id="@+id/my_button8"
+                        android:tag="8"
                         android:layout_width="50dp"
                         android:layout_margin="5dp"
                         android:layout_height="50dp"
@@ -109,6 +112,7 @@
                         app:backgroundTintMode="screen" />
                     <Button
                         android:id="@+id/my_button9"
+                        android:tag="9"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_margin="5dp"
@@ -117,6 +121,7 @@
                         app:backgroundTintMode="screen" />
                     <Button
                         android:id="@+id/my_button10"
+                        android:tag="10"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_margin="5dp"
@@ -130,14 +135,17 @@
 
                     <Button
                         android:id="@+id/my_button11"
+                        android:tag="11"
                         android:layout_margin="5dp"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:background="@color/black"
                         app:backgroundTint="#D1D0D0"
                         app:backgroundTintMode="screen" />
+
                     <Button
                         android:id="@+id/my_button12"
+                        android:tag="12"
                         android:layout_width="50dp"
                         android:layout_margin="5dp"
                         android:layout_height="50dp"
@@ -150,6 +158,7 @@
                         android:layout_margin="5dp"/>
                     <Button
                         android:id="@+id/my_button13"
+                        android:tag="13"
                         android:layout_width="50dp"
                         android:layout_margin="5dp"
                         android:layout_height="50dp"
@@ -158,6 +167,7 @@
                         app:backgroundTintMode="screen" />
                     <Button
                         android:id="@+id/my_button14"
+                        android:tag="14"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_margin="5dp"
@@ -166,6 +176,7 @@
                         app:backgroundTintMode="screen" />
                     <Button
                         android:id="@+id/my_button15"
+                        android:tag="15"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_margin="5dp"
@@ -180,6 +191,7 @@
 
                     <Button
                         android:id="@+id/my_button16"
+                        android:tag="16"
                         android:layout_margin="5dp"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
@@ -188,6 +200,7 @@
                         app:backgroundTintMode="screen" />
                     <Button
                         android:id="@+id/my_button17"
+                        android:tag="17"
                         android:layout_width="50dp"
                         android:layout_margin="5dp"
                         android:layout_height="50dp"
@@ -200,6 +213,7 @@
                         android:layout_margin="5dp"/>
                     <Button
                         android:id="@+id/my_button18"
+                        android:tag="18"
                         android:layout_width="50dp"
                         android:layout_margin="5dp"
                         android:layout_height="50dp"
@@ -208,6 +222,7 @@
                         app:backgroundTintMode="screen" />
                     <Button
                         android:id="@+id/my_button19"
+                        android:tag="19"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_margin="5dp"
@@ -216,6 +231,7 @@
                         app:backgroundTintMode="screen" />
                     <Button
                         android:id="@+id/my_button20"
+                        android:tag="20"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_margin="5dp"
@@ -230,6 +246,7 @@
 
                     <Button
                         android:id="@+id/my_button21"
+                        android:tag="21"
                         android:layout_margin="5dp"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
@@ -238,6 +255,7 @@
                         app:backgroundTintMode="screen" />
                     <Button
                         android:id="@+id/my_button22"
+                        android:tag="22"
                         android:layout_width="50dp"
                         android:layout_margin="5dp"
                         android:layout_height="50dp"
@@ -250,6 +268,7 @@
                         android:layout_margin="5dp"/>
                     <Button
                         android:id="@+id/my_button23"
+                        android:tag="23"
                         android:layout_width="50dp"
                         android:layout_margin="5dp"
                         android:layout_height="50dp"
@@ -258,6 +277,7 @@
                         app:backgroundTintMode="screen" />
                     <Button
                         android:id="@+id/my_button24"
+                        android:tag="24"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_margin="5dp"
@@ -266,6 +286,7 @@
                         app:backgroundTintMode="screen" />
                     <Button
                         android:id="@+id/my_button25"
+                        android:tag="25"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_margin="5dp"
@@ -279,6 +300,7 @@
 
                     <Button
                         android:id="@+id/my_button26"
+                        android:tag="26"
                         android:layout_margin="5dp"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
@@ -287,6 +309,7 @@
                         app:backgroundTintMode="screen" />
                     <Button
                         android:id="@+id/my_button27"
+                        android:tag="27"
                         android:layout_width="50dp"
                         android:layout_margin="5dp"
                         android:layout_height="50dp"
@@ -299,6 +322,7 @@
                         android:layout_margin="5dp"/>
                     <Button
                         android:id="@+id/my_button28"
+                        android:tag="28"
                         android:layout_width="50dp"
                         android:layout_margin="5dp"
                         android:layout_height="50dp"
@@ -307,6 +331,7 @@
                         app:backgroundTintMode="screen" />
                     <Button
                         android:id="@+id/my_button29"
+                        android:tag="29"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_margin="5dp"
@@ -315,6 +340,7 @@
                         app:backgroundTintMode="screen" />
                     <Button
                         android:id="@+id/my_button30"
+                        android:tag="30"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_margin="5dp"
@@ -328,6 +354,7 @@
 
                     <Button
                         android:id="@+id/my_button31"
+                        android:tag="31"
                         android:layout_margin="5dp"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
@@ -336,6 +363,7 @@
                         app:backgroundTintMode="screen" />
                     <Button
                         android:id="@+id/my_button32"
+                        android:tag="32"
                         android:layout_width="50dp"
                         android:layout_margin="5dp"
                         android:layout_height="50dp"
@@ -348,6 +376,7 @@
                         android:layout_margin="5dp"/>
                     <Button
                         android:id="@+id/my_button33"
+                        android:tag="33"
                         android:layout_width="50dp"
                         android:layout_margin="5dp"
                         android:layout_height="50dp"
@@ -356,6 +385,7 @@
                         app:backgroundTintMode="screen" />
                     <Button
                         android:id="@+id/my_button34"
+                        android:tag="34"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_margin="5dp"
@@ -364,6 +394,7 @@
                         app:backgroundTintMode="screen" />
                     <Button
                         android:id="@+id/my_button35"
+                        android:tag="35"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_margin="5dp"
@@ -377,6 +408,7 @@
 
                     <Button
                         android:id="@+id/my_button36"
+                        android:tag="36"
                         android:layout_margin="5dp"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
@@ -385,6 +417,7 @@
                         app:backgroundTintMode="screen" />
                     <Button
                         android:id="@+id/my_button37"
+                        android:tag="37"
                         android:layout_width="50dp"
                         android:layout_margin="5dp"
                         android:layout_height="50dp"
@@ -397,6 +430,7 @@
                         android:layout_margin="5dp"/>
                     <Button
                         android:id="@+id/my_button38"
+                        android:tag="38"
                         android:layout_width="50dp"
                         android:layout_margin="5dp"
                         android:layout_height="50dp"
@@ -405,6 +439,7 @@
                         app:backgroundTintMode="screen" />
                     <Button
                         android:id="@+id/my_button39"
+                        android:tag="39"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_margin="5dp"
@@ -413,6 +448,7 @@
                         app:backgroundTintMode="screen" />
                     <Button
                         android:id="@+id/my_button40"
+                        android:tag="40"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_margin="5dp"
@@ -438,6 +474,7 @@
                         android:layout_margin="5dp"/>
                     <Button
                         android:id="@+id/my_button41"
+                        android:tag="41"
                         android:layout_width="50dp"
                         android:layout_margin="5dp"
                         android:layout_height="50dp"
@@ -446,6 +483,7 @@
                         app:backgroundTintMode="screen" />
                     <Button
                         android:id="@+id/my_button42"
+                        android:tag="42"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_margin="5dp"
@@ -454,6 +492,7 @@
                         app:backgroundTintMode="screen" />
                     <Button
                         android:id="@+id/my_button43"
+                        android:tag="43"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_margin="5dp"
@@ -480,6 +519,7 @@
                         android:layout_margin="5dp"/>
                     <Button
                         android:id="@+id/my_button44"
+                        android:tag="44"
                         android:layout_width="50dp"
                         android:layout_margin="5dp"
                         android:layout_height="50dp"
@@ -488,6 +528,7 @@
                         app:backgroundTintMode="screen" />
                     <Button
                         android:id="@+id/my_button45"
+                        android:tag="45"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_margin="5dp"
@@ -496,6 +537,7 @@
                         app:backgroundTintMode="screen" />
                     <Button
                         android:id="@+id/my_button46"
+                        android:tag="46"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_margin="5dp"
@@ -510,6 +552,7 @@
 
                     <Button
                         android:id="@+id/my_button47"
+                        android:tag="47"
                         android:layout_margin="5dp"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
@@ -518,6 +561,7 @@
                         app:backgroundTintMode="screen" />
                     <Button
                         android:id="@+id/my_button48"
+                        android:tag="48"
                         android:layout_width="50dp"
                         android:layout_margin="5dp"
                         android:layout_height="50dp"
@@ -526,6 +570,7 @@
                         app:backgroundTintMode="screen" />
                     <Button
                         android:id="@+id/my_button49"
+                        android:tag="49"
                         android:layout_width="50dp"
                         android:layout_margin="5dp"
                         android:layout_height="50dp"
@@ -534,6 +579,7 @@
                         app:backgroundTintMode="screen" />
                     <Button
                         android:id="@+id/my_button50"
+                        android:tag="50"
                         android:layout_width="50dp"
                         android:layout_margin="5dp"
                         android:layout_height="50dp"
@@ -542,6 +588,7 @@
                         app:backgroundTintMode="screen" />
                     <Button
                         android:id="@+id/my_button51"
+                        android:tag="51"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_margin="5dp"
@@ -550,6 +597,7 @@
                         app:backgroundTintMode="screen" />
                     <Button
                         android:id="@+id/my_button52"
+                        android:tag="52"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_margin="5dp"

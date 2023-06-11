@@ -28,7 +28,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/color_logo" />
+        app:srcCompat="@drawable/traveltime__4__removebg_preview" />
 
     <ImageView
         android:id="@+id/whiteLogo"

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/white"
+    android:background="@color/teal_300"
     android:layout_height="match_parent"
     tools:context=".SeatSelection">
     <ImageButton
@@ -22,9 +22,10 @@
 
         android:gravity="center"
         android:paddingTop="16dp"
-
+        android:textStyle="bold"
         android:text="Available Routes"
-        android:textColor="@color/black"
+        android:textColor="@color/teal_700"
+
         android:textSize="24sp" />
 
     <ImageButton
@@ -62,8 +63,8 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:padding="8dp"
-
             android:text="Kurunegala"
+            android:textStyle="bold"
             android:textColor="@color/black"
             android:textSize="16sp" />
         <ImageButton
@@ -80,7 +81,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:padding="8dp"
-
+            android:textStyle="bold"
             android:text="Kandy"
             android:textColor="@color/black"
             android:textSize="16sp" />

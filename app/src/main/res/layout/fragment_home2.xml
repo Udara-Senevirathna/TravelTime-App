@@ -1,111 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@color/teal_300"
     tools:context=".fragment.HomeFragment">
 
     <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:background="@drawable/custom_edittext"
+        app:cardCornerRadius="30dp"
+        app:cardElevation="20dp"
+        app:cardBackgroundColor="#fff">
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="30dp"
-            android:background="@drawable/custom_edittext"
-            app:cardCornerRadius="30dp"
-            app:cardElevation="20dp"
-            app:cardBackgroundColor="#fff">
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="24dp">
 
-            <LinearLayout
+            <TextView
+                android:id="@+id/routeSearchText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:orientation="vertical"
-                android:padding="24dp">
+                android:text="Route Search"
+                android:textAlignment="center"
+                android:textColor="@color/teal_700"
+                android:textSize="30sp"
+                android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/routeSearchText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Route Search"
-                    android:textAlignment="center"
-                    android:textColor="@color/teal_700"
-                    android:textSize="32sp"
-                    android:textStyle="bold" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:id="@+id/dp_location"
+                android:background="@drawable/custom_edittext"
+                android:drawablePadding="8dp"
+                android:hint="Departure Location"
+                android:drawableLeft="@drawable/ic_baseline_location_on_24"
+                android:drawableTint="@color/black"
+                android:textColorHint="@color/hintColor"
+                android:padding="8dp"
+                android:textColor="@color/black"
+                android:textColorHighlight="@color/cardview_dark_background"
+                android:layout_marginTop="40dp"/>
 
-                <EditText
-                    android:id="@+id/dp_location"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginTop="40dp"
-                    android:background="@drawable/custom_edittext"
-                    android:drawableLeft="@drawable/ic_baseline_location_on_24"
-                    android:drawableTint="@color/black"
-                    android:drawablePadding="8dp"
-                    android:hint="Departure Location"
-                    android:padding="8dp"
-                    android:textColor="@color/black"
-                    android:textColorHighlight="@color/cardview_dark_background"
-                    android:textColorHint="@color/hintColor" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:id="@+id/al_location"
+                android:background="@drawable/custom_edittext"
+                android:drawablePadding="8dp"
+                android:hint="Arrival Location"
+                android:drawableLeft="@drawable/ic_baseline_location_on_24"
+                android:drawableTint="@color/black"
+                android:textColorHint="@color/hintColor"
+                android:padding="8dp"
+                android:textColor="@color/black"
+                android:textColorHighlight="@color/cardview_dark_background"
+                android:layout_marginTop="40dp"/>
 
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:id="@+id/al_location"
-                    android:background="@drawable/custom_edittext"
-                    android:drawableLeft="@drawable/ic_baseline_location_on_24"
-                    android:drawablePadding="8dp"
-                    android:hint="Arrival Location"
-                    android:textColorHint="@color/hintColor"
-                    android:drawableTint="@color/black"
-                    android:padding="8dp"
-                    android:textColor="@color/black"
-                    android:textColorHighlight="@color/cardview_dark_background"
-                    android:layout_marginTop="40dp"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:id="@+id/Travel_Date"
+                android:drawableLeft="@drawable/ic_baseline_calendar_today_24"
+                android:drawableTint="@color/black"
+                android:background="@drawable/custom_edittext"
+                android:drawablePadding="8dp"
+                android:hint="Travel Date"
+                android:textColorHint="@color/hintColor"
+                android:padding="8dp"
+                android:textColor="@color/black"
+                android:textColorHighlight="@color/cardview_dark_background"
+                android:layout_marginTop="40dp"/>
 
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:id="@+id/Travel_Date"
-                    android:background="@drawable/custom_edittext"
-                    android:drawableLeft="@drawable/ic_baseline_calendar_today_24"
-                    android:drawableTint="@color/black"
-                    android:drawablePadding="8dp"
-                    android:hint="Travel Date"
-                    android:textColorHint="@color/hintColor"
-                    android:padding="8dp"
-                    android:textColor="@color/black"
-                    android:textColorHighlight="@color/cardview_dark_background"
-                    android:layout_marginTop="40dp"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:id="@+id/travel_Time"
+                android:background="@drawable/custom_edittext"
+                android:drawableTint="@color/black"
+                android:drawablePadding="8dp"
+                android:drawableLeft="@drawable/ic_baseline_access_time_24"
+                android:hint="Time"
+                android:textColorHint="@color/hintColor"
+                android:padding="8dp"
+                android:textColor="@color/black"
+                android:textColorHighlight="@color/cardview_dark_background"
+                android:layout_marginTop="40dp"/>
 
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:id="@+id/travel_Time"
-                    android:background="@drawable/custom_edittext"
-                    android:drawableLeft="@drawable/ic_baseline_access_time_24"
-                    android:drawableTint="@color/black"
-                    android:drawablePadding="8dp"
-                    android:hint="Time"
-                    android:textColorHint="@color/hintColor"
-                    android:padding="8dp"
-                    android:textColor="@color/black"
-                    android:textColorHighlight="@color/cardview_dark_background"
-                    android:layout_marginTop="40dp"/>
 
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/searchButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:layout_marginTop="30dp"
-                    android:backgroundTint="@color/teal_700"
-                    android:text="Search"
-                    android:onClick="goToActivity"
-                    android:textColor="@color/white"
-                    android:textSize="18sp"
-                    app:cornerRadius="20dp" />
+            <Button
+                android:id="@+id/searchButton"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="30dp"
+                android:backgroundTint="@color/teal_700"
+                android:text="Search"
+                android:textColor="@color/white"
+                android:onClick="goToActivity"
+                android:textSize="18sp"
+                app:cornerRadius="20dp" />
 
-            </LinearLayout>
 
-        </androidx.cardview.widget.CardView>
+        </LinearLayout>
 
-</FrameLayout>
+    </androidx.cardview.widget.CardView>
+
+
+</LinearLayout>
