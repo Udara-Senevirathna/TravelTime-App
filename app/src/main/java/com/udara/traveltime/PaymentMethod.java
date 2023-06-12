@@ -21,7 +21,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class PaymentMethod extends AppCompatActivity {
 
@@ -65,13 +67,10 @@ public class PaymentMethod extends AppCompatActivity {
                 } else if (TextUtils.isEmpty(exDate)) {
                     exdate.setError("This filed is required.");
                 } else{
-                    boolean makePay = makePayment(holdName);
-                    if(makePay){
 
-                    }else{
-                        boolean bookingStatus = true;
-                        MakeBookingSeat(buttonClickedId, bookingStatus);
-                    }
+                    boolean bookingStatus = true;
+                    MakeBookingSeat(buttonClickedId, bookingStatus, holdName);
+
                 }
 
             }
@@ -79,13 +78,74 @@ public class PaymentMethod extends AppCompatActivity {
 
     }
 
-    private boolean makePayment(String holdName) {
+    private boolean issueTicket(String holderName, String bookingID) {
+        FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("PaymentData");
+        // Generate a unique key for the booking
+        String paymentKey = databaseReference.push().getKey();
+
+        Map<String, Object> dataMap = new HashMap<>();
+        dataMap.put("TicketId", paymentKey);
+        dataMap.put("uId", paymentKey);
+        dataMap.put("BookingId", holderName);
+        dataMap.put("PaymentID", firebaseUser.getUid());
+        dataMap.put("Price", bookingID);
+        dataMap.put("exDate", bookingID);
+        dataMap.put("IssueDate", bookingID);
+
+        databaseReference.child(paymentKey).setValue(dataMap)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        Toast.makeText(PaymentMethod.this, "Payment is successful", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        // Handle failure case
+                    }
+                });
 
         return true;
     }
 
 
-    private void MakeBookingSeat(String routeId, boolean bookingStatus) {
+
+    private boolean makePayment(String holderName, String bookingID) {
+        FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("PaymentData");
+        // Generate a unique key for the booking
+        String paymentKey = databaseReference.push().getKey();
+
+        Map<String, Object> dataMap = new HashMap<>();
+        dataMap.put("paymentKey", paymentKey);
+        dataMap.put("name", holderName);
+        dataMap.put("uid", firebaseUser.getUid());
+        dataMap.put("bookingId", bookingID);
+
+        databaseReference.child(paymentKey).setValue(dataMap)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        Toast.makeText(PaymentMethod.this, "Payment is successful", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        // Handle failure case
+                    }
+                });
+
+        return true;
+    }
+
+
+
+    private void MakeBookingSeat(String routeId, boolean bookingStatus, String holderName) {
         // Initialize Firebase
         firebaseAuth = FirebaseAuth.getInstance();
         FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
@@ -121,6 +181,7 @@ public class PaymentMethod extends AppCompatActivity {
                                 Toast.makeText(PaymentMethod.this, "Write data successfully", Toast.LENGTH_SHORT).show();
                                 // Booking stored successfully
                                 // You can perform any further actions here
+                                makePayment(holderName, bookingKey);
                             }
                         })
                         .addOnFailureListener(new OnFailureListener() {

@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
@@ -13,32 +12,40 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
-import com.udara.traveltime.QueryParcelable;
 import com.udara.traveltime.R;
 import com.udara.traveltime.ResultScreen;
 
 public class HomeFragment extends Fragment {
 
-    private EditText arrivalLocation, departureLocation, date, time;
+    private EditText arrivalLocationEditText, departureLocationEditText, selectedDateEditText, selectedTimeEditText;
     private Button searchButton;
 
     @SuppressLint("MissingInflatedId")
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_home2, container, false);
+        View view = inflater.inflate(R.layout.fragment_home, container, false);
 
         searchButton = view.findViewById(R.id.searchButton);
-        arrivalLocation = view.findViewById(R.id.al_location);
-        departureLocation = view.findViewById(R.id.dp_location);
-        date = view.findViewById(R.id.Travel_Date);
-        time = view.findViewById(R.id.travel_Time);
+        arrivalLocationEditText = view.findViewById(R.id.al_location);
+        departureLocationEditText = view.findViewById(R.id.dp_location);
+        selectedDateEditText = view.findViewById(R.id.Travel_Date);
+        selectedTimeEditText = view.findViewById(R.id.travel_Time);
+
+        String departure = departureLocationEditText.getText().toString();
+        String arrivalLocation = arrivalLocationEditText.getText().toString();
+        String selectedDate = selectedDateEditText.getText().toString();
+        String selectedTime = selectedTimeEditText.getText().toString();
+
+        Log.d("TN", departure + " " + arrivalLocation + " " + selectedDate + " " + selectedTime);
+
+// Perform the necessary actions with the obtained values
+
+
+        Log.d("TN", departure + " " + arrivalLocation + " " + selectedDate + " " + selectedTime);
+
+// Perform the necessary actions with the obtained values
+
 
         // tmp variable
         String depature, arrival_LO, date, time;
@@ -50,8 +57,8 @@ public class HomeFragment extends Fragment {
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String arrival = arrivalLocation.getText().toString().trim();
-                String departure = departureLocation.getText().toString().trim();
+//                String arrival = arrivalLocation.getText().toString().trim();
+//                String departure = departureLocation.getText().toString().trim();
 
 
 
