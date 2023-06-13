@@ -79,8 +79,8 @@
                 android:padding="8dp"
                 android:textColor="@color/black"
                 android:textColorHighlight="@color/cardview_dark_background"
-                android:layout_marginTop="40dp"/>
-
+                android:layout_marginTop="40dp"
+                android:onClick="showDatePicker" />
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -94,7 +94,8 @@
                 android:padding="8dp"
                 android:textColor="@color/black"
                 android:textColorHighlight="@color/cardview_dark_background"
-                android:layout_marginTop="40dp"/>
+                android:layout_marginTop="40dp"
+                android:onClick="showTimePicker" />
 
 
             <Button

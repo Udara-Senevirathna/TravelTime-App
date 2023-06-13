@@ -46,18 +46,58 @@ public class ResultScreen extends AppCompatActivity {
 
         final String getDeparture = getIntent().getStringExtra("Departure");
         final String getArrival = getIntent().getStringExtra("Arrival");
+        final String getDate = getIntent().getStringExtra("Date");
+        final String getTime = getIntent().getStringExtra("Time");
 
         depatureText.setText(getDeparture);
         arrivalText.setText(getArrival);
 
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Register Routes");
-        Query query = databaseReference.orderByChild("Arrival").equalTo(getArrival);
 
-        query.addValueEventListener(new ValueEventListener() {
-            @Override
+        List<Query> queryList = new ArrayList<>();
+
+// Check for available departure location
+        if (!getDeparture.isEmpty()) {
+            Query departureQuery = databaseReference.orderByChild("Departure").equalTo(getDeparture);
+            queryList.add(departureQuery);
+        }
+        else if (!getArrival.isEmpty()) {
+            Query arrivalQuery = databaseReference.orderByChild("Arrival").equalTo(getArrival);
+            queryList.add(arrivalQuery);
+        }
+
+// Check for date and time if provided
+        if (!getDate.isEmpty() && !getTime.isEmpty()) {
+            Query dateQuery = databaseReference.orderByChild("Date").equalTo(getDate);
+            Query timeQuery = databaseReference.orderByChild("Time").equalTo(getTime);
+            queryList.add(dateQuery);
+            queryList.add(timeQuery);
+        } else if (!getDate.isEmpty()) {
+            // Check for date only
+            Query dateQuery = databaseReference.orderByChild("Date").equalTo(getDate);
+            queryList.add(dateQuery);
+        }
+
+// Merge the query results
+        Query mergedQuery = mergeQueries(queryList);
+
+//        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Register Routes");
+//
+//        Query query = databaseReference.orderByChild("Departure").equalTo("Kurunegala");
+
+        mergedQuery.addValueEventListener(new ValueEventListener() {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                list_items.clear();
+
+//                List<DataSnapshot> matchingRecords = new ArrayList<>();
+//                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+//                    String arrivalLocation = snapshot.child("Arrival").getValue(String.class);
+//                    if (arrivalLocation != null && arrivalLocation.equals("Mawathagama")) {
+//                        matchingRecords.add(snapshot);
+//                    }
+//                }
+
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    // Retrieve the data for each matching record
                     String busNo = snapshot.child("Bus_No").getValue(String.class);
                     String routeNo = snapshot.child("Route_No").getValue(String.class);
                     String departureLocation = snapshot.child("Departure").getValue(String.class);
@@ -101,4 +141,31 @@ public class ResultScreen extends AppCompatActivity {
         });
 
     }
+    private Query mergeQueries(List<Query> queries) {
+        if (queries.size() == 0) {
+            // No queries to merge
+            return null;
+        } else if (queries.size() == 1) {
+            // Only one query, return it
+            return queries.get(0);
+        } else {
+            // Merge multiple queries into a single query result
+            DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+            Query mergedQuery = queries.get(0);
+
+            for (int i = 1; i < queries.size(); i++) {
+                Query query = queries.get(i);
+
+                // Get the child path of the query
+                String queryChildPath = query.getRef().toString().substring(query.getRef().getRoot().toString().length());
+
+                // Append the child path to the merged query
+                mergedQuery = mergedQuery.getRef().getParent().child(queryChildPath);
+            }
+
+            return mergedQuery;
+        }
+    }
+
+
 }

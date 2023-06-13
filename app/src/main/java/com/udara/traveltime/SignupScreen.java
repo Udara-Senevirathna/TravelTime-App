@@ -23,12 +23,13 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class SignupScreen extends AppCompatActivity {
-
+    FirebaseAuth auth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //Setting the layout xml file
         setContentView(R.layout.activity_signup_screen);
+        auth = FirebaseAuth.getInstance();
 
         final EditText FirstName = findViewById(R.id.FirstName);
         final EditText LastName = findViewById(R.id.LastName);
@@ -78,67 +79,64 @@ public class SignupScreen extends AppCompatActivity {
 
                 else {
 
-
-//                    Intent intent = new Intent(SignupScreen.this, OTPScreen.class);
-//
-//                    intent.putExtra("f_name", getFirstName);
-//                    intent.putExtra("l_name", getLastName);
-//                    intent.putExtra("nic", getNIC);
-//                    intent.putExtra("email", getEmail);
-//                    intent.putExtra("pass", getpass);
-//                    startActivity(intent);
                     registerUser(getFirstName, getLastName, getNIC, getEmail, getpass);
 
                 }
             }
         });
     }
-
     private void registerUser(String getFirstName, String getLastName, String getNIC, String getEmail, String getpass) {
-
-        FirebaseAuth  auth = FirebaseAuth.getInstance();
+        auth = FirebaseAuth.getInstance();
         // create new user
         auth.createUserWithEmailAndPassword(getEmail, getpass).addOnCompleteListener(SignupScreen.this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                Toast.makeText(SignupScreen.this, "Enter to the register section", Toast.LENGTH_SHORT).show();
-                // get current user id.
-                FirebaseUser firebaseUser = auth.getCurrentUser();
+                if (task.isSuccessful()) {
+                    Toast.makeText(SignupScreen.this, "Enter to the register section", Toast.LENGTH_SHORT).show();
+                    // get current user id.
+                    FirebaseUser firebaseUser = auth.getCurrentUser();
+                    if (firebaseUser != null) {
+                        // get reference from the database "register users"
+                        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("RegUsers");
 
-                // get the data and use these data store in the real time database in firebase.
-                RWDataToFirebas writeReadFirebase = new RWDataToFirebas(getFirstName, getLastName, getNIC);
+                        boolean isAdmin = false; // Set isAdmin based on user role, e.g., through user input or condition check
+//                        boolean isAdmin = true;
+                        // get the data and use these data store in the real-time database in Firebase.
+                        RWDataToFirebas writeReadFirebase = new RWDataToFirebas(getFirstName, getLastName, getNIC, firebaseUser.getUid(), getEmail, isAdmin);
 
-                // get reference from the database "register users"
-                DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("RegUsers");
+                        databaseReference.child(firebaseUser.getUid()).setValue(writeReadFirebase).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if (task.isSuccessful()) {
+                                    Toast.makeText(SignupScreen.this, "User Registered Successful", Toast.LENGTH_SHORT).show();
+                                    // send email verification
+                                    firebaseUser.sendEmailVerification();
+                                    // open user profile after registration
+                                    Intent intent = new Intent(SignupScreen.this, LoginScreen.class);
+                                    // prevent the user from going back to the registration screen after registration.
+                                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
 
-                databaseReference.child(firebaseUser.getUid()).setValue(writeReadFirebase).addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if(task.isSuccessful()){
-                            Toast.makeText(SignupScreen.this, "User Registered Successful", Toast.LENGTH_SHORT).show();
-                            // send email verification
-                            firebaseUser.sendEmailVerification();
-                            // open user profile after registration
-                            Intent intent = new Intent(SignupScreen.this, MainActivity.class);
-                            // prevent user go back to the registration screen after registration.
-                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-
-
-                            startActivity(intent);
-                            finish(); // close the registration activity.
-                        }else{
-                            Toast.makeText(SignupScreen.this, "User Registered not Successful", Toast.LENGTH_SHORT).show();
-                        }
+                                    startActivity(intent);
+                                    finish(); // close the registration activity.
+                                } else {
+                                    Toast.makeText(SignupScreen.this, "User Registered not Successful", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
+                    } else {
+                        Toast.makeText(SignupScreen.this, "User Registration failed", Toast.LENGTH_SHORT).show();
                     }
-                });
+                } else {
+                    Toast.makeText(SignupScreen.this, "User Registration failed", Toast.LENGTH_SHORT).show();
+                }
             }
         }).addOnFailureListener(new OnFailureListener() { // indicate database errors.
             @Override
-            public void onFailure(Exception e) {
+            public void onFailure(@NonNull Exception e) {
                 Toast.makeText(SignupScreen.this, e.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
-
     }
+
 
 }

@@ -78,7 +78,7 @@
         android:layout_height="41dp"
         android:background="@drawable/custom_edit2"
         android:drawablePadding="8dp"
-        android:hint="1234 1234 1234 1234 "
+        android:hint="XXXX-XXXX-XXXX-XXXX"
         android:padding="10dp"
         android:textColor="@color/hintColor"
         android:textColorHighlight="@color/cardview_dark_background"
